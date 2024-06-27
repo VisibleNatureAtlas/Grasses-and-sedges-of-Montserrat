@@ -1,10 +1,39 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
 format: jb-book
+parts:
+- caption: Collections with grasses and sedges from Montserrat
+  chapters:
+  - file: organisation/Sofie_Meeus.md
+  - file: organisation/nan.md
+  - file: organisation/classical.md
+  - file: organisation/The_New_York_Botanical_Garden.md
+  - file: organisation/Quentin_Groom.md
+  - file: organisation/Meise_Botanic_Garden.md
+  - file: organisation/University_of_Florida.md
+- caption: Taxa originally from Montserrat
+  chapters:
+  - file: taxa/Rhynchospora_nervosa.md
+  - file: taxa/Anthephora_hermaphrodita.md
+  - file: taxa/Digitaria_insularis.md
+  - file: taxa/Coix_lacryma-jobi.md
+  - file: taxa/Panicum_trichoides.md
+  - file: taxa/Cymbopogon_citratus.md
+  - file: taxa/Digitaria_bicornis.md
+  - file: taxa/Lasiacis_sorghoidea.md
+  - file: taxa/Lasiacis_divaricata.md
+  - file: taxa/Scleria_secans.md
+  - file: taxa/Cyperus_brevifolius.md
+  - file: taxa/Cyperus_alopecuroides.md
+  - file: taxa/Aristida_adscensionis.md
+  - file: taxa/Cyperus_sphacelatus.md
+  - file: taxa/Machaerina_restioides.md
+  - file: taxa/Andropogon_bicornis.md
+  - file: taxa/Cenchrus_echinatus.md
+  - file: taxa/Brachiaria_fasciculata.md
+  - file: taxa/Eleocharis_flavescens.md
+  - file: taxa/Rhynchospora_tenerrima.md
+  - file: taxa/Paspalum_fimbriatum.md
+  - file: taxa/Axonopus_compressus.md
+  - file: taxa/Eriochloa_punctata.md
+  - file: taxa/Paspalum_conjugatum.md
+  - file: taxa/Fimbristylis_complanata.md
 root: intro
-chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
-- file: sofie

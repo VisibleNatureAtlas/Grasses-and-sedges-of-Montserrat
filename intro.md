@@ -10,5 +10,4 @@ The data is collected from publically, open and freely available rich data sourc
 data on the biodiversity of Montserrat. The data is then processed and visualized in a way that it 
 becomes accessible to a broad audience.
 
-```{tableofcontents}
-```
+
