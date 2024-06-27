@@ -1,0 +1,12 @@
+When using this dataset please use the following citation and pay attention to the rights documented in rights.txt:
+Franck A R (2024). University of Florida Herbarium (FLAS). Version 11.2108. Florida Museum of Natural History. Occurrence dataset https://doi.org/10.15468/v5wjn7 accessed via GBIF.org on 2024-06-27.
+Royal Botanic Gardens, Kew (2024). Royal Botanic Gardens, Kew - Herbarium Specimens. Occurrence dataset https://doi.org/10.15468/ly60bx accessed via GBIF.org on 2024-06-27.
+Carnegie Museums (2024). Carnegie Museum of Natural History Herbarium. Occurrence dataset https://doi.org/10.15468/d51v1f accessed via GBIF.org on 2024-06-27.
+Meise Botanic Garden (2024). Meise Botanic Garden Herbarium (BR). Version 1.32. Meise Botanic Garden. Occurrence dataset https://doi.org/10.15468/wrthhx accessed via GBIF.org on 2024-06-27.
+UM Herbarium Data Group, IPT Admin L (2024). University of Michigan Herbarium. Version 1.58. University of Michigan Herbarium. Occurrence dataset https://doi.org/10.15468/nl8bvi accessed via GBIF.org on 2024-06-27.
+Ramirez J, Watson K, Feder L, Gjieli E, Sessa E (2024). The New York Botanical Garden Herbarium (NY). Version 1.69. The New York Botanical Garden. Occurrence dataset https://doi.org/10.15468/6e8nje accessed via GBIF.org on 2024-06-27.
+Natural History Museum (2024). Natural History Museum (London) Collection Specimens. Occurrence dataset https://doi.org/10.5519/qd.9vixygzc accessed via GBIF.org on 2024-06-27.
+Orrell T, Informatics Office (2024). NMNH Extant Specimen Records (USNM, US). Version 1.82. National Museum of Natural History, Smithsonian Institution. Occurrence dataset https://doi.org/10.15468/hnhrg3 accessed via GBIF.org on 2024-06-27.
+Botanic Garden and Botanical Museum Berlin (2017). Herbarium Berolinense, Berlin (B). Occurrence dataset https://doi.org/10.15468/dlwwhz accessed via GBIF.org on 2024-06-27.
+Royal Botanic Gardens, Kew (2019). Royal Botanic Gardens, Kew - Economic Botany Collection Specimens. Occurrence dataset https://doi.org/10.15468/c3dx8a accessed via GBIF.org on 2024-06-27.
+iNaturalist contributors, iNaturalist (2024). iNaturalist Research-grade Observations. iNaturalist.org. Occurrence dataset https://doi.org/10.15468/ab3s5x accessed via GBIF.org on 2024-06-27.

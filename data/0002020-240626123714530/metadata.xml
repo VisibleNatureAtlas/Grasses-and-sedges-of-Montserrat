@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.2/eml.xsd"
+packageId="10.15468/dl.c7w52f"  system="http://gbif.org" scope="system"
+xml:lang="en">
+
+    <dataset>
+                <alternateIdentifier>0002020-240626123714530</alternateIdentifier>
+        <title>GBIF Occurrence Download 10.15468/dl.c7w52f</title>
+            <creator>
+            <individualName>
+                    <surName>GBIF Download Service</surName>
+            </individualName>
+<electronicMailAddress>support@gbif.org</electronicMailAddress>            </creator>
+            <metadataProvider>
+            <individualName>
+                    <surName>GBIF Download Service</surName>
+            </individualName>
+<electronicMailAddress>support@gbif.org</electronicMailAddress>            </metadataProvider>
+            <pubDate>
+                2024-06-27
+            </pubDate>
+        <language>ENGLISH</language>
+            <abstract>
+                    <para>A dataset containing all occurrences available in GBIF matching the query:
+{
+  &quot;and&quot; : [
+    &quot;Country is Montserrat&quot;,
+    &quot;OccurrenceStatus is Present&quot;,
+    &quot;TaxonKey is one of (Andropogon bicornis L., Andropogon glomeratus (Walter) Britton, Sterns &amp; Poggenb., Anthephora hermaphrodita (L.) Kuntze, Aristida adscensionis L., Arundo donax L., Axonopus compressus (Sw.) P.Beauv., Bambusa vulgaris Schrad. ex J.C.Wendl., Bouteloua americana (L.) Hitchc., Cenchrus echinatus L., Cenchrus setaceus (Forssk.) Morrone, Cenchrus spinifex Cav., Chloris inflata Link, Chloris radiata B.Heyne, Chloris virgata Sw., Vetiveria zizanioides Stapf, 1906, Coix lacryma-jobi L., Cymbopogon citratus (DC.) Stapf, Cynodon dactylon (L.) Pers., Cyperus alopecuroides Rottb., Cyperus brevifolius (Rottb.) Hassk., Torulinium flexuosum (Vahl) T.Koyama, Mariscus ligularis T.Durand &amp; H.Durand, Torulinium odoratum (L.) S.S.Hooper, Cyperus planifolius Rich., Cyperus sphacelatus Rottb., Cyperus strigosus L., Dactyloctenium aegyptium f. viviparum Beetle, Digitaria bicornis (Lam.) Roem. &amp; Schult., Digitaria horizontalis var. porrhantha (Steud.) C.E.Hubb. &amp; Vaughan, Digitaria insularis (L.) Mez ex Ekman, Distichlis spicata (L.) Greene, Echinochloa colona subsp. viviparum Beetle, Eleocharis flavescens (Poir.) Urb., Eleusine indica Steud., 1854, Eragrostis ciliaris Link, 1827, Eragrostis tenella Benth., 1861, Eriochloa punctata (L.) Ham., Fimbristylis complanata (Retz.) Link, Heteropogon contortus (L.) P.Beauv. ex Roem. &amp; Schult., Ichnanthus pallens (Sw.) Munro, Ichnanthus nemorosus var. swartzii K.E.Rogers, Isachne disperma (Lam.) Döll, Lasiacis divaricata (L.) Hitchc., Lasiacis sorghoidea (Ham.) Hitchc. &amp; Chase, Leptochloa virgata Wight ex Steud., Machaerina restioides (Sw.) Vahl, Panicum maximum Nees, 1841, Melinis repens (Willd.) Zizka, Olyra latifolia L., Oplismenus hirtellus (L.) P.Beauv., Oryza sativa L., Panicum trichoides Sw., Paspalum arundinaceum Poir., Paspalum conjugatum P.J.Bergius, Paspalum fimbriatum Kunth, Paspalum notatum Flüggé, Paspalum plicatulum Michx., Paspalum virgatum L., Pharus glaber Kunth, Rhynchospora nervosa (Vahl) Boeckeler, Rhynchospora polyphylla Balb. ex Kunth, Rhynchospora radicans (Schltdl. &amp; Cham.) H.Pfeiff., Rhynchospora tenerrima Nees ex Spreng., Saccharum officinarum L., Scleria pterota C.Presl ex Urb., 1900, Scleria latifolia Moon., Scleria secans (L.) Urb., Paspalidium geminatum (Forssk.) Stapf, Setaria geniculata Sieber ex Kunth, Sporobolus jacquemontii Kunth, Sporobolus virginicus (L.) Kunth, Stenotaphrum secundatum (Walter) Kuntze, Tragus berteronianus Schult., Brachiaria adspersa (Trin.) Parodi, Brachiaria fasciculata (Sw.) Parodi, Brachiaria purpurascens (Raddi) Henrard, Brachiaria reptans (L.) C.A.Gardner &amp; C.E.Hubb., Zea mays L., Andropogon bicornis Benth., 1846)&quot;
+  ]
+}
+The dataset includes records from the following constituent datasets. The full metadata for each constituent is also included in this archive:
+1 records from University of Florida Herbarium (FLAS)
+1 records from Royal Botanic Gardens, Kew - Herbarium Specimens
+14 records from Carnegie Museum of Natural History Herbarium
+2 records from Meise Botanic Garden Herbarium (BR)
+1 records from University of Michigan Herbarium
+19 records from The New York Botanical Garden Herbarium (NY)
+1 records from Natural History Museum (London) Collection Specimens
+26 records from NMNH Extant Specimen Records (USNM, US)
+1 records from Herbarium Berolinense, Berlin (B)
+1 records from Royal Botanic Gardens, Kew - Economic Botany Collection Specimens
+20 records from iNaturalist Research-grade Observations</para>
+            </abstract>
+            <contact>
+            <individualName>
+                    <surName>GBIF Download Service</surName>
+            </individualName>
+<electronicMailAddress>support@gbif.org</electronicMailAddress>            </contact>
+
+    </dataset>
+
+    <additionalMetadata>
+        <metadata>
+            <gbif>
+                <dateStamp>2024-06-27T11:12:40Z</dateStamp>
+                <citation identifier="10.15468/dl.c7w52f">GBIF Occurrence Download 10.15468/dl.c7w52f</citation>
+                    <physical>
+                        <objectName>Darwin Core Archive</objectName>
+                        <characterEncoding>UTF-8</characterEncoding>
+                        <dataFormat>
+                            <externallyDefinedFormat>
+                                <formatName>Darwin Core Archive</formatName>
+                            </externallyDefinedFormat>
+                        </dataFormat>
+                        <distribution>
+                            <online>
+                                <url function="download">https://api.gbif.org/v1/occurrence/download/request/0002020-240626123714530.zip</url>
+                            </online>
+                        </distribution>
+                    </physical>
+            </gbif>
+        </metadata>
+    </additionalMetadata>
+
+</eml:eml>
