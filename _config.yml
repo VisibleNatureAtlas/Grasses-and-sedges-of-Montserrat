@@ -22,7 +22,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/andrawaagmeester/Grasses-and-sedges-of-Montserrat
+  url: https://github.com/VisibleNatureAtlas/Grasses-and-sedges-of-Montserrat
   path_to_book: .
   branch: main
 
