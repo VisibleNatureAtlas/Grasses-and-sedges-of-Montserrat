@@ -5,6 +5,7 @@ pandas
 requests
 tqdm
 rdflib
+lightrdf
 wikidataintegrator
 mdutils
 pyyaml
