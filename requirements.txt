@@ -1,3 +1,11 @@
 jupyter-book
 matplotlib
 numpy
+pandas
+requests
+tqdm
+rdflib
+wikidataintegrator
+mdutils
+pyyaml
+folium
