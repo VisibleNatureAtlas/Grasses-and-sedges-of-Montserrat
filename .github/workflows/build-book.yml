@@ -46,6 +46,10 @@ jobs:
         jupyter-book build .
         test -f _build/html/index.html || (echo "ERROR: _build/html/index.html not found — build failed" && exit 1)
 
+    - name: Copy maps into build output
+      run: |
+        cp -r maps/ _build/html/maps/
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:

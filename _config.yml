@@ -40,3 +40,5 @@ html:
 sphinx:
   config:
     html_show_copyright: false
+    exclude_patterns:
+      - node_modules
