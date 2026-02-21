@@ -38,8 +38,10 @@ jobs:
         jupyter execute inspectData.ipynb --timeout=600
 
     - name: Generate taxa pages with maps (generateTaxaPages.ipynb)
+      env:
+        BHL_API_KEY: ${{ secrets.BHL_API_KEY }}
       run: |
-        jupyter execute generateTaxaPages.ipynb --timeout=300
+        jupyter execute generateTaxaPages.ipynb --timeout=600
 
     - name: Build Jupyter Book
       run: |
