@@ -538,15 +538,24 @@ For each species, it:</p>
 <span class="n">WDT</span> <span class="o">=</span> <span class="n">Namespace</span><span class="p">(</span><span class="s2">&quot;http://www.wikidata.org/prop/direct/&quot;</span><span class="p">)</span>
 <span class="n">WD</span>  <span class="o">=</span> <span class="n">Namespace</span><span class="p">(</span><span class="s2">&quot;http://www.wikidata.org/entity/&quot;</span><span class="p">)</span>
 
+<span class="c1"># BHL API key — set via environment variable or paste here for local testing</span>
+<span class="n">BHL_API_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;BHL_API_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;taxa&#39;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;maps&#39;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">BHL_API_KEY</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;BHL API key loaded (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">BHL_API_KEY</span><span class="p">)</span><span class="si">}</span><span class="s1"> chars).&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No BHL_API_KEY set — BHL sections will be skipped.&#39;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dependencies loaded.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dependencies loaded.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No BHL_API_KEY set — BHL sections will be skipped.
+Dependencies loaded.
 </pre></div>
 </div>
 </div>
@@ -710,11 +719,109 @@ This gives us coordinates to plot on a global OSM map.</p>
 
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Helper functions defined.&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fetch_plazi_treatments</span><span class="p">(</span><span class="n">genus</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fetch taxonomic treatments from Plazi via LINDAS SPARQL endpoint.</span>
+<span class="sd">    Returns list of dicts with keys: treatment_url, creator, pub_title, date.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">PREFIX dwc: &lt;http://rs.tdwg.org/dwc/terms/&gt;</span>
+<span class="s1">PREFIX dc:  &lt;http://purl.org/dc/elements/1.1/&gt;</span>
+<span class="s1">PREFIX treat: &lt;http://plazi.org/vocab/treatment#&gt;</span>
+
+<span class="s1">SELECT DISTINCT ?treatment ?creator</span>
+<span class="s1">       (SAMPLE(?title) AS ?pubTitle)</span>
+<span class="s1">WHERE {{</span>
+<span class="s1">  ?treatment a treat:Treatment .</span>
+<span class="s1">  ?treatment (treat:deprecates|treat:augmentsTaxonConcept|treat:definesTaxonConcept) ?tc .</span>
+<span class="s1">  ?tc dwc:species &quot;</span><span class="si">{sp}</span><span class="s1">&quot; .</span>
+<span class="s1">  ?tc dwc:genus &quot;</span><span class="si">{ge}</span><span class="s1">&quot; .</span>
+<span class="s1">  OPTIONAL {{ ?treatment dc:creator ?creator . }}</span>
+<span class="s1">  OPTIONAL {{ ?treatment treat:publishedIn ?pub . ?pub dc:title ?title . }}</span>
+<span class="s1">}}</span>
+<span class="s1">GROUP BY ?treatment ?creator</span>
+<span class="s1">LIMIT 10</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="n">genus</span><span class="p">,</span> <span class="n">sp</span><span class="o">=</span><span class="n">species</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s1">&#39;https://lindas.admin.ch/query&#39;</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="n">query</span><span class="p">},</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;application/sparql-results+json&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;VisibleNatureAtlas/1.0&#39;</span>
+            <span class="p">},</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">20</span>
+        <span class="p">)</span>
+        <span class="n">resp</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;results&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;bindings&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="n">t_url</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">t_url</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">t_url</span><span class="p">)</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;treatment_url&#39;</span><span class="p">:</span> <span class="n">t_url</span><span class="p">,</span>
+                <span class="s1">&#39;treatment_page&#39;</span><span class="p">:</span> <span class="n">t_url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;http://&#39;</span><span class="p">,</span> <span class="s1">&#39;https://&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;creator&#39;</span><span class="p">:</span> <span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;creator&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;pub_title&#39;</span><span class="p">:</span> <span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;pubTitle&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+            <span class="p">})</span>
+        <span class="k">return</span> <span class="n">results</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  Plazi warning for </span><span class="si">{</span><span class="n">genus</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">species</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fetch_bhl_publications</span><span class="p">(</span><span class="n">taxon_name</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Search BHL for publications mentioning a taxon.</span>
+<span class="sd">    Returns list of dicts with keys: title, authors, date, bhl_url.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">api_key</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s1">&#39;https://www.biodiversitylibrary.org/api3&#39;</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;op&#39;</span><span class="p">:</span> <span class="s1">&#39;PublicationSearch&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;searchterm&#39;</span><span class="p">:</span> <span class="n">taxon_name</span><span class="p">,</span>
+                <span class="s1">&#39;searchtype&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;page&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s1">&#39;pagesize&#39;</span><span class="p">:</span> <span class="n">limit</span><span class="p">,</span>
+                <span class="s1">&#39;apikey&#39;</span><span class="p">:</span> <span class="n">api_key</span><span class="p">,</span>
+                <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">15</span>
+        <span class="p">)</span>
+        <span class="n">resp</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Status&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;ok&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Result&#39;</span><span class="p">,</span> <span class="p">[])[:</span><span class="n">limit</span><span class="p">]:</span>
+            <span class="n">pub_url</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Url&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">pub_url</span> <span class="ow">and</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;TitleID&#39;</span><span class="p">):</span>
+                <span class="n">pub_url</span> <span class="o">=</span> <span class="s1">&#39;https://www.biodiversitylibrary.org/title/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;TitleID&#39;</span><span class="p">])</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Title&#39;</span><span class="p">,</span> <span class="s1">&#39;Untitled&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;authors&#39;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Authors&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;bhl_url&#39;</span><span class="p">:</span> <span class="n">pub_url</span><span class="p">,</span>
+            <span class="p">})</span>
+        <span class="k">return</span> <span class="n">results</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  BHL warning for </span><span class="si">{</span><span class="n">taxon_name</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Plazi + BHL helper functions defined.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Helper functions defined.
+Plazi + BHL helper functions defined.
 </pre></div>
 </div>
 </div>
@@ -925,7 +1032,9 @@ Returns the path to the saved HTML file (embedded in the markdown page).</p>
 <li><p>Fetch worldwide GBIF occurrences (for the map)</p></li>
 <li><p>Fetch the Wikipedia introduction</p></li>
 <li><p>Generate a Folium/OSM map saved as <code class="docutils literal notranslate"><span class="pre">maps/&lt;Species_name&gt;.html</span></code></p></li>
-<li><p>Write a complete markdown page that embeds the map via an <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code></p></li>
+<li><p>Fetch taxonomic treatments from Plazi TreatmentBank (via LINDAS SPARQL)</p></li>
+<li><p>Search for relevant literature on the Biodiversity Heritage Library</p></li>
+<li><p>Write a complete markdown page embedding all of the above</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -937,7 +1046,7 @@ Returns the path to the saved HTML file (embedded in the markdown page).</p>
     
     <span class="c1"># --- 1. Wikipedia introduction ---</span>
     <span class="n">wiki_intro</span> <span class="o">=</span> <span class="n">get_wikipedia_intro</span><span class="p">(</span><span class="n">taxon_name</span><span class="p">)</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># be polite to the API</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 
     <span class="c1"># --- 2. Worldwide GBIF occurrences for the map ---</span>
     <span class="n">occurrences</span><span class="p">,</span> <span class="n">total_count</span> <span class="o">=</span> <span class="n">fetch_gbif_occurrences</span><span class="p">(</span><span class="n">taxon_name</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
@@ -945,24 +1054,35 @@ Returns the path to the saved HTML file (embedded in the markdown page).</p>
 
     <span class="c1"># --- 3. Generate map ---</span>
     <span class="n">safe_name</span> <span class="o">=</span> <span class="n">taxon_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
-    <span class="n">map_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;maps/</span><span class="si">{</span><span class="n">safe_name</span><span class="si">}</span><span class="s1">.html&#39;</span>
+    <span class="n">map_path</span> <span class="o">=</span> <span class="s1">&#39;maps/&#39;</span> <span class="o">+</span> <span class="n">safe_name</span> <span class="o">+</span> <span class="s1">&#39;.html&#39;</span>
     <span class="n">generate_species_map</span><span class="p">(</span><span class="n">taxon_name</span><span class="p">,</span> <span class="n">occurrences</span><span class="p">,</span> <span class="n">map_path</span><span class="p">)</span>
 
-    <span class="c1"># --- 4. Write markdown page ---</span>
-    <span class="n">page_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;taxa/</span><span class="si">{</span><span class="n">safe_name</span><span class="si">}</span><span class="s1">.md&#39;</span>
-    <span class="n">toc_taxa</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;taxa/</span><span class="si">{</span><span class="n">safe_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">})</span>
+    <span class="c1"># --- 4. Plazi treatments ---</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">taxon_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">genus</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">species</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">treatments</span> <span class="o">=</span> <span class="n">fetch_plazi_treatments</span><span class="p">(</span><span class="n">genus</span><span class="p">,</span> <span class="n">species</span><span class="p">)</span> <span class="k">if</span> <span class="n">species</span> <span class="k">else</span> <span class="p">[]</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+
+    <span class="c1"># --- 5. BHL publications ---</span>
+    <span class="n">bhl_pubs</span> <span class="o">=</span> <span class="n">fetch_bhl_publications</span><span class="p">(</span><span class="n">taxon_name</span><span class="p">,</span> <span class="n">BHL_API_KEY</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+
+    <span class="c1"># --- 6. Write markdown page ---</span>
+    <span class="n">page_path</span> <span class="o">=</span> <span class="s1">&#39;taxa/&#39;</span> <span class="o">+</span> <span class="n">safe_name</span> <span class="o">+</span> <span class="s1">&#39;.md&#39;</span>
+    <span class="n">toc_taxa</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="s1">&#39;taxa/&#39;</span> <span class="o">+</span> <span class="n">safe_name</span><span class="p">})</span>
 
     <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="c1"># Title</span>
-    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;# *</span><span class="si">{</span><span class="n">taxon_name</span><span class="si">}</span><span class="s1">*&#39;</span><span class="p">)</span>
+    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;# *&#39;</span> <span class="o">+</span> <span class="n">taxon_name</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
     <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
-    <span class="c1"># Wikidata / Scholia link</span>
+    <span class="c1"># Wikidata / Scholia / GBIF link bar</span>
     <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s1">&#39;[Wikidata (</span><span class="si">{</span><span class="n">qid</span><span class="si">}</span><span class="s1">)](https://www.wikidata.org/wiki/</span><span class="si">{</span><span class="n">qid</span><span class="si">}</span><span class="s1">) · &#39;</span>
-        <span class="sa">f</span><span class="s1">&#39;[Scholia](https://scholia.toolforge.org/taxon/</span><span class="si">{</span><span class="n">qid</span><span class="si">}</span><span class="s1">) · &#39;</span>
-        <span class="sa">f</span><span class="s1">&#39;[GBIF species page](https://www.gbif.org/species/search?q=</span><span class="si">{</span><span class="n">taxon_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;%20&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">)&#39;</span>
+        <span class="s1">&#39;[Wikidata (&#39;</span> <span class="o">+</span> <span class="n">qid</span> <span class="o">+</span> <span class="s1">&#39;)](https://www.wikidata.org/wiki/&#39;</span> <span class="o">+</span> <span class="n">qid</span> <span class="o">+</span> <span class="s1">&#39;) · &#39;</span>
+        <span class="s1">&#39;[Scholia](https://scholia.toolforge.org/taxon/&#39;</span> <span class="o">+</span> <span class="n">qid</span> <span class="o">+</span> <span class="s1">&#39;) · &#39;</span>
+        <span class="s1">&#39;[GBIF](https://www.gbif.org/species/search?q=&#39;</span> <span class="o">+</span> <span class="n">taxon_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;%20&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
     <span class="p">)</span>
     <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
@@ -972,8 +1092,8 @@ Returns the path to the saved HTML file (embedded in the markdown page).</p>
         <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
         <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wiki_intro</span><span class="p">)</span>
         <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="n">wp_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;https://en.wikipedia.org/wiki/</span><span class="si">{</span><span class="n">taxon_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span>
-        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Read more on [English Wikipedia](</span><span class="si">{</span><span class="n">wp_url</span><span class="si">}</span><span class="s1">).&#39;</span><span class="p">)</span>
+        <span class="n">wp_url</span> <span class="o">=</span> <span class="s1">&#39;https://en.wikipedia.org/wiki/&#39;</span> <span class="o">+</span> <span class="n">taxon_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Read more on [English Wikipedia](&#39;</span> <span class="o">+</span> <span class="n">wp_url</span> <span class="o">+</span> <span class="s1">&#39;).&#39;</span><span class="p">)</span>
         <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
     <span class="c1"># Map section</span>
@@ -981,53 +1101,94 @@ Returns the path to the saved HTML file (embedded in the markdown page).</p>
     <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">occurrences</span><span class="p">:</span>
         <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s1">&#39;Map shows **</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">occurrences</span><span class="p">)</span><span class="si">}</span><span class="s1">** georeferenced GBIF records &#39;</span>
-            <span class="sa">f</span><span class="s1">&#39;(out of </span><span class="si">{</span><span class="n">total_count</span><span class="si">}</span><span class="s1"> total) for *</span><span class="si">{</span><span class="n">taxon_name</span><span class="si">}</span><span class="s1">* worldwide. &#39;</span>
-            <span class="sa">f</span><span class="s1">&#39;Click markers for details.&#39;</span>
+            <span class="s1">&#39;Map shows **&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">occurrences</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;** georeferenced GBIF records &#39;</span>
+            <span class="s1">&#39;(out of &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">total_count</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; total) for *&#39;</span> <span class="o">+</span> <span class="n">taxon_name</span> <span class="o">+</span> <span class="s1">&#39;* worldwide. &#39;</span>
+            <span class="s1">&#39;Click markers for details.&#39;</span>
         <span class="p">)</span>
         <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="c1"># Embed the map as a raw HTML iframe</span>
-        <span class="c1"># The path is relative to the taxa/ directory, so we go up one level</span>
         <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;```</span><span class="si">{raw}</span><span class="s1"> html&#39;</span><span class="p">)</span>
-        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&lt;iframe src=&quot;../</span><span class="si">{</span><span class="n">map_path</span><span class="si">}</span><span class="s1">&quot; width=&quot;100%&quot; height=&quot;500px&quot; &#39;</span>
-                     <span class="sa">f</span><span class="s1">&#39;frameborder=&quot;0&quot; scrolling=&quot;no&quot; &#39;</span>
-                     <span class="sa">f</span><span class="s1">&#39;style=&quot;border-radius:8px; margin-bottom:1rem;&quot;&gt;&lt;/iframe&gt;&#39;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&lt;iframe src=&quot;../&#39;</span> <span class="o">+</span> <span class="n">map_path</span> <span class="o">+</span> <span class="s1">&#39;&quot; width=&quot;100%&quot; height=&quot;500px&quot; &#39;</span>
+                     <span class="s1">&#39;frameborder=&quot;0&quot; scrolling=&quot;no&quot; &#39;</span>
+                     <span class="s1">&#39;style=&quot;border-radius:8px; margin-bottom:1rem;&quot;&gt;&lt;/iframe&gt;&#39;</span><span class="p">)</span>
         <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;```&#39;</span><span class="p">)</span>
         <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
         <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s1">&#39;Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors. &#39;</span>
-            <span class="sa">f</span><span class="s1">&#39;Occurrence data from [GBIF](https://www.gbif.org/).&#39;</span>
+            <span class="s1">&#39;Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors. &#39;</span>
+            <span class="s1">&#39;Occurrence data from [GBIF](https://www.gbif.org/).&#39;</span>
         <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;*No georeferenced occurrence records found in GBIF for this species.*&#39;</span><span class="p">)</span>
     <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
-    <span class="c1"># Observations from Montserrat</span>
+    <span class="c1"># ---- NEW: Plazi TreatmentBank section ----</span>
+    <span class="k">if</span> <span class="n">treatments</span><span class="p">:</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;## Taxonomic treatments&#39;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):&#39;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">tr</span> <span class="ow">in</span> <span class="n">treatments</span><span class="p">:</span>
+            <span class="n">tr_url</span> <span class="o">=</span> <span class="n">tr</span><span class="p">[</span><span class="s1">&#39;treatment_page&#39;</span><span class="p">]</span>
+            <span class="n">creator</span> <span class="o">=</span> <span class="n">tr</span><span class="p">[</span><span class="s1">&#39;creator&#39;</span><span class="p">]</span>
+            <span class="n">pub</span> <span class="o">=</span> <span class="n">tr</span><span class="p">[</span><span class="s1">&#39;pub_title&#39;</span><span class="p">]</span>
+            <span class="n">label_parts</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="n">creator</span><span class="p">:</span>
+                <span class="n">label_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">creator</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pub</span><span class="p">:</span>
+                <span class="n">label_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;*&#39;</span> <span class="o">+</span> <span class="n">pub</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39; — &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">label_parts</span><span class="p">)</span> <span class="k">if</span> <span class="n">label_parts</span> <span class="k">else</span> <span class="s1">&#39;Treatment&#39;</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;- [&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;](&#39;</span> <span class="o">+</span> <span class="n">tr_url</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">)</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">syno_url</span> <span class="o">=</span> <span class="s1">&#39;https://synospecies.plazi.org/#&#39;</span> <span class="o">+</span> <span class="n">taxon_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;%20&#39;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;[View all treatments for *&#39;</span> <span class="o">+</span> <span class="n">taxon_name</span> <span class="o">+</span> <span class="s1">&#39;* on Synospecies](&#39;</span> <span class="o">+</span> <span class="n">syno_url</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="c1"># ---- NEW: BHL Literature section ----</span>
+    <span class="k">if</span> <span class="n">bhl_pubs</span><span class="p">:</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;## Literature&#39;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):&#39;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">pub</span> <span class="ow">in</span> <span class="n">bhl_pubs</span><span class="p">:</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="n">pub</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="n">pub</span><span class="p">[</span><span class="s1">&#39;bhl_url&#39;</span><span class="p">]</span>
+            <span class="n">authors</span> <span class="o">=</span> <span class="n">pub</span><span class="p">[</span><span class="s1">&#39;authors&#39;</span><span class="p">]</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="n">pub</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
+            <span class="n">suffix_parts</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="n">authors</span><span class="p">:</span>
+                <span class="n">suffix_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">authors</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">date</span><span class="p">:</span>
+                <span class="n">suffix_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+            <span class="n">suffix</span> <span class="o">=</span> <span class="s1">&#39; — &#39;</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">suffix_parts</span><span class="p">)</span> <span class="k">if</span> <span class="n">suffix_parts</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;- [&#39;</span> <span class="o">+</span> <span class="n">title</span> <span class="o">+</span> <span class="s1">&#39;](&#39;</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span> <span class="o">+</span> <span class="n">suffix</span><span class="p">)</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">bhl_search</span> <span class="o">=</span> <span class="s1">&#39;https://www.biodiversitylibrary.org/search?SearchTerm=&#39;</span> <span class="o">+</span> <span class="n">taxon_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;[Search for *&#39;</span> <span class="o">+</span> <span class="n">taxon_name</span> <span class="o">+</span> <span class="s1">&#39;* on BHL](&#39;</span> <span class="o">+</span> <span class="n">bhl_search</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Observations from Montserrat (existing)</span>
     <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;## Observations from Montserrat&#39;</span><span class="p">)</span>
     <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;The following observations are from the GBIF dataset covering Montserrat grasses and sedges.&#39;</span><span class="p">)</span>
+    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Observations from the GBIF dataset covering Montserrat grasses and sedges.&#39;</span><span class="p">)</span>
     <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">org_name</span><span class="p">,</span> <span class="n">obs_dict</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;publishers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;### </span><span class="si">{</span><span class="n">org_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;### &#39;</span> <span class="o">+</span> <span class="n">org_name</span><span class="p">)</span>
         <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">obs_id</span><span class="p">,</span> <span class="n">obs_data</span> <span class="ow">in</span> <span class="n">obs_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">license_label</span><span class="p">,</span> <span class="n">license_url</span> <span class="o">=</span> <span class="n">resolve_license_label</span><span class="p">(</span><span class="n">obs_data</span><span class="p">[</span><span class="s1">&#39;license&#39;</span><span class="p">])</span>
-            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;**Observation:** [</span><span class="si">{</span><span class="n">obs_id</span><span class="si">}</span><span class="s1">](</span><span class="si">{</span><span class="n">obs_id</span><span class="si">}</span><span class="s1">)  &#39;</span><span class="p">)</span>
-            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;**License:** [</span><span class="si">{</span><span class="n">license_label</span><span class="si">}</span><span class="s1">](</span><span class="si">{</span><span class="n">license_url</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;**Observation:** [&#39;</span> <span class="o">+</span> <span class="n">obs_id</span> <span class="o">+</span> <span class="s1">&#39;](&#39;</span> <span class="o">+</span> <span class="n">obs_id</span> <span class="o">+</span> <span class="s1">&#39;)  &#39;</span><span class="p">)</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;**License:** [&#39;</span> <span class="o">+</span> <span class="n">license_label</span> <span class="o">+</span> <span class="s1">&#39;](&#39;</span> <span class="o">+</span> <span class="n">license_url</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">)</span>
             <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">media_url</span> <span class="ow">in</span> <span class="n">obs_data</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]:</span>
                 <span class="k">if</span> <span class="n">media_url</span> <span class="ow">and</span> <span class="n">media_url</span> <span class="o">!=</span> <span class="s1">&#39;nan&#39;</span><span class="p">:</span>
-                    <span class="c1"># Prefer medium-sized images over square thumbnails</span>
                     <span class="n">display_url</span> <span class="o">=</span> <span class="n">media_url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">)</span>
-                    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;![</span><span class="si">{</span><span class="n">taxon_name</span><span class="si">}</span><span class="s1"> — </span><span class="si">{</span><span class="n">org_name</span><span class="si">}</span><span class="s1">](</span><span class="si">{</span><span class="n">display_url</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+                    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;![&#39;</span> <span class="o">+</span> <span class="n">taxon_name</span> <span class="o">+</span> <span class="s1">&#39; — &#39;</span> <span class="o">+</span> <span class="n">org_name</span> <span class="o">+</span> <span class="s1">&#39;](&#39;</span> <span class="o">+</span> <span class="n">display_url</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">)</span>
                     <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
-    <span class="c1"># Write the file</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">page_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Generated </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">toc_taxa</span><span class="p">)</span><span class="si">}</span><span class="s1"> taxa pages.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Generated &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">toc_taxa</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; taxa pages.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1035,82 +1196,82 @@ Returns the path to the saved HTML file (embedded in the markdown page).</p>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:   0%|          | 0/25 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:   4%|▍         | 1/25 [00:02&lt;00:54,  2.29s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:   4%|▍         | 1/25 [00:03&lt;01:17,  3.24s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:   8%|▊         | 2/25 [00:04&lt;00:52,  2.28s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:   8%|▊         | 2/25 [00:06&lt;01:13,  3.21s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  12%|█▏        | 3/25 [00:06&lt;00:50,  2.28s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  12%|█▏        | 3/25 [00:09&lt;01:13,  3.35s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  16%|█▌        | 4/25 [00:09&lt;00:47,  2.28s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  16%|█▌        | 4/25 [00:13&lt;01:10,  3.37s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  20%|██        | 5/25 [00:11&lt;00:45,  2.29s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  20%|██        | 5/25 [00:16&lt;01:06,  3.34s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  24%|██▍       | 6/25 [00:13&lt;00:43,  2.31s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  24%|██▍       | 6/25 [00:19&lt;01:03,  3.32s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  28%|██▊       | 7/25 [00:16&lt;00:41,  2.30s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  28%|██▊       | 7/25 [00:23&lt;00:59,  3.29s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  32%|███▏      | 8/25 [00:18&lt;00:39,  2.31s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  32%|███▏      | 8/25 [00:26&lt;00:55,  3.29s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  36%|███▌      | 9/25 [00:20&lt;00:36,  2.28s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  36%|███▌      | 9/25 [00:29&lt;00:53,  3.34s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  40%|████      | 10/25 [00:22&lt;00:34,  2.28s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  40%|████      | 10/25 [00:33&lt;00:49,  3.31s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  44%|████▍     | 11/25 [00:25&lt;00:32,  2.31s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  44%|████▍     | 11/25 [00:36&lt;00:46,  3.30s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  48%|████▊     | 12/25 [00:27&lt;00:29,  2.30s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  48%|████▊     | 12/25 [00:39&lt;00:43,  3.31s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  52%|█████▏    | 13/25 [00:29&lt;00:27,  2.30s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  52%|█████▏    | 13/25 [00:43&lt;00:39,  3.30s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  56%|█████▌    | 14/25 [00:32&lt;00:25,  2.31s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  56%|█████▌    | 14/25 [00:46&lt;00:36,  3.31s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  60%|██████    | 15/25 [00:34&lt;00:22,  2.28s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  60%|██████    | 15/25 [00:49&lt;00:32,  3.26s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  64%|██████▍   | 16/25 [00:36&lt;00:20,  2.26s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  64%|██████▍   | 16/25 [00:52&lt;00:29,  3.25s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  68%|██████▊   | 17/25 [00:38&lt;00:18,  2.29s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  68%|██████▊   | 17/25 [00:55&lt;00:25,  3.25s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  72%|███████▏  | 18/25 [00:41&lt;00:15,  2.28s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  72%|███████▏  | 18/25 [00:59&lt;00:22,  3.27s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  76%|███████▌  | 19/25 [00:42&lt;00:12,  2.12s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  76%|███████▌  | 19/25 [01:02&lt;00:18,  3.11s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  80%|████████  | 20/25 [00:45&lt;00:10,  2.16s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  80%|████████  | 20/25 [01:05&lt;00:15,  3.15s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  84%|████████▍ | 21/25 [00:47&lt;00:08,  2.22s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  84%|████████▍ | 21/25 [01:08&lt;00:12,  3.17s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  88%|████████▊ | 22/25 [00:49&lt;00:06,  2.23s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  88%|████████▊ | 22/25 [01:11&lt;00:09,  3.19s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  92%|█████████▏| 23/25 [00:52&lt;00:04,  2.26s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  92%|█████████▏| 23/25 [01:15&lt;00:06,  3.24s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  96%|█████████▌| 24/25 [00:54&lt;00:02,  2.24s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages:  96%|█████████▌| 24/25 [01:18&lt;00:03,  3.22s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages: 100%|██████████| 25/25 [00:56&lt;00:00,  2.23s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages: 100%|██████████| 25/25 [01:21&lt;00:00,  3.21s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages: 100%|██████████| 25/25 [00:56&lt;00:00,  2.26s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generating taxa pages: 100%|██████████| 25/25 [01:21&lt;00:00,  3.26s/it]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generated 25 taxa pages.
