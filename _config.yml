@@ -38,7 +38,5 @@ html:
     Maps © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors.</p>
 
 sphinx:
-  extra_extensions:
-    - sphinx_inline_tabs
   config:
     html_show_copyright: false
