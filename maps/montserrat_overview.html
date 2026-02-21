@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d9517cf7676dde955dd7489e0611ed71 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 500.0px;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    <div style="position:fixed; bottom:20px; left:20px; z-index:9999; background:white; padding:10px 14px; border-radius:6px; border:1px solid #ccc; font-size:11px; line-height:1.8; max-height:280px; overflow-y:auto;"><b>Species</b><br><span style="color:#bb1a1a;">&#9679;</span> <i>Anthephora hermaphrodita</i><br><span style="color:#bb4d1a;">&#9679;</span> <i>Aristida adscensionis</i><br><span style="color:#bb801a;">&#9679;</span> <i>Axonopus compressus</i><br><span style="color:#bbb21a;">&#9679;</span> <i>Bambusa vulgaris</i><br><span style="color:#91bb1a;">&#9679;</span> <i>Cenchrus echinatus</i><br><span style="color:#5ebb1a;">&#9679;</span> <i>Cymbopogon citratus</i><br><span style="color:#2bbb1a;">&#9679;</span> <i>Cyperus brevifolius</i><br><span style="color:#1abb3c;">&#9679;</span> <i>Cyperus sphacelatus</i><br><span style="color:#1abb6f;">&#9679;</span> <i>Digitaria insularis</i><br><span style="color:#1abba2;">&#9679;</span> <i>Eriochloa punctata</i><br><span style="color:#1aa2bb;">&#9679;</span> <i>Fimbristylis complanata</i><br><span style="color:#1a6fbb;">&#9679;</span> <i>Lasiacis divaricata</i><br><span style="color:#1a3cbb;">&#9679;</span> <i>Melinis repens</i><br><span style="color:#2b1abb;">&#9679;</span> <i>Panicum trichoides</i><br><span style="color:#5e1abb;">&#9679;</span> <i>Paspalum conjugatum</i><br><span style="color:#911abb;">&#9679;</span> <i>Paspalum fimbriatum</i><br><span style="color:#bb1ab2;">&#9679;</span> <i>Rhynchospora nervosa</i><br><span style="color:#bb1a80;">&#9679;</span> <i>Scleria secans</i><br><span style="color:#bb1a4d;">&#9679;</span> <i>Sporobolus virginicus</i><br></div>
+    
+            <div class="folium-map" id="map_d9517cf7676dde955dd7489e0611ed71" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d9517cf7676dde955dd7489e0611ed71 = L.map(
+                "map_d9517cf7676dde955dd7489e0611ed71",
+                {
+                    center: [16.745, -62.202],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_cc982182166d7cba1e9b90c6879fae78 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_cc982182166d7cba1e9b90c6879fae78.addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+            var circle_marker_44a8f42e8e643f414ab749faf6c7edcd = L.circleMarker(
+                [16.770888, -62.189524],
+                {"bubblingMouseEvents": true, "color": "#2bbb1a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2bbb1a", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_3309cb82e4b451d0579061470e4335d2 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_a68dcf8ec9074a9236ecbe10e16fd164 = $(`<div id="html_a68dcf8ec9074a9236ecbe10e16fd164" style="width: 100.0%; height: 100.0%;"><b><i>Cyperus brevifolius</i></b><br>MeiseBG 2022<br><a href="https://www.gbif.org/occurrence/4876300936" target="_blank">GBIF record</a></div>`)[0];
+                popup_3309cb82e4b451d0579061470e4335d2.setContent(html_a68dcf8ec9074a9236ecbe10e16fd164);
+            
+        
+
+        circle_marker_44a8f42e8e643f414ab749faf6c7edcd.bindPopup(popup_3309cb82e4b451d0579061470e4335d2)
+        ;
+
+        
+    
+    
+            circle_marker_44a8f42e8e643f414ab749faf6c7edcd.bindTooltip(
+                `<div>
+                     <i>Cyperus brevifolius</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3d4d8a958ca740029055f829b05c0ce3 = L.circleMarker(
+                [16.774538, -62.189702],
+                {"bubblingMouseEvents": true, "color": "#bb1ab2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb1ab2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_7bfab4c4a8b24355218f9c31ee161c72 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_360904fcbd8de7f8d7d133d616527b94 = $(`<div id="html_360904fcbd8de7f8d7d133d616527b94" style="width: 100.0%; height: 100.0%;"><b><i>Rhynchospora nervosa</i></b><br>MeiseBG 2022<br><a href="https://www.gbif.org/occurrence/4876284841" target="_blank">GBIF record</a></div>`)[0];
+                popup_7bfab4c4a8b24355218f9c31ee161c72.setContent(html_360904fcbd8de7f8d7d133d616527b94);
+            
+        
+
+        circle_marker_3d4d8a958ca740029055f829b05c0ce3.bindPopup(popup_7bfab4c4a8b24355218f9c31ee161c72)
+        ;
+
+        
+    
+    
+            circle_marker_3d4d8a958ca740029055f829b05c0ce3.bindTooltip(
+                `<div>
+                     <i>Rhynchospora nervosa</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c07e9578da333156a57613c258ff7c34 = L.circleMarker(
+                [16.781949, -62.207517],
+                {"bubblingMouseEvents": true, "color": "#1a3cbb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a3cbb", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_b22d0de7e0a7d0b08389ca1a818103e0 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_7805ca6070b565a782a028fb8da983fe = $(`<div id="html_7805ca6070b565a782a028fb8da983fe" style="width: 100.0%; height: 100.0%;"><b><i>Melinis repens</i></b><br>iNaturalist 2024<br><a href="https://www.gbif.org/occurrence/4607368012" target="_blank">GBIF record</a></div>`)[0];
+                popup_b22d0de7e0a7d0b08389ca1a818103e0.setContent(html_7805ca6070b565a782a028fb8da983fe);
+            
+        
+
+        circle_marker_c07e9578da333156a57613c258ff7c34.bindPopup(popup_b22d0de7e0a7d0b08389ca1a818103e0)
+        ;
+
+        
+    
+    
+            circle_marker_c07e9578da333156a57613c258ff7c34.bindTooltip(
+                `<div>
+                     <i>Melinis repens</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f76fa95e162f46a7ce2f7bfe1727c13f = L.circleMarker(
+                [16.811359, -62.192238],
+                {"bubblingMouseEvents": true, "color": "#1a3cbb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a3cbb", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_37852b1a232168ee6b593ca7cf4c6d96 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_2b04e80ad75db9c057f06e09fcefc824 = $(`<div id="html_2b04e80ad75db9c057f06e09fcefc824" style="width: 100.0%; height: 100.0%;"><b><i>Melinis repens</i></b><br>iNaturalist 2024<br><a href="https://www.gbif.org/occurrence/4536015362" target="_blank">GBIF record</a></div>`)[0];
+                popup_37852b1a232168ee6b593ca7cf4c6d96.setContent(html_2b04e80ad75db9c057f06e09fcefc824);
+            
+        
+
+        circle_marker_f76fa95e162f46a7ce2f7bfe1727c13f.bindPopup(popup_37852b1a232168ee6b593ca7cf4c6d96)
+        ;
+
+        
+    
+    
+            circle_marker_f76fa95e162f46a7ce2f7bfe1727c13f.bindTooltip(
+                `<div>
+                     <i>Melinis repens</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c7cf3afc85fb8bbe52871cd7fccbe0df = L.circleMarker(
+                [16.731542, -62.213421],
+                {"bubblingMouseEvents": true, "color": "#1a3cbb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a3cbb", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_0526961b30cc24ea401057cc062b9126 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_1056a4b70d6721c02f126ca518c5bcd5 = $(`<div id="html_1056a4b70d6721c02f126ca518c5bcd5" style="width: 100.0%; height: 100.0%;"><b><i>Melinis repens</i></b><br>iNaturalist 2024<br><a href="https://www.gbif.org/occurrence/4536000017" target="_blank">GBIF record</a></div>`)[0];
+                popup_0526961b30cc24ea401057cc062b9126.setContent(html_1056a4b70d6721c02f126ca518c5bcd5);
+            
+        
+
+        circle_marker_c7cf3afc85fb8bbe52871cd7fccbe0df.bindPopup(popup_0526961b30cc24ea401057cc062b9126)
+        ;
+
+        
+    
+    
+            circle_marker_c7cf3afc85fb8bbe52871cd7fccbe0df.bindTooltip(
+                `<div>
+                     <i>Melinis repens</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aed52105fefdf5414aa0bcf6a9dd27de = L.circleMarker(
+                [16.762744, -62.213898],
+                {"bubblingMouseEvents": true, "color": "#bbb21a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bbb21a", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_40cec9964c6eb03cce41bd0fd04d992e = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_d4e862368127e7a466361ef54d8f6d6f = $(`<div id="html_d4e862368127e7a466361ef54d8f6d6f" style="width: 100.0%; height: 100.0%;"><b><i>Bambusa vulgaris</i></b><br>iNaturalist 2024<br><a href="https://www.gbif.org/occurrence/4535936565" target="_blank">GBIF record</a></div>`)[0];
+                popup_40cec9964c6eb03cce41bd0fd04d992e.setContent(html_d4e862368127e7a466361ef54d8f6d6f);
+            
+        
+
+        circle_marker_aed52105fefdf5414aa0bcf6a9dd27de.bindPopup(popup_40cec9964c6eb03cce41bd0fd04d992e)
+        ;
+
+        
+    
+    
+            circle_marker_aed52105fefdf5414aa0bcf6a9dd27de.bindTooltip(
+                `<div>
+                     <i>Bambusa vulgaris</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ff053be762cbe2c9e37f0f2c77499964 = L.circleMarker(
+                [16.774778, -62.214332],
+                {"bubblingMouseEvents": true, "color": "#1a3cbb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a3cbb", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_657f151610095b6dff07d5d43f8041a5 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_cb34722f8f087f734106d4c6846b83c2 = $(`<div id="html_cb34722f8f087f734106d4c6846b83c2" style="width: 100.0%; height: 100.0%;"><b><i>Melinis repens</i></b><br>iNaturalist 2024<br><a href="https://www.gbif.org/occurrence/4535900789" target="_blank">GBIF record</a></div>`)[0];
+                popup_657f151610095b6dff07d5d43f8041a5.setContent(html_cb34722f8f087f734106d4c6846b83c2);
+            
+        
+
+        circle_marker_ff053be762cbe2c9e37f0f2c77499964.bindPopup(popup_657f151610095b6dff07d5d43f8041a5)
+        ;
+
+        
+    
+    
+            circle_marker_ff053be762cbe2c9e37f0f2c77499964.bindTooltip(
+                `<div>
+                     <i>Melinis repens</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9a3c8c911ee19ced76ab8470ac1415c6 = L.circleMarker(
+                [16.775125, -62.205158],
+                {"bubblingMouseEvents": true, "color": "#bb1ab2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb1ab2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_e7f8df162ea564b12fe621ade3f8cbd5 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_2972f237a20b26fed5964a914858047b = $(`<div id="html_2972f237a20b26fed5964a914858047b" style="width: 100.0%; height: 100.0%;"><b><i>Rhynchospora nervosa</i></b><br>iNaturalist 2023<br><a href="https://www.gbif.org/occurrence/4535865670" target="_blank">GBIF record</a></div>`)[0];
+                popup_e7f8df162ea564b12fe621ade3f8cbd5.setContent(html_2972f237a20b26fed5964a914858047b);
+            
+        
+
+        circle_marker_9a3c8c911ee19ced76ab8470ac1415c6.bindPopup(popup_e7f8df162ea564b12fe621ade3f8cbd5)
+        ;
+
+        
+    
+    
+            circle_marker_9a3c8c911ee19ced76ab8470ac1415c6.bindTooltip(
+                `<div>
+                     <i>Rhynchospora nervosa</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2bbc677516d13ac7408ebd5d5dbf5681 = L.circleMarker(
+                [16.774541, -62.189705],
+                {"bubblingMouseEvents": true, "color": "#bb1ab2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb1ab2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_08eaa2c71c568123c6a8c9da8abe5595 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_028562d133cb02447e32b5315764733a = $(`<div id="html_028562d133cb02447e32b5315764733a" style="width: 100.0%; height: 100.0%;"><b><i>Rhynchospora nervosa</i></b><br>iNaturalist 2022<br><a href="https://www.gbif.org/occurrence/4535850595" target="_blank">GBIF record</a></div>`)[0];
+                popup_08eaa2c71c568123c6a8c9da8abe5595.setContent(html_028562d133cb02447e32b5315764733a);
+            
+        
+
+        circle_marker_2bbc677516d13ac7408ebd5d5dbf5681.bindPopup(popup_08eaa2c71c568123c6a8c9da8abe5595)
+        ;
+
+        
+    
+    
+            circle_marker_2bbc677516d13ac7408ebd5d5dbf5681.bindTooltip(
+                `<div>
+                     <i>Rhynchospora nervosa</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_be24cac384ca06178bd997b8d873deaf = L.circleMarker(
+                [16.811562, -62.191791],
+                {"bubblingMouseEvents": true, "color": "#91bb1a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#91bb1a", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_9854830aecea713a2320e73d513c37a9 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_e9e72aa6c44130a28c46852e605a4e49 = $(`<div id="html_e9e72aa6c44130a28c46852e605a4e49" style="width: 100.0%; height: 100.0%;"><b><i>Cenchrus echinatus</i></b><br>iNaturalist 2024<br><a href="https://www.gbif.org/occurrence/4535729445" target="_blank">GBIF record</a></div>`)[0];
+                popup_9854830aecea713a2320e73d513c37a9.setContent(html_e9e72aa6c44130a28c46852e605a4e49);
+            
+        
+
+        circle_marker_be24cac384ca06178bd997b8d873deaf.bindPopup(popup_9854830aecea713a2320e73d513c37a9)
+        ;
+
+        
+    
+    
+            circle_marker_be24cac384ca06178bd997b8d873deaf.bindTooltip(
+                `<div>
+                     <i>Cenchrus echinatus</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_831f7654a5dbf74bb3cdd8d1daa59565 = L.circleMarker(
+                [16.775145, -62.205116],
+                {"bubblingMouseEvents": true, "color": "#bb1ab2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb1ab2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_4e19c2de484ac8e3000f5631028c8050 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_e88582c338db2fa6105a4bcc74455059 = $(`<div id="html_e88582c338db2fa6105a4bcc74455059" style="width: 100.0%; height: 100.0%;"><b><i>Rhynchospora nervosa</i></b><br>iNaturalist 2023<br><a href="https://www.gbif.org/occurrence/4535601668" target="_blank">GBIF record</a></div>`)[0];
+                popup_4e19c2de484ac8e3000f5631028c8050.setContent(html_e88582c338db2fa6105a4bcc74455059);
+            
+        
+
+        circle_marker_831f7654a5dbf74bb3cdd8d1daa59565.bindPopup(popup_4e19c2de484ac8e3000f5631028c8050)
+        ;
+
+        
+    
+    
+            circle_marker_831f7654a5dbf74bb3cdd8d1daa59565.bindTooltip(
+                `<div>
+                     <i>Rhynchospora nervosa</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_717329cf41773cb7a93464bd3b4c1e56 = L.circleMarker(
+                [16.731162, -62.213252],
+                {"bubblingMouseEvents": true, "color": "#1a3cbb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a3cbb", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_93a7a0b0c073c344ef4c86db014de8e8 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_46f44f72de45256c06532ee7a7f15d12 = $(`<div id="html_46f44f72de45256c06532ee7a7f15d12" style="width: 100.0%; height: 100.0%;"><b><i>Melinis repens</i></b><br>iNaturalist 2023<br><a href="https://www.gbif.org/occurrence/4507833738" target="_blank">GBIF record</a></div>`)[0];
+                popup_93a7a0b0c073c344ef4c86db014de8e8.setContent(html_46f44f72de45256c06532ee7a7f15d12);
+            
+        
+
+        circle_marker_717329cf41773cb7a93464bd3b4c1e56.bindPopup(popup_93a7a0b0c073c344ef4c86db014de8e8)
+        ;
+
+        
+    
+    
+            circle_marker_717329cf41773cb7a93464bd3b4c1e56.bindTooltip(
+                `<div>
+                     <i>Melinis repens</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_050d6028bdcf21adc35ecd532df75dd4 = L.circleMarker(
+                [16.783709, -62.203901],
+                {"bubblingMouseEvents": true, "color": "#bb1ab2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb1ab2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_0649ade8c2c7c57c15d8cb4901ab6538 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_d4031b4e64a6e7ba1cb2caca0dbe576b = $(`<div id="html_d4031b4e64a6e7ba1cb2caca0dbe576b" style="width: 100.0%; height: 100.0%;"><b><i>Rhynchospora nervosa</i></b><br>iNaturalist 2023<br><a href="https://www.gbif.org/occurrence/4416731487" target="_blank">GBIF record</a></div>`)[0];
+                popup_0649ade8c2c7c57c15d8cb4901ab6538.setContent(html_d4031b4e64a6e7ba1cb2caca0dbe576b);
+            
+        
+
+        circle_marker_050d6028bdcf21adc35ecd532df75dd4.bindPopup(popup_0649ade8c2c7c57c15d8cb4901ab6538)
+        ;
+
+        
+    
+    
+            circle_marker_050d6028bdcf21adc35ecd532df75dd4.bindTooltip(
+                `<div>
+                     <i>Rhynchospora nervosa</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_21c708b37e964df1f1665cd9ca644584 = L.circleMarker(
+                [16.770003, -62.196881],
+                {"bubblingMouseEvents": true, "color": "#bb1ab2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb1ab2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_50b6227e2f16c09868b414dc56f0cdc5 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_b503fe2f20ee668f9a720dccdbe9d709 = $(`<div id="html_b503fe2f20ee668f9a720dccdbe9d709" style="width: 100.0%; height: 100.0%;"><b><i>Rhynchospora nervosa</i></b><br>iNaturalist 2023<br><a href="https://www.gbif.org/occurrence/4162159471" target="_blank">GBIF record</a></div>`)[0];
+                popup_50b6227e2f16c09868b414dc56f0cdc5.setContent(html_b503fe2f20ee668f9a720dccdbe9d709);
+            
+        
+
+        circle_marker_21c708b37e964df1f1665cd9ca644584.bindPopup(popup_50b6227e2f16c09868b414dc56f0cdc5)
+        ;
+
+        
+    
+    
+            circle_marker_21c708b37e964df1f1665cd9ca644584.bindTooltip(
+                `<div>
+                     <i>Rhynchospora nervosa</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2329c81486a75472c2b9f621508bbc1e = L.circleMarker(
+                [16.747902, -62.234072],
+                {"bubblingMouseEvents": true, "color": "#1abb3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1abb3c", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_167fbc0af243951cf1a591e619c1b30c = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_f8b5939c8221b365fb2927a0bc657e9d = $(`<div id="html_f8b5939c8221b365fb2927a0bc657e9d" style="width: 100.0%; height: 100.0%;"><b><i>Cyperus sphacelatus</i></b><br>iNaturalist 2023<br><a href="https://www.gbif.org/occurrence/4162048468" target="_blank">GBIF record</a></div>`)[0];
+                popup_167fbc0af243951cf1a591e619c1b30c.setContent(html_f8b5939c8221b365fb2927a0bc657e9d);
+            
+        
+
+        circle_marker_2329c81486a75472c2b9f621508bbc1e.bindPopup(popup_167fbc0af243951cf1a591e619c1b30c)
+        ;
+
+        
+    
+    
+            circle_marker_2329c81486a75472c2b9f621508bbc1e.bindTooltip(
+                `<div>
+                     <i>Cyperus sphacelatus</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b96b816fff721ccce59aee9a14639d15 = L.circleMarker(
+                [16.780111, -62.170707],
+                {"bubblingMouseEvents": true, "color": "#bb1a4d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb1a4d", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_5e1e19c8901654631f9a66d82474dbd5 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_8a80314f8d123df67e1ccac75b268ba9 = $(`<div id="html_8a80314f8d123df67e1ccac75b268ba9" style="width: 100.0%; height: 100.0%;"><b><i>Sporobolus virginicus</i></b><br>iNaturalist 2023<br><a href="https://www.gbif.org/occurrence/4137602647" target="_blank">GBIF record</a></div>`)[0];
+                popup_5e1e19c8901654631f9a66d82474dbd5.setContent(html_8a80314f8d123df67e1ccac75b268ba9);
+            
+        
+
+        circle_marker_b96b816fff721ccce59aee9a14639d15.bindPopup(popup_5e1e19c8901654631f9a66d82474dbd5)
+        ;
+
+        
+    
+    
+            circle_marker_b96b816fff721ccce59aee9a14639d15.bindTooltip(
+                `<div>
+                     <i>Sporobolus virginicus</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3818031d6a2b2c2cf9edaccbe2a0674b = L.circleMarker(
+                [16.743199, -62.232716],
+                {"bubblingMouseEvents": true, "color": "#1a3cbb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a3cbb", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_388f025b385d014656fba30c7c2b7b61 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_b087af6d07b19c57ab1fc7a164a00951 = $(`<div id="html_b087af6d07b19c57ab1fc7a164a00951" style="width: 100.0%; height: 100.0%;"><b><i>Melinis repens</i></b><br>iNaturalist 2023<br><a href="https://www.gbif.org/occurrence/4028732057" target="_blank">GBIF record</a></div>`)[0];
+                popup_388f025b385d014656fba30c7c2b7b61.setContent(html_b087af6d07b19c57ab1fc7a164a00951);
+            
+        
+
+        circle_marker_3818031d6a2b2c2cf9edaccbe2a0674b.bindPopup(popup_388f025b385d014656fba30c7c2b7b61)
+        ;
+
+        
+    
+    
+            circle_marker_3818031d6a2b2c2cf9edaccbe2a0674b.bindTooltip(
+                `<div>
+                     <i>Melinis repens</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b80794ccbc464f697ab58a2993f3b1f2 = L.circleMarker(
+                [16.753366, -62.229698],
+                {"bubblingMouseEvents": true, "color": "#91bb1a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#91bb1a", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_5023df88a751aaf980ad100021a0cb5e = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_92542730d4dc58d17161d909b814f1d8 = $(`<div id="html_92542730d4dc58d17161d909b814f1d8" style="width: 100.0%; height: 100.0%;"><b><i>Cenchrus echinatus</i></b><br>iNaturalist 2022<br><a href="https://www.gbif.org/occurrence/3892303933" target="_blank">GBIF record</a></div>`)[0];
+                popup_5023df88a751aaf980ad100021a0cb5e.setContent(html_92542730d4dc58d17161d909b814f1d8);
+            
+        
+
+        circle_marker_b80794ccbc464f697ab58a2993f3b1f2.bindPopup(popup_5023df88a751aaf980ad100021a0cb5e)
+        ;
+
+        
+    
+    
+            circle_marker_b80794ccbc464f697ab58a2993f3b1f2.bindTooltip(
+                `<div>
+                     <i>Cenchrus echinatus</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ba0fe3544b68e5e09f7b6c450bb60ae2 = L.circleMarker(
+                [16.769321, -62.190678],
+                {"bubblingMouseEvents": true, "color": "#bb801a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb801a", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_edf06ac0325c12d375b45a682d53cd55 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_b1d2e2100dc63b61aa888d584a8be166 = $(`<div id="html_b1d2e2100dc63b61aa888d584a8be166" style="width: 100.0%; height: 100.0%;"><b><i>Axonopus compressus</i></b><br>iNaturalist 2022<br><a href="https://www.gbif.org/occurrence/3888808487" target="_blank">GBIF record</a></div>`)[0];
+                popup_edf06ac0325c12d375b45a682d53cd55.setContent(html_b1d2e2100dc63b61aa888d584a8be166);
+            
+        
+
+        circle_marker_ba0fe3544b68e5e09f7b6c450bb60ae2.bindPopup(popup_edf06ac0325c12d375b45a682d53cd55)
+        ;
+
+        
+    
+    
+            circle_marker_ba0fe3544b68e5e09f7b6c450bb60ae2.bindTooltip(
+                `<div>
+                     <i>Axonopus compressus</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cc0598644fa80d5d0cc6c31d397a4a25 = L.circleMarker(
+                [16.731531, -62.213318],
+                {"bubblingMouseEvents": true, "color": "#1abb3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1abb3c", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_47b90532cf7583604f4048e2bbdee659 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_d48594038bd7ab6245bb125b4ae56cfc = $(`<div id="html_d48594038bd7ab6245bb125b4ae56cfc" style="width: 100.0%; height: 100.0%;"><b><i>Cyperus sphacelatus</i></b><br>iNaturalist 2022<br><a href="https://www.gbif.org/occurrence/3881790458" target="_blank">GBIF record</a></div>`)[0];
+                popup_47b90532cf7583604f4048e2bbdee659.setContent(html_d48594038bd7ab6245bb125b4ae56cfc);
+            
+        
+
+        circle_marker_cc0598644fa80d5d0cc6c31d397a4a25.bindPopup(popup_47b90532cf7583604f4048e2bbdee659)
+        ;
+
+        
+    
+    
+            circle_marker_cc0598644fa80d5d0cc6c31d397a4a25.bindTooltip(
+                `<div>
+                     <i>Cyperus sphacelatus</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_054cc6ed98b33373e33bb6dc3aaafe08 = L.circleMarker(
+                [16.774198, -62.193614],
+                {"bubblingMouseEvents": true, "color": "#bb1ab2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb1ab2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_aaeb22cbde9e46420a54f6a4a31f9536 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_79df3221238a3bba94895f8a7ec7a946 = $(`<div id="html_79df3221238a3bba94895f8a7ec7a946" style="width: 100.0%; height: 100.0%;"><b><i>Rhynchospora nervosa</i></b><br>iNaturalist 2022<br><a href="https://www.gbif.org/occurrence/3860636265" target="_blank">GBIF record</a></div>`)[0];
+                popup_aaeb22cbde9e46420a54f6a4a31f9536.setContent(html_79df3221238a3bba94895f8a7ec7a946);
+            
+        
+
+        circle_marker_054cc6ed98b33373e33bb6dc3aaafe08.bindPopup(popup_aaeb22cbde9e46420a54f6a4a31f9536)
+        ;
+
+        
+    
+    
+            circle_marker_054cc6ed98b33373e33bb6dc3aaafe08.bindTooltip(
+                `<div>
+                     <i>Rhynchospora nervosa</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dae46b85a6106f58c57b1d9b0af3dbbc = L.circleMarker(
+                [16.683333, -62.183333],
+                {"bubblingMouseEvents": true, "color": "#911abb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911abb", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_2e668a40814286b6f62afe6ccfa5475c = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_e131b809d980435102c3f03654bd3cd9 = $(`<div id="html_e131b809d980435102c3f03654bd3cd9" style="width: 100.0%; height: 100.0%;"><b><i>Paspalum fimbriatum</i></b><br>CM 1907<br><a href="https://www.gbif.org/occurrence/2858982960" target="_blank">GBIF record</a></div>`)[0];
+                popup_2e668a40814286b6f62afe6ccfa5475c.setContent(html_e131b809d980435102c3f03654bd3cd9);
+            
+        
+
+        circle_marker_dae46b85a6106f58c57b1d9b0af3dbbc.bindPopup(popup_2e668a40814286b6f62afe6ccfa5475c)
+        ;
+
+        
+    
+    
+            circle_marker_dae46b85a6106f58c57b1d9b0af3dbbc.bindTooltip(
+                `<div>
+                     <i>Paspalum fimbriatum</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0a8a4dc673d131fd1c0b5c508dc7666e = L.circleMarker(
+                [16.753941, -62.224113],
+                {"bubblingMouseEvents": true, "color": "#5ebb1a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5ebb1a", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_9eff58e60c4436d2dbb9cddca751ab41 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_ba00b88f119841cba96a7d6fe1b6a908 = $(`<div id="html_ba00b88f119841cba96a7d6fe1b6a908" style="width: 100.0%; height: 100.0%;"><b><i>Cymbopogon citratus</i></b><br>iNaturalist 2020<br><a href="https://www.gbif.org/occurrence/2633970554" target="_blank">GBIF record</a></div>`)[0];
+                popup_9eff58e60c4436d2dbb9cddca751ab41.setContent(html_ba00b88f119841cba96a7d6fe1b6a908);
+            
+        
+
+        circle_marker_0a8a4dc673d131fd1c0b5c508dc7666e.bindPopup(popup_9eff58e60c4436d2dbb9cddca751ab41)
+        ;
+
+        
+    
+    
+            circle_marker_0a8a4dc673d131fd1c0b5c508dc7666e.bindTooltip(
+                `<div>
+                     <i>Cymbopogon citratus</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d67209cac062d4ed7cb9cb7164ce720b = L.circleMarker(
+                [16.70663, -62.216017],
+                {"bubblingMouseEvents": true, "color": "#1abb3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1abb3c", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_27287a92e07f010100d0dd27ead58e51 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_5b43bada53b9ec298cfa676ef7a5c022 = $(`<div id="html_5b43bada53b9ec298cfa676ef7a5c022" style="width: 100.0%; height: 100.0%;"><b><i>Cyperus sphacelatus</i></b><br>NY 1907<br><a href="https://www.gbif.org/occurrence/1931343141" target="_blank">GBIF record</a></div>`)[0];
+                popup_27287a92e07f010100d0dd27ead58e51.setContent(html_5b43bada53b9ec298cfa676ef7a5c022);
+            
+        
+
+        circle_marker_d67209cac062d4ed7cb9cb7164ce720b.bindPopup(popup_27287a92e07f010100d0dd27ead58e51)
+        ;
+
+        
+    
+    
+            circle_marker_d67209cac062d4ed7cb9cb7164ce720b.bindTooltip(
+                `<div>
+                     <i>Cyperus sphacelatus</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2fc5a09f4d3e62b332dc9cf40bd98a65 = L.circleMarker(
+                [16.726058, -62.195794],
+                {"bubblingMouseEvents": true, "color": "#1a6fbb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a6fbb", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_a197282e224c0bae23a9711229c1a644 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_f8d50c43215ff6adb810eee6ea1418b2 = $(`<div id="html_f8d50c43215ff6adb810eee6ea1418b2" style="width: 100.0%; height: 100.0%;"><b><i>Lasiacis divaricata</i></b><br>NY 1907<br><a href="https://www.gbif.org/occurrence/1931227653" target="_blank">GBIF record</a></div>`)[0];
+                popup_a197282e224c0bae23a9711229c1a644.setContent(html_f8d50c43215ff6adb810eee6ea1418b2);
+            
+        
+
+        circle_marker_2fc5a09f4d3e62b332dc9cf40bd98a65.bindPopup(popup_a197282e224c0bae23a9711229c1a644)
+        ;
+
+        
+    
+    
+            circle_marker_2fc5a09f4d3e62b332dc9cf40bd98a65.bindTooltip(
+                `<div>
+                     <i>Lasiacis divaricata</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4d84cd6bc2ca1686b59851c399422b26 = L.circleMarker(
+                [16.69139, -62.17179],
+                {"bubblingMouseEvents": true, "color": "#bb1a80", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb1a80", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_8bc7ab5ee279cce8f2e9224441e701a2 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_1ae0ff20dc4bf446006a664f2dfaa13a = $(`<div id="html_1ae0ff20dc4bf446006a664f2dfaa13a" style="width: 100.0%; height: 100.0%;"><b><i>Scleria secans</i></b><br>NY 1907<br><a href="https://www.gbif.org/occurrence/1930711924" target="_blank">GBIF record</a></div>`)[0];
+                popup_8bc7ab5ee279cce8f2e9224441e701a2.setContent(html_1ae0ff20dc4bf446006a664f2dfaa13a);
+            
+        
+
+        circle_marker_4d84cd6bc2ca1686b59851c399422b26.bindPopup(popup_8bc7ab5ee279cce8f2e9224441e701a2)
+        ;
+
+        
+    
+    
+            circle_marker_4d84cd6bc2ca1686b59851c399422b26.bindTooltip(
+                `<div>
+                     <i>Scleria secans</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1bf72061817f5a5e85cff8d6b1e6c39c = L.circleMarker(
+                [16.70663, -62.216017],
+                {"bubblingMouseEvents": true, "color": "#1abb3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1abb3c", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_050fb9ffb8d0d2181e51869a55b4e2ef = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_a90e41e62b9fb34b7e4599b55c4b4612 = $(`<div id="html_a90e41e62b9fb34b7e4599b55c4b4612" style="width: 100.0%; height: 100.0%;"><b><i>Cyperus sphacelatus</i></b><br>NY 1907<br><a href="https://www.gbif.org/occurrence/1930054406" target="_blank">GBIF record</a></div>`)[0];
+                popup_050fb9ffb8d0d2181e51869a55b4e2ef.setContent(html_a90e41e62b9fb34b7e4599b55c4b4612);
+            
+        
+
+        circle_marker_1bf72061817f5a5e85cff8d6b1e6c39c.bindPopup(popup_050fb9ffb8d0d2181e51869a55b4e2ef)
+        ;
+
+        
+    
+    
+            circle_marker_1bf72061817f5a5e85cff8d6b1e6c39c.bindTooltip(
+                `<div>
+                     <i>Cyperus sphacelatus</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8f31490913547f7ae73ca3539114cad4 = L.circleMarker(
+                [16.70663, -62.216017],
+                {"bubblingMouseEvents": true, "color": "#bb4d1a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb4d1a", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_3ccb67302cd795912c29abbcbb8164a9 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_2c60c44e1f4e31a99062aff318d9e640 = $(`<div id="html_2c60c44e1f4e31a99062aff318d9e640" style="width: 100.0%; height: 100.0%;"><b><i>Aristida adscensionis</i></b><br>NY 1907<br><a href="https://www.gbif.org/occurrence/1929536046" target="_blank">GBIF record</a></div>`)[0];
+                popup_3ccb67302cd795912c29abbcbb8164a9.setContent(html_2c60c44e1f4e31a99062aff318d9e640);
+            
+        
+
+        circle_marker_8f31490913547f7ae73ca3539114cad4.bindPopup(popup_3ccb67302cd795912c29abbcbb8164a9)
+        ;
+
+        
+    
+    
+            circle_marker_8f31490913547f7ae73ca3539114cad4.bindTooltip(
+                `<div>
+                     <i>Aristida adscensionis</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fee1389eee6bdbc729450231d63dc645 = L.circleMarker(
+                [16.69139, -62.17179],
+                {"bubblingMouseEvents": true, "color": "#2b1abb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b1abb", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_972694f66113f6a899562e3be1993fd0 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_68942411cfef7ad67e6d2a2d2d180398 = $(`<div id="html_68942411cfef7ad67e6d2a2d2d180398" style="width: 100.0%; height: 100.0%;"><b><i>Panicum trichoides</i></b><br>NY 1907<br><a href="https://www.gbif.org/occurrence/1929461864" target="_blank">GBIF record</a></div>`)[0];
+                popup_972694f66113f6a899562e3be1993fd0.setContent(html_68942411cfef7ad67e6d2a2d2d180398);
+            
+        
+
+        circle_marker_fee1389eee6bdbc729450231d63dc645.bindPopup(popup_972694f66113f6a899562e3be1993fd0)
+        ;
+
+        
+    
+    
+            circle_marker_fee1389eee6bdbc729450231d63dc645.bindTooltip(
+                `<div>
+                     <i>Panicum trichoides</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_03b9e29e19073bee834fcfa7fa3a12c9 = L.circleMarker(
+                [16.70663, -62.216017],
+                {"bubblingMouseEvents": true, "color": "#5e1abb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5e1abb", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_714c0eb5a7f758da1b5afd8451a329b3 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_526e0f13705f161ff45f77df6e77d252 = $(`<div id="html_526e0f13705f161ff45f77df6e77d252" style="width: 100.0%; height: 100.0%;"><b><i>Paspalum conjugatum</i></b><br>NY 1907<br><a href="https://www.gbif.org/occurrence/1929349611" target="_blank">GBIF record</a></div>`)[0];
+                popup_714c0eb5a7f758da1b5afd8451a329b3.setContent(html_526e0f13705f161ff45f77df6e77d252);
+            
+        
+
+        circle_marker_03b9e29e19073bee834fcfa7fa3a12c9.bindPopup(popup_714c0eb5a7f758da1b5afd8451a329b3)
+        ;
+
+        
+    
+    
+            circle_marker_03b9e29e19073bee834fcfa7fa3a12c9.bindTooltip(
+                `<div>
+                     <i>Paspalum conjugatum</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ef90b310f12f816c523dac8279e5310c = L.circleMarker(
+                [16.779771, -62.174356],
+                {"bubblingMouseEvents": true, "color": "#2b1abb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2b1abb", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_1095bdd2b683e97bbf47423a2f4d1fcf = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_7072c1c8be08243876f56063e4291dec = $(`<div id="html_7072c1c8be08243876f56063e4291dec" style="width: 100.0%; height: 100.0%;"><b><i>Panicum trichoides</i></b><br>NY 1907<br><a href="https://www.gbif.org/occurrence/1929233297" target="_blank">GBIF record</a></div>`)[0];
+                popup_1095bdd2b683e97bbf47423a2f4d1fcf.setContent(html_7072c1c8be08243876f56063e4291dec);
+            
+        
+
+        circle_marker_ef90b310f12f816c523dac8279e5310c.bindPopup(popup_1095bdd2b683e97bbf47423a2f4d1fcf)
+        ;
+
+        
+    
+    
+            circle_marker_ef90b310f12f816c523dac8279e5310c.bindTooltip(
+                `<div>
+                     <i>Panicum trichoides</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_74eaae33100c080f2e976a42fbdf9109 = L.circleMarker(
+                [16.70663, -62.216017],
+                {"bubblingMouseEvents": true, "color": "#bb4d1a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb4d1a", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_5ec77e749606435d0e60585b45de7127 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_bfa489583e1e32130955c7a185c5a31d = $(`<div id="html_bfa489583e1e32130955c7a185c5a31d" style="width: 100.0%; height: 100.0%;"><b><i>Aristida adscensionis</i></b><br>NY 1907<br><a href="https://www.gbif.org/occurrence/1929146168" target="_blank">GBIF record</a></div>`)[0];
+                popup_5ec77e749606435d0e60585b45de7127.setContent(html_bfa489583e1e32130955c7a185c5a31d);
+            
+        
+
+        circle_marker_74eaae33100c080f2e976a42fbdf9109.bindPopup(popup_5ec77e749606435d0e60585b45de7127)
+        ;
+
+        
+    
+    
+            circle_marker_74eaae33100c080f2e976a42fbdf9109.bindTooltip(
+                `<div>
+                     <i>Aristida adscensionis</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eea94ef7e53618dbbdecab0bd2e491b2 = L.circleMarker(
+                [16.70663, -62.216017],
+                {"bubblingMouseEvents": true, "color": "#1abb6f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1abb6f", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_a53aaccdc6117fc4e337728c62c29997 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_6b8342bc0484a78e1ae98fe8c16925d5 = $(`<div id="html_6b8342bc0484a78e1ae98fe8c16925d5" style="width: 100.0%; height: 100.0%;"><b><i>Digitaria insularis</i></b><br>NY 1907<br><a href="https://www.gbif.org/occurrence/1929080778" target="_blank">GBIF record</a></div>`)[0];
+                popup_a53aaccdc6117fc4e337728c62c29997.setContent(html_6b8342bc0484a78e1ae98fe8c16925d5);
+            
+        
+
+        circle_marker_eea94ef7e53618dbbdecab0bd2e491b2.bindPopup(popup_a53aaccdc6117fc4e337728c62c29997)
+        ;
+
+        
+    
+    
+            circle_marker_eea94ef7e53618dbbdecab0bd2e491b2.bindTooltip(
+                `<div>
+                     <i>Digitaria insularis</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c8eea50bc84c2760da151a3490be080f = L.circleMarker(
+                [16.698625, -62.155611],
+                {"bubblingMouseEvents": true, "color": "#1abba2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1abba2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_e5ee861c352fbe62bc665bbe258ea0e1 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_5bea69f6fee70943f1cfd26364fc0047 = $(`<div id="html_5bea69f6fee70943f1cfd26364fc0047" style="width: 100.0%; height: 100.0%;"><b><i>Eriochloa punctata</i></b><br>NY 1907<br><a href="https://www.gbif.org/occurrence/1929001297" target="_blank">GBIF record</a></div>`)[0];
+                popup_e5ee861c352fbe62bc665bbe258ea0e1.setContent(html_5bea69f6fee70943f1cfd26364fc0047);
+            
+        
+
+        circle_marker_c8eea50bc84c2760da151a3490be080f.bindPopup(popup_e5ee861c352fbe62bc665bbe258ea0e1)
+        ;
+
+        
+    
+    
+            circle_marker_c8eea50bc84c2760da151a3490be080f.bindTooltip(
+                `<div>
+                     <i>Eriochloa punctata</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_597ba4ecf444191f023b0db975765c89 = L.circleMarker(
+                [16.708921, -62.174979],
+                {"bubblingMouseEvents": true, "color": "#1aa2bb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1aa2bb", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_69bc515a315328c29bee845e120d98cf = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_a3c7e3c0112be3017ebb479d0cfa92e7 = $(`<div id="html_a3c7e3c0112be3017ebb479d0cfa92e7" style="width: 100.0%; height: 100.0%;"><b><i>Fimbristylis complanata</i></b><br>NY 1907<br><a href="https://www.gbif.org/occurrence/1928078543" target="_blank">GBIF record</a></div>`)[0];
+                popup_69bc515a315328c29bee845e120d98cf.setContent(html_a3c7e3c0112be3017ebb479d0cfa92e7);
+            
+        
+
+        circle_marker_597ba4ecf444191f023b0db975765c89.bindPopup(popup_69bc515a315328c29bee845e120d98cf)
+        ;
+
+        
+    
+    
+            circle_marker_597ba4ecf444191f023b0db975765c89.bindTooltip(
+                `<div>
+                     <i>Fimbristylis complanata</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9833a7455e5dad313a18144627c372b8 = L.circleMarker(
+                [16.7756, -62.2161],
+                {"bubblingMouseEvents": true, "color": "#bb1a1a", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bb1a1a", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_d9517cf7676dde955dd7489e0611ed71);
+        
+    
+        var popup_c2b0cf2a7a69896db11abb5975d66a68 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_391dfd15031c2267afd3c07e4c011a6b = $(`<div id="html_391dfd15031c2267afd3c07e4c011a6b" style="width: 100.0%; height: 100.0%;"><b><i>Anthephora hermaphrodita</i></b><br>US 2000<br><a href="https://www.gbif.org/occurrence/1322619497" target="_blank">GBIF record</a></div>`)[0];
+                popup_c2b0cf2a7a69896db11abb5975d66a68.setContent(html_391dfd15031c2267afd3c07e4c011a6b);
+            
+        
+
+        circle_marker_9833a7455e5dad313a18144627c372b8.bindPopup(popup_c2b0cf2a7a69896db11abb5975d66a68)
+        ;
+
+        
+    
+    
+            circle_marker_9833a7455e5dad313a18144627c372b8.bindTooltip(
+                `<div>
+                     <i>Anthephora hermaphrodita</i>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
