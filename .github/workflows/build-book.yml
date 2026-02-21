@@ -35,16 +35,11 @@ jobs:
 
     - name: Run data pipeline (inspectData.ipynb)
       run: |
-        jupyter nbconvert --to notebook --execute inspectData.ipynb \
-          --ExecutePreprocessor.timeout=600 \
-          --output inspectData_executed.ipynb
-      continue-on-error: false
+        jupyter execute inspectData.ipynb --timeout=600
 
     - name: Generate taxa pages with maps (generateTaxaPages.ipynb)
       run: |
-        jupyter nbconvert --to notebook --execute generateTaxaPages.ipynb \
-          --ExecutePreprocessor.timeout=300 \
-          --output generateTaxaPages_executed.ipynb
+        jupyter execute generateTaxaPages.ipynb --timeout=300
 
     - name: Build Jupyter Book
       run: |
