@@ -1,1 +1,223 @@
-<meta http-equiv="Refresh" content="0; url=intro.html" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visible Nature Atlas: Grasses and sedges of Montserrat</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f7f9fc;
+            color: #2c3e50;
+            min-height: 100vh;
+        }
+        .hero {
+            background: linear-gradient(135deg, #1a5632 0%, #2d8a56 50%, #4aa564 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .lang-card {
+            background: white;
+            border: 1px solid #e0e6ed;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .lang-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .lang-code {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a5632;
+        }
+        .lang-name {
+            font-size: 1rem;
+            margin: 0.3rem 0;
+        }
+        .lang-stats {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+            color: #7f8c8d;
+        }
+        .footer a { color: #1a5632; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Grasses and sedges of Montserrat</h1>
+        <p>A multilingual biodiversity atlas from the Visible Nature Atlas series.
+           Choose a language edition below.</p>
+    </div>
+    <div class="container">
+        <h2>Available editions (21 languages)</h2>
+        <div class="lang-grid">
+            
+        <a href="vi/index.html" class="lang-card">
+            <div class="lang-code">vi</div>
+            <div class="lang-name">Vietnamese</div>
+            <div class="lang-stats">26/25 species with Wikipedia (104%)</div>
+        </a>
+
+        <a href="sv/index.html" class="lang-card">
+            <div class="lang-code">sv</div>
+            <div class="lang-name">Swedish</div>
+            <div class="lang-stats">25/25 species with Wikipedia (100%)</div>
+        </a>
+
+        <a href="en/index.html" class="lang-card">
+            <div class="lang-code">en</div>
+            <div class="lang-name">English</div>
+            <div class="lang-stats">14/25 species with Wikipedia (56%)</div>
+        </a>
+
+        <a href="zh/index.html" class="lang-card">
+            <div class="lang-code">zh</div>
+            <div class="lang-name">Chinese</div>
+            <div class="lang-stats">12/25 species with Wikipedia (48%)</div>
+        </a>
+
+        <a href="fr/index.html" class="lang-card">
+            <div class="lang-code">fr</div>
+            <div class="lang-name">French</div>
+            <div class="lang-stats">9/25 species with Wikipedia (36%)</div>
+        </a>
+
+        <a href="es/index.html" class="lang-card">
+            <div class="lang-code">es</div>
+            <div class="lang-name">Spanish</div>
+            <div class="lang-stats">8/25 species with Wikipedia (32%)</div>
+        </a>
+
+        <a href="id/index.html" class="lang-card">
+            <div class="lang-code">id</div>
+            <div class="lang-name">Indonesian</div>
+            <div class="lang-stats">7/25 species with Wikipedia (28%)</div>
+        </a>
+
+        <a href="pt/index.html" class="lang-card">
+            <div class="lang-code">pt</div>
+            <div class="lang-name">Portuguese</div>
+            <div class="lang-stats">6/25 species with Wikipedia (24%)</div>
+        </a>
+
+        <a href="ar/index.html" class="lang-card">
+            <div class="lang-code">ar</div>
+            <div class="lang-name">Arabic</div>
+            <div class="lang-stats">4/25 species with Wikipedia (16%)</div>
+        </a>
+
+        <a href="ja/index.html" class="lang-card">
+            <div class="lang-code">ja</div>
+            <div class="lang-name">Japanese</div>
+            <div class="lang-stats">4/25 species with Wikipedia (16%)</div>
+        </a>
+
+        <a href="nl/index.html" class="lang-card">
+            <div class="lang-code">nl</div>
+            <div class="lang-name">Dutch</div>
+            <div class="lang-stats">4/25 species with Wikipedia (16%)</div>
+        </a>
+
+        <a href="ast/index.html" class="lang-card">
+            <div class="lang-code">ast</div>
+            <div class="lang-name">Asturian</div>
+            <div class="lang-stats">3/25 species with Wikipedia (12%)</div>
+        </a>
+
+        <a href="fi/index.html" class="lang-card">
+            <div class="lang-code">fi</div>
+            <div class="lang-name">Finnish</div>
+            <div class="lang-stats">3/25 species with Wikipedia (12%)</div>
+        </a>
+
+        <a href="ko/index.html" class="lang-card">
+            <div class="lang-code">ko</div>
+            <div class="lang-name">Korean</div>
+            <div class="lang-stats">3/25 species with Wikipedia (12%)</div>
+        </a>
+
+        <a href="ml/index.html" class="lang-card">
+            <div class="lang-code">ml</div>
+            <div class="lang-name">Malayalam</div>
+            <div class="lang-stats">3/25 species with Wikipedia (12%)</div>
+        </a>
+
+        <a href="ne/index.html" class="lang-card">
+            <div class="lang-code">ne</div>
+            <div class="lang-name">ne</div>
+            <div class="lang-stats">3/25 species with Wikipedia (12%)</div>
+        </a>
+
+        <a href="pam/index.html" class="lang-card">
+            <div class="lang-code">pam</div>
+            <div class="lang-name">pam</div>
+            <div class="lang-stats">3/25 species with Wikipedia (12%)</div>
+        </a>
+
+        <a href="pl/index.html" class="lang-card">
+            <div class="lang-code">pl</div>
+            <div class="lang-name">Polish</div>
+            <div class="lang-stats">3/25 species with Wikipedia (12%)</div>
+        </a>
+
+        <a href="su/index.html" class="lang-card">
+            <div class="lang-code">su</div>
+            <div class="lang-name">su</div>
+            <div class="lang-stats">3/25 species with Wikipedia (12%)</div>
+        </a>
+
+        <a href="th/index.html" class="lang-card">
+            <div class="lang-code">th</div>
+            <div class="lang-name">Thai</div>
+            <div class="lang-stats">3/25 species with Wikipedia (12%)</div>
+        </a>
+
+        <a href="tr/index.html" class="lang-card">
+            <div class="lang-code">tr</div>
+            <div class="lang-name">Turkish</div>
+            <div class="lang-stats">3/25 species with Wikipedia (12%)</div>
+        </a>
+
+        </div>
+    </div>
+    <div class="footer">
+        Data from <a href="https://www.gbif.org/">GBIF</a>,
+        <a href="https://www.wikidata.org/">Wikidata</a>,
+        <a href="https://en.wikipedia.org/">Wikipedia</a>,
+        <a href="https://plazi.org/">Plazi</a> &amp;
+        <a href="https://www.biodiversitylibrary.org/">BHL</a>.
+        Maps &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors.<br>
+        Built with <a href="https://jupyterbook.org/">Jupyter Book</a>.
+        Source on <a href="https://github.com/VisibleNatureAtlas/Grasses-and-sedges-of-Montserrat">GitHub</a>.
+    </div>
+</body>
+</html>

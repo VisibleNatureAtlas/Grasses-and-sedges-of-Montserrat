@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a124cfd43a50257c96f56a3cc70c264c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 450.0px;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position:fixed; bottom:20px; left:20px; z-index:9999;
+                background:white; padding:10px; border-radius:6px;
+                border:1px solid #ccc; font-size:12px; line-height:1.8;">
+        <b>Basis of record</b><br>
+        <span style="color:#2ecc71;">●</span> Human observation<br>
+        <span style="color:#e67e22;">●</span> Preserved specimen<br>
+        <span style="color:#3498db;">●</span> Machine observation<br>
+        <span style="color:#9b59b6;">●</span> Literature<br>
+        <span style="color:#95a5a6;">●</span> Other
+    </div>
+    
+    
+            <div class="folium-map" id="map_a124cfd43a50257c96f56a3cc70c264c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a124cfd43a50257c96f56a3cc70c264c = L.map(
+                "map_a124cfd43a50257c96f56a3cc70c264c",
+                {
+                    center: [16.55281861403509, -66.48326336842106],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 3,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e17b518ff9ccef76ad4d2a78b556f624 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e17b518ff9ccef76ad4d2a78b556f624.addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+            var tile_layer_bd659be76cf97e8de35d30ea1399c550 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u00a9 \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_bd659be76cf97e8de35d30ea1399c550.addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+            var circle_marker_0d09a5d806fca8607cb7ed7414c7f552 = L.circleMarker(
+                [16.040267, -61.665617],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_d2181d32c05dfe577d0f6203c8c94421 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2926eda4e2131a07545622e214b2b4be = $(`<div id="html_2926eda4e2131a07545622e214b2b4be" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Guadeloupe, 2025<br><em>iNaturalist</em><br><a href="https://www.gbif.org/occurrence/5167268066" target="_blank">GBIF record</a></div>`)[0];
+                popup_d2181d32c05dfe577d0f6203c8c94421.setContent(html_2926eda4e2131a07545622e214b2b4be);
+            
+        
+
+        circle_marker_0d09a5d806fca8607cb7ed7414c7f552.bindPopup(popup_d2181d32c05dfe577d0f6203c8c94421)
+        ;
+
+        
+    
+    
+            circle_marker_0d09a5d806fca8607cb7ed7414c7f552.bindTooltip(
+                `<div>
+                     Guadeloupe , 2025
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0b803de46c0a490b4cdc0ec51a3348fa = L.circleMarker(
+                [16.040501, -61.666159],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_5cde4fb4515ea63734c3fe210972a2b8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bc851edb6cf65e6e975ca0ba8c40f766 = $(`<div id="html_bc851edb6cf65e6e975ca0ba8c40f766" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Guadeloupe, 2025<br><em>iNaturalist</em><br><a href="https://www.gbif.org/occurrence/5167991435" target="_blank">GBIF record</a></div>`)[0];
+                popup_5cde4fb4515ea63734c3fe210972a2b8.setContent(html_bc851edb6cf65e6e975ca0ba8c40f766);
+            
+        
+
+        circle_marker_0b803de46c0a490b4cdc0ec51a3348fa.bindPopup(popup_5cde4fb4515ea63734c3fe210972a2b8)
+        ;
+
+        
+    
+    
+            circle_marker_0b803de46c0a490b4cdc0ec51a3348fa.bindTooltip(
+                `<div>
+                     Guadeloupe , 2025
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_73370ca79018fbe58ee178aae703c1c0 = L.circleMarker(
+                [14.814657, -61.165399],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_33ccf363ec4f17de7c1da8e4d2e13bbc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f62f373ffb1380480a4bee1a2c82c143 = $(`<div id="html_f62f373ffb1380480a4bee1a2c82c143" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Martinique, 2025<br><em>iNaturalist</em><br><a href="https://www.gbif.org/occurrence/5897557407" target="_blank">GBIF record</a></div>`)[0];
+                popup_33ccf363ec4f17de7c1da8e4d2e13bbc.setContent(html_f62f373ffb1380480a4bee1a2c82c143);
+            
+        
+
+        circle_marker_73370ca79018fbe58ee178aae703c1c0.bindPopup(popup_33ccf363ec4f17de7c1da8e4d2e13bbc)
+        ;
+
+        
+    
+    
+            circle_marker_73370ca79018fbe58ee178aae703c1c0.bindTooltip(
+                `<div>
+                     Martinique , 2025
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c9d5914003a743d99b68e31884602d8e = L.circleMarker(
+                [14.806314, -61.156734],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_fcc5294f9991b4ef27e0dc6274178aa8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cdb611aa6f0e325121214fa7b01fd95c = $(`<div id="html_cdb611aa6f0e325121214fa7b01fd95c" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Martinique, 2025<br><em>iNaturalist</em><br><a href="https://www.gbif.org/occurrence/5897859618" target="_blank">GBIF record</a></div>`)[0];
+                popup_fcc5294f9991b4ef27e0dc6274178aa8.setContent(html_cdb611aa6f0e325121214fa7b01fd95c);
+            
+        
+
+        circle_marker_c9d5914003a743d99b68e31884602d8e.bindPopup(popup_fcc5294f9991b4ef27e0dc6274178aa8)
+        ;
+
+        
+    
+    
+            circle_marker_c9d5914003a743d99b68e31884602d8e.bindTooltip(
+                `<div>
+                     Martinique , 2025
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_38bfcd1fef2edc89b685b7ef9882c41c = L.circleMarker(
+                [14.811059, -61.168386],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_8cc48050f129c60577bbeacca4674f85 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9666c9810fea308a6a9e0264ad7d5bcc = $(`<div id="html_9666c9810fea308a6a9e0264ad7d5bcc" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Martinique, 2025<br><em>iNaturalist</em><br><a href="https://www.gbif.org/occurrence/5897893547" target="_blank">GBIF record</a></div>`)[0];
+                popup_8cc48050f129c60577bbeacca4674f85.setContent(html_9666c9810fea308a6a9e0264ad7d5bcc);
+            
+        
+
+        circle_marker_38bfcd1fef2edc89b685b7ef9882c41c.bindPopup(popup_8cc48050f129c60577bbeacca4674f85)
+        ;
+
+        
+    
+    
+            circle_marker_38bfcd1fef2edc89b685b7ef9882c41c.bindTooltip(
+                `<div>
+                     Martinique , 2025
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8fe14aa3a031baab031bc18e8a1b9c40 = L.circleMarker(
+                [16.059264, -61.671065],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_8e5eefbfc575414894a80743737637ba = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_16e6feb857b8242294bdbd7c459b9332 = $(`<div id="html_16e6feb857b8242294bdbd7c459b9332" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Guadeloupe, 2025<br><em>iNaturalist</em><br><a href="https://www.gbif.org/occurrence/5935535619" target="_blank">GBIF record</a></div>`)[0];
+                popup_8e5eefbfc575414894a80743737637ba.setContent(html_16e6feb857b8242294bdbd7c459b9332);
+            
+        
+
+        circle_marker_8fe14aa3a031baab031bc18e8a1b9c40.bindPopup(popup_8e5eefbfc575414894a80743737637ba)
+        ;
+
+        
+    
+    
+            circle_marker_8fe14aa3a031baab031bc18e8a1b9c40.bindTooltip(
+                `<div>
+                     Guadeloupe , 2025
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f864ac638e170126a8aacd23df87d235 = L.circleMarker(
+                [16.038805, -61.664882],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_278a85224c2d80fe14b9730c117a4fa3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_400a5b37e663edd3368c8cc414c4cf63 = $(`<div id="html_400a5b37e663edd3368c8cc414c4cf63" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Guadeloupe, 2023<br><em>iNaturalist</em><br><a href="https://www.gbif.org/occurrence/4506334910" target="_blank">GBIF record</a></div>`)[0];
+                popup_278a85224c2d80fe14b9730c117a4fa3.setContent(html_400a5b37e663edd3368c8cc414c4cf63);
+            
+        
+
+        circle_marker_f864ac638e170126a8aacd23df87d235.bindPopup(popup_278a85224c2d80fe14b9730c117a4fa3)
+        ;
+
+        
+    
+    
+            circle_marker_f864ac638e170126a8aacd23df87d235.bindTooltip(
+                `<div>
+                     Guadeloupe , 2023
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_266e88385dfe05d6dd2cb8dec680eaee = L.circleMarker(
+                [16.039291, -61.6649],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_d0dbdde454fb85fc88566435feb01959 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3bd78fc316e41347832a0bd59b6673be = $(`<div id="html_3bd78fc316e41347832a0bd59b6673be" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Guadeloupe, 2023<br><em>iNaturalist</em><br><a href="https://www.gbif.org/occurrence/4506501905" target="_blank">GBIF record</a></div>`)[0];
+                popup_d0dbdde454fb85fc88566435feb01959.setContent(html_3bd78fc316e41347832a0bd59b6673be);
+            
+        
+
+        circle_marker_266e88385dfe05d6dd2cb8dec680eaee.bindPopup(popup_d0dbdde454fb85fc88566435feb01959)
+        ;
+
+        
+    
+    
+            circle_marker_266e88385dfe05d6dd2cb8dec680eaee.bindTooltip(
+                `<div>
+                     Guadeloupe , 2023
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2686c84db25ebf2f26569c1d2c6dc4f7 = L.circleMarker(
+                [16.040664, -61.666292],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_6c0a4bff4899b52f3fb6433ce3567de8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_aca1deabdfda76f260220aa18867ec9f = $(`<div id="html_aca1deabdfda76f260220aa18867ec9f" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Guadeloupe, 2023<br><em>iNaturalist</em><br><a href="https://www.gbif.org/occurrence/4506502927" target="_blank">GBIF record</a></div>`)[0];
+                popup_6c0a4bff4899b52f3fb6433ce3567de8.setContent(html_aca1deabdfda76f260220aa18867ec9f);
+            
+        
+
+        circle_marker_2686c84db25ebf2f26569c1d2c6dc4f7.bindPopup(popup_6c0a4bff4899b52f3fb6433ce3567de8)
+        ;
+
+        
+    
+    
+            circle_marker_2686c84db25ebf2f26569c1d2c6dc4f7.bindTooltip(
+                `<div>
+                     Guadeloupe , 2023
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d9877d4edc6bf2f89da6f9e128002d7e = L.circleMarker(
+                [16.043959, -61.667203],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_39966bec6a5adec5e628d48eee11f676 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_043a4777ad428f949d426a8ed3f525f7 = $(`<div id="html_043a4777ad428f949d426a8ed3f525f7" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Guadeloupe, 2023<br><em>iNaturalist</em><br><a href="https://www.gbif.org/occurrence/4507893544" target="_blank">GBIF record</a></div>`)[0];
+                popup_39966bec6a5adec5e628d48eee11f676.setContent(html_043a4777ad428f949d426a8ed3f525f7);
+            
+        
+
+        circle_marker_d9877d4edc6bf2f89da6f9e128002d7e.bindPopup(popup_39966bec6a5adec5e628d48eee11f676)
+        ;
+
+        
+    
+    
+            circle_marker_d9877d4edc6bf2f89da6f9e128002d7e.bindTooltip(
+                `<div>
+                     Guadeloupe , 2023
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f00de1dd3e9d114ff637f5dcbd751748 = L.circleMarker(
+                [19.038525, -70.523453],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_64db6ab9b9d6e9f82d0bc0243031455c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e366616900067f94bad9668ecf85c9f9 = $(`<div id="html_e366616900067f94bad9668ecf85c9f9" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 2022<br><em>iNaturalist</em><br><a href="https://www.gbif.org/occurrence/5759625904" target="_blank">GBIF record</a></div>`)[0];
+                popup_64db6ab9b9d6e9f82d0bc0243031455c.setContent(html_e366616900067f94bad9668ecf85c9f9);
+            
+        
+
+        circle_marker_f00de1dd3e9d114ff637f5dcbd751748.bindPopup(popup_64db6ab9b9d6e9f82d0bc0243031455c)
+        ;
+
+        
+    
+    
+            circle_marker_f00de1dd3e9d114ff637f5dcbd751748.bindTooltip(
+                `<div>
+                     Dominican Republic , 2022
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b58414049fdd94f1ac8c5571cef20d61 = L.circleMarker(
+                [16.176427, -61.73179],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_80f33512ec8fc7759a1efe307d247a27 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c12f117c98d37a29db9facd7023285d5 = $(`<div id="html_c12f117c98d37a29db9facd7023285d5" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Guadeloupe, 2020<br><em>iNaturalist</em><br><a href="https://www.gbif.org/occurrence/6159403418" target="_blank">GBIF record</a></div>`)[0];
+                popup_80f33512ec8fc7759a1efe307d247a27.setContent(html_c12f117c98d37a29db9facd7023285d5);
+            
+        
+
+        circle_marker_b58414049fdd94f1ac8c5571cef20d61.bindPopup(popup_80f33512ec8fc7759a1efe307d247a27)
+        ;
+
+        
+    
+    
+            circle_marker_b58414049fdd94f1ac8c5571cef20d61.bindTooltip(
+                `<div>
+                     Guadeloupe , 2020
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_db744424b60e7eae919ee53c7ab82a9f = L.circleMarker(
+                [18.70046, -70.35976],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_1088181a663fb2f5b1adcf2352a28b99 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_410a845c41a69669f6ea2c422b6aefc7 = $(`<div id="html_410a845c41a69669f6ea2c422b6aefc7" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 2019<br><em>UF</em><br><a href="https://www.gbif.org/occurrence/3329398648" target="_blank">GBIF record</a></div>`)[0];
+                popup_1088181a663fb2f5b1adcf2352a28b99.setContent(html_410a845c41a69669f6ea2c422b6aefc7);
+            
+        
+
+        circle_marker_db744424b60e7eae919ee53c7ab82a9f.bindPopup(popup_1088181a663fb2f5b1adcf2352a28b99)
+        ;
+
+        
+    
+    
+            circle_marker_db744424b60e7eae919ee53c7ab82a9f.bindTooltip(
+                `<div>
+                     Dominican Republic , 2019
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eede87dc19833620ecf0b841343f4971 = L.circleMarker(
+                [18.70046, -70.35976],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_38f14eab4ef5340067fe36ecfaf6ad63 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5ebd5b521a6fa125aca58a08bd990c93 = $(`<div id="html_5ebd5b521a6fa125aca58a08bd990c93" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 2019<br><em>UF</em><br><a href="https://www.gbif.org/occurrence/3329399151" target="_blank">GBIF record</a></div>`)[0];
+                popup_38f14eab4ef5340067fe36ecfaf6ad63.setContent(html_5ebd5b521a6fa125aca58a08bd990c93);
+            
+        
+
+        circle_marker_eede87dc19833620ecf0b841343f4971.bindPopup(popup_38f14eab4ef5340067fe36ecfaf6ad63)
+        ;
+
+        
+    
+    
+            circle_marker_eede87dc19833620ecf0b841343f4971.bindTooltip(
+                `<div>
+                     Dominican Republic , 2019
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b49de440637fd421e825c30b8c74ad13 = L.circleMarker(
+                [20.515278, -74.675833],
+                {"bubblingMouseEvents": true, "color": "#95a5a6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#95a5a6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_bab44da702549d2c2f0f0eb18b7be87b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_61a2e9dbfea688d4965ff3d57ffec782 = $(`<div id="html_61a2e9dbfea688d4965ff3d57ffec782" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Cuba, 2014<br><a href="https://www.gbif.org/occurrence/4135897594" target="_blank">GBIF record</a></div>`)[0];
+                popup_bab44da702549d2c2f0f0eb18b7be87b.setContent(html_61a2e9dbfea688d4965ff3d57ffec782);
+            
+        
+
+        circle_marker_b49de440637fd421e825c30b8c74ad13.bindPopup(popup_bab44da702549d2c2f0f0eb18b7be87b)
+        ;
+
+        
+    
+    
+            circle_marker_b49de440637fd421e825c30b8c74ad13.bindTooltip(
+                `<div>
+                     Cuba , 2014
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4208dabaa579b941164b9d887d8eddd1 = L.circleMarker(
+                [16.040589, -61.666199],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_40dc8a085d313b214a85048a2b243f92 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_04786b7a327c8ce18601a129f20d1f62 = $(`<div id="html_04786b7a327c8ce18601a129f20d1f62" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Guadeloupe, 2009<br><em>iNaturalist</em><br><a href="https://www.gbif.org/occurrence/4510367437" target="_blank">GBIF record</a></div>`)[0];
+                popup_40dc8a085d313b214a85048a2b243f92.setContent(html_04786b7a327c8ce18601a129f20d1f62);
+            
+        
+
+        circle_marker_4208dabaa579b941164b9d887d8eddd1.bindPopup(popup_40dc8a085d313b214a85048a2b243f92)
+        ;
+
+        
+    
+    
+            circle_marker_4208dabaa579b941164b9d887d8eddd1.bindTooltip(
+                `<div>
+                     Guadeloupe , 2009
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4c83d440f3d079a6a56b899995232b30 = L.circleMarker(
+                [19.033333, -70.533333],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_68729b0dace9627b998ce446b726503f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e5db8c160e7e26207a92ae2001529730 = $(`<div id="html_e5db8c160e7e26207a92ae2001529730" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 2006<br><em>IVIC</em><br><a href="https://www.gbif.org/occurrence/4905645772" target="_blank">GBIF record</a></div>`)[0];
+                popup_68729b0dace9627b998ce446b726503f.setContent(html_e5db8c160e7e26207a92ae2001529730);
+            
+        
+
+        circle_marker_4c83d440f3d079a6a56b899995232b30.bindPopup(popup_68729b0dace9627b998ce446b726503f)
+        ;
+
+        
+    
+    
+            circle_marker_4c83d440f3d079a6a56b899995232b30.bindTooltip(
+                `<div>
+                     Dominican Republic , 2006
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7d1635cb80eadb2c13c5855ce6becdb1 = L.circleMarker(
+                [15.2083, -61.3417],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_129a05aea4d67400e7f77bf903428f26 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e942eb75c33645cf640d5876d82675b5 = $(`<div id="html_e942eb75c33645cf640d5876d82675b5" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominica, 1996<br><em>USF</em><br><a href="https://www.gbif.org/occurrence/1503232588" target="_blank">GBIF record</a></div>`)[0];
+                popup_129a05aea4d67400e7f77bf903428f26.setContent(html_e942eb75c33645cf640d5876d82675b5);
+            
+        
+
+        circle_marker_7d1635cb80eadb2c13c5855ce6becdb1.bindPopup(popup_129a05aea4d67400e7f77bf903428f26)
+        ;
+
+        
+    
+    
+            circle_marker_7d1635cb80eadb2c13c5855ce6becdb1.bindTooltip(
+                `<div>
+                     Dominica , 1996
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_63d9c8a80f67a4d0847a66e0c1d5551f = L.circleMarker(
+                [15.208333, -61.341667],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_ed5bf7a47fb7987a2287e52812e8e64b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_77724c5461ef82d16fb2c6164c0e3f89 = $(`<div id="html_77724c5461ef82d16fb2c6164c0e3f89" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominica, 1996<br><em>VT</em><br><a href="https://www.gbif.org/occurrence/2573148102" target="_blank">GBIF record</a></div>`)[0];
+                popup_ed5bf7a47fb7987a2287e52812e8e64b.setContent(html_77724c5461ef82d16fb2c6164c0e3f89);
+            
+        
+
+        circle_marker_63d9c8a80f67a4d0847a66e0c1d5551f.bindPopup(popup_ed5bf7a47fb7987a2287e52812e8e64b)
+        ;
+
+        
+    
+    
+            circle_marker_63d9c8a80f67a4d0847a66e0c1d5551f.bindTooltip(
+                `<div>
+                     Dominica , 1996
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1b576e472abf6da6aa01a5c51ea775aa = L.circleMarker(
+                [15.37, -61.33],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_f98b7cacef090bf622c437f22225c3ba = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6d5b180778cad9e05a0b0b5329d52705 = $(`<div id="html_6d5b180778cad9e05a0b0b5329d52705" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominica, 1993<br><em>US</em><br><a href="https://www.gbif.org/occurrence/1321806379" target="_blank">GBIF record</a></div>`)[0];
+                popup_f98b7cacef090bf622c437f22225c3ba.setContent(html_6d5b180778cad9e05a0b0b5329d52705);
+            
+        
+
+        circle_marker_1b576e472abf6da6aa01a5c51ea775aa.bindPopup(popup_f98b7cacef090bf622c437f22225c3ba)
+        ;
+
+        
+    
+    
+            circle_marker_1b576e472abf6da6aa01a5c51ea775aa.bindTooltip(
+                `<div>
+                     Dominica , 1993
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c5c50e1df90d577bfdb58aaa78c28b7b = L.circleMarker(
+                [19.05, -70.55],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_97bf926fd5cd358947e45b327a8b7657 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b3b376728ce35dc4366b76b1f746c912 = $(`<div id="html_b3b376728ce35dc4366b76b1f746c912" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 1992<br><em>CM</em><br><a href="https://www.gbif.org/occurrence/2859012127" target="_blank">GBIF record</a></div>`)[0];
+                popup_97bf926fd5cd358947e45b327a8b7657.setContent(html_b3b376728ce35dc4366b76b1f746c912);
+            
+        
+
+        circle_marker_c5c50e1df90d577bfdb58aaa78c28b7b.bindPopup(popup_97bf926fd5cd358947e45b327a8b7657)
+        ;
+
+        
+    
+    
+            circle_marker_c5c50e1df90d577bfdb58aaa78c28b7b.bindTooltip(
+                `<div>
+                     Dominican Republic , 1992
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7183cdc51e4af42e8e7d991bdc675826 = L.circleMarker(
+                [19.03333, -70.51667],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_392371c3584358589a41c639936710ab = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7b2c30e197bfd37540069ad9272cf8e5 = $(`<div id="html_7b2c30e197bfd37540069ad9272cf8e5" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 1992<br><a href="https://www.gbif.org/occurrence/2517190789" target="_blank">GBIF record</a></div>`)[0];
+                popup_392371c3584358589a41c639936710ab.setContent(html_7b2c30e197bfd37540069ad9272cf8e5);
+            
+        
+
+        circle_marker_7183cdc51e4af42e8e7d991bdc675826.bindPopup(popup_392371c3584358589a41c639936710ab)
+        ;
+
+        
+    
+    
+            circle_marker_7183cdc51e4af42e8e7d991bdc675826.bindTooltip(
+                `<div>
+                     Dominican Republic , 1992
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_413c3068872c1a39a31c808eb03f7d46 = L.circleMarker(
+                [19.07, -70.55],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_529287d624fd2d8cf7a42ffb82a6ac90 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5b883b1cf779d48e92df591917c587e5 = $(`<div id="html_5b883b1cf779d48e92df591917c587e5" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 1986<br><em>NY</em><br><a href="https://www.gbif.org/occurrence/1930620594" target="_blank">GBIF record</a></div>`)[0];
+                popup_529287d624fd2d8cf7a42ffb82a6ac90.setContent(html_5b883b1cf779d48e92df591917c587e5);
+            
+        
+
+        circle_marker_413c3068872c1a39a31c808eb03f7d46.bindPopup(popup_529287d624fd2d8cf7a42ffb82a6ac90)
+        ;
+
+        
+    
+    
+            circle_marker_413c3068872c1a39a31c808eb03f7d46.bindTooltip(
+                `<div>
+                     Dominican Republic , 1986
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7ae9eebb0c7bc72ac2ccc790f0ed1fce = L.circleMarker(
+                [19.07, -70.57],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_9bbfb299d21cbd1f184fefcd55a6ec47 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1c22e0c83775b84dbe55bc8addb19007 = $(`<div id="html_1c22e0c83775b84dbe55bc8addb19007" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 1982<br><em>NY</em><br><a href="https://www.gbif.org/occurrence/1929725135" target="_blank">GBIF record</a></div>`)[0];
+                popup_9bbfb299d21cbd1f184fefcd55a6ec47.setContent(html_1c22e0c83775b84dbe55bc8addb19007);
+            
+        
+
+        circle_marker_7ae9eebb0c7bc72ac2ccc790f0ed1fce.bindPopup(popup_9bbfb299d21cbd1f184fefcd55a6ec47)
+        ;
+
+        
+    
+    
+            circle_marker_7ae9eebb0c7bc72ac2ccc790f0ed1fce.bindTooltip(
+                `<div>
+                     Dominican Republic , 1982
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d4323389f48e77fe1b681c3808d59610 = L.circleMarker(
+                [18.53333, -70.41666],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_27f2d98bd7baebdc528f0d99e28debe4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cf7cbb641cde811e3918c1d8789636d8 = $(`<div id="html_cf7cbb641cde811e3918c1d8789636d8" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 1982<br><em>MO</em><br><a href="https://www.gbif.org/occurrence/1259639108" target="_blank">GBIF record</a></div>`)[0];
+                popup_27f2d98bd7baebdc528f0d99e28debe4.setContent(html_cf7cbb641cde811e3918c1d8789636d8);
+            
+        
+
+        circle_marker_d4323389f48e77fe1b681c3808d59610.bindPopup(popup_27f2d98bd7baebdc528f0d99e28debe4)
+        ;
+
+        
+    
+    
+            circle_marker_d4323389f48e77fe1b681c3808d59610.bindTooltip(
+                `<div>
+                     Dominican Republic , 1982
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a9bcd795ca7912bfe316f3554efaa244 = L.circleMarker(
+                [18.53, -70.42],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_7d67df92380c8054c0af0efa591fdfbf = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_131cd437b7e98813a44ce12f712237db = $(`<div id="html_131cd437b7e98813a44ce12f712237db" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 1982<br><em>NY</em><br><a href="https://www.gbif.org/occurrence/1929888390" target="_blank">GBIF record</a></div>`)[0];
+                popup_7d67df92380c8054c0af0efa591fdfbf.setContent(html_131cd437b7e98813a44ce12f712237db);
+            
+        
+
+        circle_marker_a9bcd795ca7912bfe316f3554efaa244.bindPopup(popup_7d67df92380c8054c0af0efa591fdfbf)
+        ;
+
+        
+    
+    
+            circle_marker_a9bcd795ca7912bfe316f3554efaa244.bindTooltip(
+                `<div>
+                     Dominican Republic , 1982
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3fe245f007634b431382c5bfde00d31c = L.circleMarker(
+                [18.47, -70.37],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_fa87b3d0692a68531ae2061f2674bb55 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c7ac6e6ec4d40b8126399d4b3decc366 = $(`<div id="html_c7ac6e6ec4d40b8126399d4b3decc366" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 1982<br><em>NY</em><br><a href="https://www.gbif.org/occurrence/1929925192" target="_blank">GBIF record</a></div>`)[0];
+                popup_fa87b3d0692a68531ae2061f2674bb55.setContent(html_c7ac6e6ec4d40b8126399d4b3decc366);
+            
+        
+
+        circle_marker_3fe245f007634b431382c5bfde00d31c.bindPopup(popup_fa87b3d0692a68531ae2061f2674bb55)
+        ;
+
+        
+    
+    
+            circle_marker_3fe245f007634b431382c5bfde00d31c.bindTooltip(
+                `<div>
+                     Dominican Republic , 1982
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cc806cc5e3498782a50a75ed32f95b63 = L.circleMarker(
+                [18.53333, -70.41667],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_e290262cac1e5bc6504cbf54098e4c9a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2ba8b163017088e86cb8c7ceea3579cb = $(`<div id="html_2ba8b163017088e86cb8c7ceea3579cb" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 1982<br><a href="https://www.gbif.org/occurrence/2515473862" target="_blank">GBIF record</a></div>`)[0];
+                popup_e290262cac1e5bc6504cbf54098e4c9a.setContent(html_2ba8b163017088e86cb8c7ceea3579cb);
+            
+        
+
+        circle_marker_cc806cc5e3498782a50a75ed32f95b63.bindPopup(popup_e290262cac1e5bc6504cbf54098e4c9a)
+        ;
+
+        
+    
+    
+            circle_marker_cc806cc5e3498782a50a75ed32f95b63.bindTooltip(
+                `<div>
+                     Dominican Republic , 1982
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dfa8f3c6b75be213e4c692855450f104 = L.circleMarker(
+                [18.725, -70.37],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_2c65898987dc8dda49c6c88ffd822415 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b60864c2dc1ad5e467011e9760acdaa6 = $(`<div id="html_b60864c2dc1ad5e467011e9760acdaa6" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 1982<br><em>NY</em><br><a href="https://www.gbif.org/occurrence/1929920119" target="_blank">GBIF record</a></div>`)[0];
+                popup_2c65898987dc8dda49c6c88ffd822415.setContent(html_b60864c2dc1ad5e467011e9760acdaa6);
+            
+        
+
+        circle_marker_dfa8f3c6b75be213e4c692855450f104.bindPopup(popup_2c65898987dc8dda49c6c88ffd822415)
+        ;
+
+        
+    
+    
+            circle_marker_dfa8f3c6b75be213e4c692855450f104.bindTooltip(
+                `<div>
+                     Dominican Republic , 1982
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_965e8c06cbf9c66cc445a9ce1e9ad019 = L.circleMarker(
+                [18.725, -70.37],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_be763ba75bdf9482f684b554ba772798 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fddc444b5d3c4565b2f059351e1fc1ed = $(`<div id="html_fddc444b5d3c4565b2f059351e1fc1ed" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 1982<br><em>NY</em><br><a href="https://www.gbif.org/occurrence/1930730760" target="_blank">GBIF record</a></div>`)[0];
+                popup_be763ba75bdf9482f684b554ba772798.setContent(html_fddc444b5d3c4565b2f059351e1fc1ed);
+            
+        
+
+        circle_marker_965e8c06cbf9c66cc445a9ce1e9ad019.bindPopup(popup_be763ba75bdf9482f684b554ba772798)
+        ;
+
+        
+    
+    
+            circle_marker_965e8c06cbf9c66cc445a9ce1e9ad019.bindTooltip(
+                `<div>
+                     Dominican Republic , 1982
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d62795894c8a42bba38bfbfa35082286 = L.circleMarker(
+                [19.05, -70.5],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_bd27055d2e1927d576965e3552e49494 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8e1f10e235f3915606545e162778afbd = $(`<div id="html_8e1f10e235f3915606545e162778afbd" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 1982<br><em>US</em><br><a href="https://www.gbif.org/occurrence/1319348170" target="_blank">GBIF record</a></div>`)[0];
+                popup_bd27055d2e1927d576965e3552e49494.setContent(html_8e1f10e235f3915606545e162778afbd);
+            
+        
+
+        circle_marker_d62795894c8a42bba38bfbfa35082286.bindPopup(popup_bd27055d2e1927d576965e3552e49494)
+        ;
+
+        
+    
+    
+            circle_marker_d62795894c8a42bba38bfbfa35082286.bindTooltip(
+                `<div>
+                     Dominican Republic , 1982
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cecc4fdcd80a9b02d478d0725b73e718 = L.circleMarker(
+                [18.6667, -70.5833],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_45a4aee157bc2531c76f54c5e533de9b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a3ec285d6f20cb3c268dd99b4b52a3ea = $(`<div id="html_a3ec285d6f20cb3c268dd99b4b52a3ea" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 1982<br><em>USF</em><br><a href="https://www.gbif.org/occurrence/1503211349" target="_blank">GBIF record</a></div>`)[0];
+                popup_45a4aee157bc2531c76f54c5e533de9b.setContent(html_a3ec285d6f20cb3c268dd99b4b52a3ea);
+            
+        
+
+        circle_marker_cecc4fdcd80a9b02d478d0725b73e718.bindPopup(popup_45a4aee157bc2531c76f54c5e533de9b)
+        ;
+
+        
+    
+    
+            circle_marker_cecc4fdcd80a9b02d478d0725b73e718.bindTooltip(
+                `<div>
+                     Dominican Republic , 1982
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1b93cf730692c7e36498b69211a58ca9 = L.circleMarker(
+                [19.05, -70.5],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_e41efeea14d2f72187e103b7f1ea433a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_19dcb79e8d1bd4f1e241975c6830c9a3 = $(`<div id="html_19dcb79e8d1bd4f1e241975c6830c9a3" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 1982<br><em>NY</em><br><a href="https://www.gbif.org/occurrence/1927811169" target="_blank">GBIF record</a></div>`)[0];
+                popup_e41efeea14d2f72187e103b7f1ea433a.setContent(html_19dcb79e8d1bd4f1e241975c6830c9a3);
+            
+        
+
+        circle_marker_1b93cf730692c7e36498b69211a58ca9.bindPopup(popup_e41efeea14d2f72187e103b7f1ea433a)
+        ;
+
+        
+    
+    
+            circle_marker_1b93cf730692c7e36498b69211a58ca9.bindTooltip(
+                `<div>
+                     Dominican Republic , 1982
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_327c93ead23319bc490e0aafe410bd63 = L.circleMarker(
+                [18.483414, -70.233258],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_aa3a52fd7d7777f7f13e6410986ead76 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_01ae01e3940944b26e07a6ad85e1a5bd = $(`<div id="html_01ae01e3940944b26e07a6ad85e1a5bd" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominican Republic, 1974<br><em>NY</em><br><a href="https://www.gbif.org/occurrence/1928828298" target="_blank">GBIF record</a></div>`)[0];
+                popup_aa3a52fd7d7777f7f13e6410986ead76.setContent(html_01ae01e3940944b26e07a6ad85e1a5bd);
+            
+        
+
+        circle_marker_327c93ead23319bc490e0aafe410bd63.bindPopup(popup_aa3a52fd7d7777f7f13e6410986ead76)
+        ;
+
+        
+    
+    
+            circle_marker_327c93ead23319bc490e0aafe410bd63.bindTooltip(
+                `<div>
+                     Dominican Republic , 1974
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_63bb961feb4a00cdbb076b97e838708f = L.circleMarker(
+                [-9.971314, -67.811661],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_bd3b17297913173c083162ad0a999234 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8b57be96a58d0adb1ac2248342f349de = $(`<div id="html_8b57be96a58d0adb1ac2248342f349de" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Brazil, 1974<br><em>NY</em><br><a href="https://www.gbif.org/occurrence/1931105196" target="_blank">GBIF record</a></div>`)[0];
+                popup_bd3b17297913173c083162ad0a999234.setContent(html_8b57be96a58d0adb1ac2248342f349de);
+            
+        
+
+        circle_marker_63bb961feb4a00cdbb076b97e838708f.bindPopup(popup_bd3b17297913173c083162ad0a999234)
+        ;
+
+        
+    
+    
+            circle_marker_63bb961feb4a00cdbb076b97e838708f.bindTooltip(
+                `<div>
+                     Brazil , 1974
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_944ff8b1ab8eaf3dcbed848024987417 = L.circleMarker(
+                [-9.971389, -67.811667],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_472d8a5e1b93673dd2986308a0d5d287 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d1c0f7667782642ef7626418cf478291 = $(`<div id="html_d1c0f7667782642ef7626418cf478291" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Brazil, 1974<br><em>NY</em><br><a href="https://www.gbif.org/occurrence/2998059879" target="_blank">GBIF record</a></div>`)[0];
+                popup_472d8a5e1b93673dd2986308a0d5d287.setContent(html_d1c0f7667782642ef7626418cf478291);
+            
+        
+
+        circle_marker_944ff8b1ab8eaf3dcbed848024987417.bindPopup(popup_472d8a5e1b93673dd2986308a0d5d287)
+        ;
+
+        
+    
+    
+            circle_marker_944ff8b1ab8eaf3dcbed848024987417.bindTooltip(
+                `<div>
+                     Brazil , 1974
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9654844780859c235510f1ed34592c3d = L.circleMarker(
+                [15.3906, -61.2994],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_f7a9d23b7d6631cc7bb941dd007084d5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_912f81af2971c5cd0c543b92108c62c1 = $(`<div id="html_912f81af2971c5cd0c543b92108c62c1" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominica, 1964<br><em>US</em><br><a href="https://www.gbif.org/occurrence/1322858098" target="_blank">GBIF record</a></div>`)[0];
+                popup_f7a9d23b7d6631cc7bb941dd007084d5.setContent(html_912f81af2971c5cd0c543b92108c62c1);
+            
+        
+
+        circle_marker_9654844780859c235510f1ed34592c3d.bindPopup(popup_f7a9d23b7d6631cc7bb941dd007084d5)
+        ;
+
+        
+    
+    
+            circle_marker_9654844780859c235510f1ed34592c3d.bindTooltip(
+                `<div>
+                     Dominica , 1964
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_57ac8909e84dac2c8ebc1208f2845019 = L.circleMarker(
+                [18.310985, -65.790625],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_fb906214306ee6301d5e3a3c57f3dab9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e030e714642059d60527287475397a71 = $(`<div id="html_e030e714642059d60527287475397a71" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Puerto Rico, 1960<br><em>NY</em><br><a href="https://www.gbif.org/occurrence/1930688214" target="_blank">GBIF record</a></div>`)[0];
+                popup_fb906214306ee6301d5e3a3c57f3dab9.setContent(html_e030e714642059d60527287475397a71);
+            
+        
+
+        circle_marker_57ac8909e84dac2c8ebc1208f2845019.bindPopup(popup_fb906214306ee6301d5e3a3c57f3dab9)
+        ;
+
+        
+    
+    
+            circle_marker_57ac8909e84dac2c8ebc1208f2845019.bindTooltip(
+                `<div>
+                     Puerto Rico , 1960
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_edfce627b2d5af6ca1934e8fe9211aa8 = L.circleMarker(
+                [17.635, -63.2388],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_42ef5c18cd012e159c5ef39d47f2cf3a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_804a3c3852dc621e31e205ce5b1f7786 = $(`<div id="html_804a3c3852dc621e31e205ce5b1f7786" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Bonaire, Sint Eustatius and Saba, 1953<br><a href="https://www.gbif.org/occurrence/3783447613" target="_blank">GBIF record</a></div>`)[0];
+                popup_42ef5c18cd012e159c5ef39d47f2cf3a.setContent(html_804a3c3852dc621e31e205ce5b1f7786);
+            
+        
+
+        circle_marker_edfce627b2d5af6ca1934e8fe9211aa8.bindPopup(popup_42ef5c18cd012e159c5ef39d47f2cf3a)
+        ;
+
+        
+    
+    
+            circle_marker_edfce627b2d5af6ca1934e8fe9211aa8.bindTooltip(
+                `<div>
+                     Bonaire, Sint Eustatius and Saba , 1953
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_15ca4c36e94fa6d3e1b6dde515716b45 = L.circleMarker(
+                [20.58333, -74.9333],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_207e252bf498f11e56d8216c112bab95 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a4d96c8551fa7ca122b9697817899765 = $(`<div id="html_a4d96c8551fa7ca122b9697817899765" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Cuba, 1945<br><em>UdeM</em><br><a href="https://www.gbif.org/occurrence/473281568" target="_blank">GBIF record</a></div>`)[0];
+                popup_207e252bf498f11e56d8216c112bab95.setContent(html_a4d96c8551fa7ca122b9697817899765);
+            
+        
+
+        circle_marker_15ca4c36e94fa6d3e1b6dde515716b45.bindPopup(popup_207e252bf498f11e56d8216c112bab95)
+        ;
+
+        
+    
+    
+            circle_marker_15ca4c36e94fa6d3e1b6dde515716b45.bindTooltip(
+                `<div>
+                     Cuba , 1945
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d7e45fb9cd9b8fc3d7a2030567e35cba = L.circleMarker(
+                [20.6445, -74.904],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_66df9f8db56c9ad5e9cc8a256bd45a5a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a1a0f5256def1486a9e0ee3deb7dfde3 = $(`<div id="html_a1a0f5256def1486a9e0ee3deb7dfde3" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Cuba, 1944<br><em>UdeM</em><br><a href="https://www.gbif.org/occurrence/473281565" target="_blank">GBIF record</a></div>`)[0];
+                popup_66df9f8db56c9ad5e9cc8a256bd45a5a.setContent(html_a1a0f5256def1486a9e0ee3deb7dfde3);
+            
+        
+
+        circle_marker_d7e45fb9cd9b8fc3d7a2030567e35cba.bindPopup(popup_66df9f8db56c9ad5e9cc8a256bd45a5a)
+        ;
+
+        
+    
+    
+            circle_marker_d7e45fb9cd9b8fc3d7a2030567e35cba.bindTooltip(
+                `<div>
+                     Cuba , 1944
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_37e145efeba52baea526f312a819244f = L.circleMarker(
+                [20.5955, -74.8468],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_5b88d66b33995bc5686445ea58a67175 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b3e56ebb937ce71e169a9c2682dbd38d = $(`<div id="html_b3e56ebb937ce71e169a9c2682dbd38d" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Cuba, 1943<br><em>UdeM</em><br><a href="https://www.gbif.org/occurrence/473281559" target="_blank">GBIF record</a></div>`)[0];
+                popup_5b88d66b33995bc5686445ea58a67175.setContent(html_b3e56ebb937ce71e169a9c2682dbd38d);
+            
+        
+
+        circle_marker_37e145efeba52baea526f312a819244f.bindPopup(popup_5b88d66b33995bc5686445ea58a67175)
+        ;
+
+        
+    
+    
+            circle_marker_37e145efeba52baea526f312a819244f.bindTooltip(
+                `<div>
+                     Cuba , 1943
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6ef2585dc6192689e3ffff975875cf4f = L.circleMarker(
+                [20.5955, -74.8468],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_926a5eb364de1b254cc35fd4090d6f9a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d64692c400d9893a96240c83d3f4ebd6 = $(`<div id="html_d64692c400d9893a96240c83d3f4ebd6" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Cuba, 1943<br><em>UdeM</em><br><a href="https://www.gbif.org/occurrence/473281562" target="_blank">GBIF record</a></div>`)[0];
+                popup_926a5eb364de1b254cc35fd4090d6f9a.setContent(html_d64692c400d9893a96240c83d3f4ebd6);
+            
+        
+
+        circle_marker_6ef2585dc6192689e3ffff975875cf4f.bindPopup(popup_926a5eb364de1b254cc35fd4090d6f9a)
+        ;
+
+        
+    
+    
+            circle_marker_6ef2585dc6192689e3ffff975875cf4f.bindTooltip(
+                `<div>
+                     Cuba , 1943
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_351994f5deda36800a0dda6e7170df51 = L.circleMarker(
+                [18.296076, -65.781006],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_3012cecad4a05f2b17a95b6bbd6133f9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e43ccbde122fa794334729092edc44cf = $(`<div id="html_e43ccbde122fa794334729092edc44cf" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Puerto Rico, 1912<br><em>NY</em><br><a href="https://www.gbif.org/occurrence/1929184626" target="_blank">GBIF record</a></div>`)[0];
+                popup_3012cecad4a05f2b17a95b6bbd6133f9.setContent(html_e43ccbde122fa794334729092edc44cf);
+            
+        
+
+        circle_marker_351994f5deda36800a0dda6e7170df51.bindPopup(popup_3012cecad4a05f2b17a95b6bbd6133f9)
+        ;
+
+        
+    
+    
+            circle_marker_351994f5deda36800a0dda6e7170df51.bindTooltip(
+                `<div>
+                     Puerto Rico , 1912
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5355d5acb4fe2d5b0db2bbfa56a137fe = L.circleMarker(
+                [18.296076, -65.781006],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_3b4e3777132496e200cbd41751234d70 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3bc19fd8c01050bb8f7ba7a762b13274 = $(`<div id="html_3bc19fd8c01050bb8f7ba7a762b13274" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Puerto Rico, 1912<br><em>NY</em><br><a href="https://www.gbif.org/occurrence/1929891156" target="_blank">GBIF record</a></div>`)[0];
+                popup_3b4e3777132496e200cbd41751234d70.setContent(html_3bc19fd8c01050bb8f7ba7a762b13274);
+            
+        
+
+        circle_marker_5355d5acb4fe2d5b0db2bbfa56a137fe.bindPopup(popup_3b4e3777132496e200cbd41751234d70)
+        ;
+
+        
+    
+    
+            circle_marker_5355d5acb4fe2d5b0db2bbfa56a137fe.bindTooltip(
+                `<div>
+                     Puerto Rico , 1912
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_91d86d026dc3e9b80ea405a2e1a86e2d = L.circleMarker(
+                [20.566667, -75.716667],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_89a484b13462b18611d35ece514dfa4f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7d0fc01faa2780149b0f5babf4c7dfb4 = $(`<div id="html_7d0fc01faa2780149b0f5babf4c7dfb4" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Cuba, 1909<br><em>MO</em><br><a href="https://www.gbif.org/occurrence/1259640469" target="_blank">GBIF record</a></div>`)[0];
+                popup_89a484b13462b18611d35ece514dfa4f.setContent(html_7d0fc01faa2780149b0f5babf4c7dfb4);
+            
+        
+
+        circle_marker_91d86d026dc3e9b80ea405a2e1a86e2d.bindPopup(popup_89a484b13462b18611d35ece514dfa4f)
+        ;
+
+        
+    
+    
+            circle_marker_91d86d026dc3e9b80ea405a2e1a86e2d.bindTooltip(
+                `<div>
+                     Cuba , 1909
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a31a5399fa76964041eb21dc8f4b166e = L.circleMarker(
+                [17.63552, -63.23716],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_a87c3e5ce553c3236ab26049694af7bc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e77bece1e6090331d94681a1e936e475 = $(`<div id="html_e77bece1e6090331d94681a1e936e475" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Bonaire, Sint Eustatius and Saba, 1906<br><a href="https://www.gbif.org/occurrence/2515537722" target="_blank">GBIF record</a></div>`)[0];
+                popup_a87c3e5ce553c3236ab26049694af7bc.setContent(html_e77bece1e6090331d94681a1e936e475);
+            
+        
+
+        circle_marker_a31a5399fa76964041eb21dc8f4b166e.bindPopup(popup_a87c3e5ce553c3236ab26049694af7bc)
+        ;
+
+        
+    
+    
+            circle_marker_a31a5399fa76964041eb21dc8f4b166e.bindTooltip(
+                `<div>
+                     Bonaire, Sint Eustatius and Saba , 1906
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_05bec6470e4d6cac217386ca70120161 = L.circleMarker(
+                [17.63552, -63.23716],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_c4d90c69055215b65540f2e5afdd0d00 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4f001236e88296469adc8fb89df67d4a = $(`<div id="html_4f001236e88296469adc8fb89df67d4a" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Bonaire, Sint Eustatius and Saba, 1906<br><a href="https://www.gbif.org/occurrence/2517081284" target="_blank">GBIF record</a></div>`)[0];
+                popup_c4d90c69055215b65540f2e5afdd0d00.setContent(html_4f001236e88296469adc8fb89df67d4a);
+            
+        
+
+        circle_marker_05bec6470e4d6cac217386ca70120161.bindPopup(popup_c4d90c69055215b65540f2e5afdd0d00)
+        ;
+
+        
+    
+    
+            circle_marker_05bec6470e4d6cac217386ca70120161.bindTooltip(
+                `<div>
+                     Bonaire, Sint Eustatius and Saba , 1906
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa753f2aad2e1400f3c35170e00ad10e = L.circleMarker(
+                [15.33, -61.33],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_51623de56a2e4773dc9fda1ace5f748c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_913797baf5ced32302361da013f9065c = $(`<div id="html_913797baf5ced32302361da013f9065c" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominica, 1903<br><em>NY</em><br><a href="https://www.gbif.org/occurrence/1930738881" target="_blank">GBIF record</a></div>`)[0];
+                popup_51623de56a2e4773dc9fda1ace5f748c.setContent(html_913797baf5ced32302361da013f9065c);
+            
+        
+
+        circle_marker_fa753f2aad2e1400f3c35170e00ad10e.bindPopup(popup_51623de56a2e4773dc9fda1ace5f748c)
+        ;
+
+        
+    
+    
+            circle_marker_fa753f2aad2e1400f3c35170e00ad10e.bindTooltip(
+                `<div>
+                     Dominica , 1903
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8cb741fac59af87d9e1fa8cb9dc42219 = L.circleMarker(
+                [15.3336, -61.323],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_5dd0c6ca70f67ec2b306ce46811f70b6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f4a4ec03a42da7564ed8e0ab9fb1c280 = $(`<div id="html_f4a4ec03a42da7564ed8e0ab9fb1c280" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Dominica, 1890<br><em>US</em><br><a href="https://www.gbif.org/occurrence/1322745497" target="_blank">GBIF record</a></div>`)[0];
+                popup_5dd0c6ca70f67ec2b306ce46811f70b6.setContent(html_f4a4ec03a42da7564ed8e0ab9fb1c280);
+            
+        
+
+        circle_marker_8cb741fac59af87d9e1fa8cb9dc42219.bindPopup(popup_5dd0c6ca70f67ec2b306ce46811f70b6)
+        ;
+
+        
+    
+    
+            circle_marker_8cb741fac59af87d9e1fa8cb9dc42219.bindTooltip(
+                `<div>
+                     Dominica , 1890
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1ee199ebd5ec222067b8583cb310e493 = L.circleMarker(
+                [14.65485, -61.01929],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_3010754d4f5be3545e1cd06e9a5a498a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4bb587b0259281949d4cf67ad46a563d = $(`<div id="html_4bb587b0259281949d4cf67ad46a563d" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Martinique<br><a href="https://www.gbif.org/occurrence/3846920377" target="_blank">GBIF record</a></div>`)[0];
+                popup_3010754d4f5be3545e1cd06e9a5a498a.setContent(html_4bb587b0259281949d4cf67ad46a563d);
+            
+        
+
+        circle_marker_1ee199ebd5ec222067b8583cb310e493.bindPopup(popup_3010754d4f5be3545e1cd06e9a5a498a)
+        ;
+
+        
+    
+    
+            circle_marker_1ee199ebd5ec222067b8583cb310e493.bindTooltip(
+                `<div>
+                     Martinique 
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_db0db04f28de20f0006cfedad5d11a00 = L.circleMarker(
+                [16.19759, -61.53977],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_379e81ed99e725660f15227548e6ec07 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_eb13c502af3967e5e7e7b7aca06b20e1 = $(`<div id="html_eb13c502af3967e5e7e7b7aca06b20e1" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Guadeloupe<br><a href="https://www.gbif.org/occurrence/3847030894" target="_blank">GBIF record</a></div>`)[0];
+                popup_379e81ed99e725660f15227548e6ec07.setContent(html_eb13c502af3967e5e7e7b7aca06b20e1);
+            
+        
+
+        circle_marker_db0db04f28de20f0006cfedad5d11a00.bindPopup(popup_379e81ed99e725660f15227548e6ec07)
+        ;
+
+        
+    
+    
+            circle_marker_db0db04f28de20f0006cfedad5d11a00.bindTooltip(
+                `<div>
+                     Guadeloupe 
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_20b3d971cd065b54d4a0e367afdb15a0 = L.circleMarker(
+                [14.65485, -61.01929],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_9bb7a9be2c3469caa72bf8923365e50a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ecb353ed1a1ea1d524e5eb33aa070199 = $(`<div id="html_ecb353ed1a1ea1d524e5eb33aa070199" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Martinique<br><a href="https://www.gbif.org/occurrence/3935029964" target="_blank">GBIF record</a></div>`)[0];
+                popup_9bb7a9be2c3469caa72bf8923365e50a.setContent(html_ecb353ed1a1ea1d524e5eb33aa070199);
+            
+        
+
+        circle_marker_20b3d971cd065b54d4a0e367afdb15a0.bindPopup(popup_9bb7a9be2c3469caa72bf8923365e50a)
+        ;
+
+        
+    
+    
+            circle_marker_20b3d971cd065b54d4a0e367afdb15a0.bindTooltip(
+                `<div>
+                     Martinique 
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_98f4a9aa7509c58c894a79d5f7ffe5c3 = L.circleMarker(
+                [16.19759, -61.53977],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_b1f75d3d96fd1fffd14725894954cb83 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_13044a652d8c0b40497712c0260bb3f1 = $(`<div id="html_13044a652d8c0b40497712c0260bb3f1" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Guadeloupe<br><a href="https://www.gbif.org/occurrence/3935137605" target="_blank">GBIF record</a></div>`)[0];
+                popup_b1f75d3d96fd1fffd14725894954cb83.setContent(html_13044a652d8c0b40497712c0260bb3f1);
+            
+        
+
+        circle_marker_98f4a9aa7509c58c894a79d5f7ffe5c3.bindPopup(popup_b1f75d3d96fd1fffd14725894954cb83)
+        ;
+
+        
+    
+    
+            circle_marker_98f4a9aa7509c58c894a79d5f7ffe5c3.bindTooltip(
+                `<div>
+                     Guadeloupe 
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c2d7fc52329f3a17a113ec3340ed3e96 = L.circleMarker(
+                [20.33056, -74.59306],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_6475c3f4ea56a9eba6c0472ebb80de68 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f591f028e2c399b5be11081d206128f7 = $(`<div id="html_f591f028e2c399b5be11081d206128f7" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Cuba<br><em>B</em><br><a href="https://www.gbif.org/occurrence/4444390463" target="_blank">GBIF record</a></div>`)[0];
+                popup_6475c3f4ea56a9eba6c0472ebb80de68.setContent(html_f591f028e2c399b5be11081d206128f7);
+            
+        
+
+        circle_marker_c2d7fc52329f3a17a113ec3340ed3e96.bindPopup(popup_6475c3f4ea56a9eba6c0472ebb80de68)
+        ;
+
+        
+    
+    
+            circle_marker_c2d7fc52329f3a17a113ec3340ed3e96.bindTooltip(
+                `<div>
+                     Cuba 
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_240ba8fb660f82c4f7d45dc095fd2c40 = L.circleMarker(
+                [16.19761, -61.5398],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_4bd07e4a9cfb948eab76f2053037cfe5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6ae6e1c4915ac759041e2506179ac6e3 = $(`<div id="html_6ae6e1c4915ac759041e2506179ac6e3" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Guadeloupe<br><a href="https://www.gbif.org/occurrence/4547702104" target="_blank">GBIF record</a></div>`)[0];
+                popup_4bd07e4a9cfb948eab76f2053037cfe5.setContent(html_6ae6e1c4915ac759041e2506179ac6e3);
+            
+        
+
+        circle_marker_240ba8fb660f82c4f7d45dc095fd2c40.bindPopup(popup_4bd07e4a9cfb948eab76f2053037cfe5)
+        ;
+
+        
+    
+    
+            circle_marker_240ba8fb660f82c4f7d45dc095fd2c40.bindTooltip(
+                `<div>
+                     Guadeloupe 
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_82927aedaf761bb40c9f1fa6cc9bf21e = L.circleMarker(
+                [14.65485, -61.01929],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a124cfd43a50257c96f56a3cc70c264c);
+        
+    
+        var popup_89d8f30b781e2450f26d88c85693deb5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_705e416fd5b7bee4a1dd178c5c5de4ff = $(`<div id="html_705e416fd5b7bee4a1dd178c5c5de4ff" style="width: 100.0%; height: 100.0%;"><b>Machaerina restioides</b><br>Martinique<br><a href="https://www.gbif.org/occurrence/4548743775" target="_blank">GBIF record</a></div>`)[0];
+                popup_89d8f30b781e2450f26d88c85693deb5.setContent(html_705e416fd5b7bee4a1dd178c5c5de4ff);
+            
+        
+
+        circle_marker_82927aedaf761bb40c9f1fa6cc9bf21e.bindPopup(popup_89d8f30b781e2450f26d88c85693deb5)
+        ;
+
+        
+    
+    
+            circle_marker_82927aedaf761bb40c9f1fa6cc9bf21e.bindTooltip(
+                `<div>
+                     Martinique 
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

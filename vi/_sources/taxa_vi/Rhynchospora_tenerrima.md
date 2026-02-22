@@ -1,0 +1,43 @@
+# *Rhynchospora tenerrima*
+
+[Wikidata (Q15557622)](https://www.wikidata.org/wiki/Q15557622) · [Scholia](https://scholia.toolforge.org/taxon/Q15557622) · [GBIF](https://www.gbif.org/species/search?q=Rhynchospora%20tenerrima)
+
+Read about this species on [Vietnamese Wikipedia](https://vi.wikipedia.org/wiki/Rhynchospora_tenerrima).
+
+Also available in: [Swedish](https://sv.wikipedia.org/wiki/Rhynchospora_tenerrima)
+
+## Global distribution
+
+Map shows **300** georeferenced GBIF records (out of 516 total) for *Rhynchospora tenerrima* worldwide. Click markers for details.
+
+```{raw} html
+<iframe src="../maps/Rhynchospora_tenerrima.html" width="100%" height="500px" frameborder="0" scrolling="no" style="border-radius:8px; margin-bottom:1rem;"></iframe>
+```
+
+Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors. Occurrence data from [GBIF](https://www.gbif.org/).
+
+## Taxonomic treatments
+
+Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
+
+- [Silva, Caio Lima Braga da; Nunes, Clebiana de Sá; Schneider, Layla Jamylle Costa; Silva, Juliene de Fátima Maciel da; Alves, Karina de Nazaré Lima; Conde, Maíra Luciana Guimarães; Fernandes-Junior, Aluisio José; Gil, André dos Santos Bragança — *Cyperaceae nos campos de natureza de Cametá, Pará, Amazônia, Brasil*](https://treatment.plazi.org/id/03F9C92C7E13FFE45F18FD9736B68847)
+
+[View all treatments for *Rhynchospora tenerrima* on Synospecies](https://synospecies.plazi.org/#Rhynchospora%20tenerrima)
+
+## Observations from Montserrat
+
+Observations from the GBIF dataset covering Montserrat grasses and sedges.
+
+### The New York Botanical Garden
+
+**Observation:** [https://www.gbif.org/occurrence/1928397665](https://www.gbif.org/occurrence/1928397665)  
+**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+![Rhynchospora tenerrima — The New York Botanical Garden](http://sweetgum.nybg.org/images3/394/196/v-035-01298444.jpg)
+
+### nan
+
+**Observation:** [https://www.gbif.org/occurrence/1322604769](https://www.gbif.org/occurrence/1322604769)  
+**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+![Rhynchospora tenerrima — nan](http://n2t.net/ark:/65665/m325c1df88-3d00-4190-94c7-f53733efdc9e)
