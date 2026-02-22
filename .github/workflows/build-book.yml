@@ -41,7 +41,7 @@ jobs:
       env:
         BHL_API_KEY: ${{ secrets.BHL_API_KEY }}
       run: |
-        jupyter execute generateTaxaPages.ipynb --timeout=900
+        jupyter execute generateTaxaPages.ipynb --timeout=1800
 
     - name: Build all language editions
       run: |
