@@ -20,9 +20,25 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part E)*](https://treatment.plazi.org/id/B7C742EB4F3D5B095D26B71849E7D7AE)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part D)*](https://treatment.plazi.org/id/B7C742EB4F3D5B095D26B71849E7D7AE)
 
 [View all treatments for *Eriochloa punctata* on Synospecies](https://synospecies.plazi.org/#Eriochloa%20punctata)
+
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [Taxonomical studies on Ustilaginales. XIII]() — Vánky, K, 1995
+
+- [Catalogue of the grasses of Cuba](https://www.biodiversitylibrary.org/title/4358) — Hitchcock, A. S. (Albert Spear),
+
+- [THE SPIKELET CALLUS OF ERIOCHLOA VILLOSA (POACEAE)]() — Darbyshire, S. J., Simard, Marie-Josée, Nurse, Robert E, 2013
+
+- [Chromosome Studies in American Paniceae (Poaceae, Panicoideae)1]() — Sede, Silvana, Escobar, Alejandro, Morrone, Osvaldo, Zuloaga, Fernando O., 2010
+
+[Search for *Eriochloa punctata* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Eriochloa+punctata)
 
 ## Observations from Montserrat
 

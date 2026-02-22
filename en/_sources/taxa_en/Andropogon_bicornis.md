@@ -18,9 +18,25 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part S)*](https://treatment.plazi.org/id/979101060A05F63A936A717E7DEF5C3C)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part C)*](https://treatment.plazi.org/id/979101060A05F63A936A717E7DEF5C3C)
 
 [View all treatments for *Andropogon bicornis* on Synospecies](https://synospecies.plazi.org/#Andropogon%20bicornis)
+
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [Wind dispersal of some North American species of Andropogon (Gramineae)]() — Campbell, Christopher S., 1983
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [Taxonomic studies on Ustilaginomycetes – 26]() — Vánky, K, 2006
+
+- [Lectotypifications in the genus Andropogon (Poaceae)]() — Longhi-Wagner, Hilda Maria., Zanin, Ana, 2005
+
+[Search for *Andropogon bicornis* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Andropogon+bicornis)
 
 ## Observations from Montserrat
 

@@ -26,6 +26,22 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Fimbristylis complanata* on Synospecies](https://synospecies.plazi.org/#Fimbristylis%20complanata)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [A TREATMENT OF ABILDGAARDIA, BULBOSTYLIS AND FIMBRISTYLIS (CYPERACEAE) FOR NORTH AMERICA]() — Kral, Robert, 1971
+
+- [FIMBRISTYLIS AND BULBOSTYLIS: GENERIC LIMITS AS SEEN BY A STUDENT OF SOUTHERN AFRICAN SPECIES]() — Gordon-Gray, Kathleen D, 1971
+
+- [Cyperaceae of East Africa -III]() — Napper, D M
+
+- [Studies in Cyperaceae]() — Blake, S. T. (Stanley Thatcher),
+
+- [Contributions from the Queensland Herbarium](https://www.biodiversitylibrary.org/title/202146) — Queensland Herbarium.
+
+[Search for *Fimbristylis complanata* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Fimbristylis+complanata)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.

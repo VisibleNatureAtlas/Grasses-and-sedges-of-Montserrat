@@ -18,11 +18,27 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part Z)*](https://treatment.plazi.org/id/F8C44094365A1CCB8D0B40A0094E2D68)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part W)*](https://treatment.plazi.org/id/F8C44094365A1CCB8D0B40A0094E2D68)
 
 - [Wessapak, Paweena; Ngernsaengsaruay, Chatchai; Duangjai, Suthee — *A taxonomic revision of Cenchrus L. (Poaceae) in Thailand, with lectotypification of Pennisetum macrostachyum Benth.*](https://treatment.plazi.org/id/904F188F77A15336B00861F518365C21)
 
 [View all treatments for *Cenchrus echinatus* on Synospecies](https://synospecies.plazi.org/#Cenchrus%20echinatus)
+
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [﻿A taxonomic revision of Cenchrus L. (Poaceae) in Thailand, with lectotypification of Pennisetum macrostachyum Benth.]() — Wessapak, Paweena, Ngernsaengsaruay, Chatchai, Duangjai, Sutee, 2023
+
+- [The genus Cenchrus (Poaceae) in Australia]() — Weston, A. S., 1974
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [Cenchrus and Pennisetum: fascicle morphology]() — Sohns, E R, 1955
+
+[Search for *Cenchrus echinatus* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Cenchrus+echinatus)
 
 ## Observations from Montserrat
 

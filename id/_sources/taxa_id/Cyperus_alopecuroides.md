@@ -24,6 +24,22 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Cyperus alopecuroides* on Synospecies](https://synospecies.plazi.org/#Cyperus%20alopecuroides)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [A REPORT OF FOUR EXOTIC 'CYPERUS' (CYPERACEAE) SPECIES NEW TO FLORIDA, U.S.A]() — Carter, Richard, Mears, Randy L, Burks, Kathleen Craddock, Bryson, Charles T., 1996
+
+- [The sedges (Cyperaceae) of Barbados]() — Rogers, Charles G, Mcclain, B, 1998
+
+- [Végétation des milieux aquatiques stagnants des Petites Antilles et relation entre la minéralisation des eaux et la distribution des macrophytes]() — Jérémie, J, Jeune, B, 1992
+
+- [Significance of pre-1753 botanical explorations in temperate North America on Linnaeus' first edition of Species Plantarum]() — Reveal, James L., 1983
+
+- [Phytologia](https://www.biodiversitylibrary.org/title/12678) — Gleason, Henry A. (Henry Allan),, Moldenke, Alma L. (Alma Lance),, Moldenke, Harold N. (Harold Norman),
+
+[Search for *Cyperus alopecuroides* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Cyperus+alopecuroides)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.

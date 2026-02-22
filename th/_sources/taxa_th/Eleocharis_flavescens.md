@@ -22,6 +22,22 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Eleocharis flavescens* on Synospecies](https://synospecies.plazi.org/#Eleocharis%20flavescens)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Monographic studies in the genus Eleocharis - V (continued)]() — Svenson, Henry K., 1939
+
+- [O gênero Eleocharis R. Br. (Cyperaceae) nos ecossistemas aquáticos temporários da planície costeira do Estado do Rio de Janeiro]() — Gil, André Dos Santos Bragança, Bove, Cláudia Petean,, 2004
+
+- [Two additions to the flora of Oklahoma and notes on Xyris jupicai (Xyridaceae) in Oklahoma]() — Singhurst, Jason R., Bridges, Edwin L., Holmes, Walter C., 2007
+
+- [Monographic studies in the genus Eleocharis [I - concl.]]() — Svenson, Henry K., 1929
+
+- [Monographic Studies in the Genus Eleocharis - V (concluded)]() — Svenson, Henry K., 1939
+
+[Search for *Eleocharis flavescens* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Eleocharis+flavescens)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.

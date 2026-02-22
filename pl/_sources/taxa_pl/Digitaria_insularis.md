@@ -18,11 +18,27 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part G)*](https://treatment.plazi.org/id/07AB096233818A65E5BF29D357ED9C54)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part Z)*](https://treatment.plazi.org/id/07AB096233818A65E5BF29D357ED9C54)
 
 - [Medico, Julia Mariela Lo; Tosto, Daniela Sandra; Rua, Gabriel Hugo; Agrasar, Zulma Esther Rúgolo de; Scataglini, Maria Amalia; Vega, Andrea Susana — *Phylogeny of Digitaria Sections Trichachne and Trichophorae (Poaceae, Panicoideae, Paniceae): A Morphological and Molecular Analysis. New Circumscription and Synopsis*](https://treatment.plazi.org/id/039630375931916DFC88FB10FDD2FEE3)
 
 [View all treatments for *Digitaria insularis* on Synospecies](https://synospecies.plazi.org/#Digitaria%20insularis)
+
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Bulletin](https://www.biodiversitylibrary.org/title/115928) — Hawaii Agricultural Experiment Station.
+
+- [Range grasses of Hawaii](https://www.biodiversitylibrary.org/title/87631) — Ripperton, J. C. (John Carson),
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [A SYNOPSIS OF DIGITARIA (PANICEAE, PANICOIDEAE, POACEAE) IN MEXICO, INCLUDING THE NEW SPECIES DIGITARIA MICHOACANENSIS]() — Sanchez-Ken, Jorge, 2012
+
+- [ADDITIONS AND CORRECTIONS TO THE BAHAMA FLORA—II]() — Gillis, William Thomas,, Proctor, George Richardson,, 1975
+
+[Search for *Digitaria insularis* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Digitaria+insularis)
 
 ## Observations from Montserrat
 

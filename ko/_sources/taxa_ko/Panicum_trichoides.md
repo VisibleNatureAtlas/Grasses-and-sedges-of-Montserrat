@@ -26,21 +26,37 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Panicum trichoides* on Synospecies](https://synospecies.plazi.org/#Panicum%20trichoides)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [O GENERO PANICUM L. (GRAMINEAE/POACEAE) NA RESTINGA DA PRAIA DA PRINCESA, APA DE ALGODOAL/MAIANDEUA, MARACANA, PARA]() — Da Rocha, Antônio Elielson Sousa, De Nazaré Do C. Bastos, Maria, De Souza Secco, Ricardo, 2001
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
+
+- [Composición florística y estructura de bosques estacionalmente secos en el sur-occidental de Ecuador, provincia del Loja, municipios de Macara y Zapotillo]() — Aguirre, Zhofre, Kvist, Lars Peter, 2009
+
+- [Determinations of Killip-Smith Colombian Collection [USNM]]() — Killip, Ellsworth P. (Ellsworth Paine),, Smith, Albert C. (Albert Charles),, Hitchcock, A. S. (Albert Spear),, Chase, Agnes,, Blake, S. F. (Sidney Fay),, Pilger, R. (Robert),, Schulz, Otto Eugen,, Perkins, Janet Russell,, 1926-1927
+
+[Search for *Panicum trichoides* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Panicum+trichoides)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.
 
 ### The New York Botanical Garden
 
-**Observation:** [https://www.gbif.org/occurrence/1929461864](https://www.gbif.org/occurrence/1929461864)  
-**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-
-![Panicum trichoides — The New York Botanical Garden](http://sweetgum.nybg.org/images3/794/648/1605047.jpg)
-
 **Observation:** [https://www.gbif.org/occurrence/1929233297](https://www.gbif.org/occurrence/1929233297)  
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ![Panicum trichoides — The New York Botanical Garden](http://sweetgum.nybg.org/images3/794/649/1605048.jpg)
+
+**Observation:** [https://www.gbif.org/occurrence/1929461864](https://www.gbif.org/occurrence/1929461864)  
+**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+![Panicum trichoides — The New York Botanical Garden](http://sweetgum.nybg.org/images3/794/648/1605047.jpg)
 
 ### nan
 

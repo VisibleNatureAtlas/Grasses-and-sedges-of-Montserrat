@@ -22,6 +22,22 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Axonopus compressus* on Synospecies](https://synospecies.plazi.org/#Axonopus%20compressus)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [MSMA for Controlling Cyperus kyllingia, Axonopus compressus and Brachiara distachya in Tifgreen Bermuda Grass Turf]() — Leong, Chee Chiew, 1987
+
+- [Induced Deficiency Symptoms of Nitrogen, Phosphorus, Potassium, Magnesium and Iron in Axonopus compressus Cultured in Sand]() — Foong, Thai Wu, Ong, Cecelia Sendi., Fauziah, Sh., 1982
+
+- [Dieback foliar y podredumbre seca de grama bahiana ocasionados por Curvularia lunata en Argentina: (con 4 figuras)]() — Palmucci, Hemilse E, Amat, Graciela
+
+- [Carpet Grass, Axonopus spp]() — Jagoe, R B, 1947
+
+- [The carpet grasses]() — Chase, Agnes,, 1938
+
+[Search for *Axonopus compressus* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Axonopus+compressus)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.

@@ -30,6 +30,22 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Paspalum conjugatum* on Synospecies](https://synospecies.plazi.org/#Paspalum%20conjugatum)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Paspalum Conjugatum Berg. (Poaceae), a new Record To Andhra Pradesh, India]() — Reddy, A Madhusudhan, Sunitha, S, Rao, B Ravi Prasad, 2005
+
+- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [Icones Ascomycetum Venezuelae: Myriogenospora atramentosa]() — Hanlin, R T, Tortolero, O, 1990
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+[Search for *Paspalum conjugatum* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Paspalum+conjugatum)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.

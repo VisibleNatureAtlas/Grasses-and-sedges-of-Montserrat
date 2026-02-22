@@ -26,6 +26,22 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Cyperus brevifolius* on Synospecies](https://synospecies.plazi.org/#Cyperus%20brevifolius)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Cyperus brevifolius in Fairfield County, Connecticut]() — Bradley, Leonard J, 1949
+
+- [CYPERUS SUBGENUS KYLLINGA (CYPERACEAE) IN THE CONTINENTAL UNITED STATES]() — Delahoussaye, A. James,, Thieret, John W., 1967
+
+- [The Native and Naturalised Cyperus Species in South Australia]() — Kloot, Peter Michael,, 1979
+
+- [SIXTEENTH REPORT OF THE COMMITTEE ON PLANT DISTRIBUTION]() — Bean, Ralph C, Hill, A F, Eaton, Richard J., 1963
+
+- [Het geslacht Cyperus (sensu amplo) in den Maleischen Archipel, benevens een overzicht van de geschiedenis der systematiek van de familie der Cyperaceen](https://www.biodiversitylibrary.org/title/15668) — Valckenier Suringar, Jan,
+
+[Search for *Cyperus brevifolius* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Cyperus+brevifolius)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.
@@ -35,6 +51,6 @@ Observations from the GBIF dataset covering Montserrat grasses and sedges.
 **Observation:** [https://www.gbif.org/occurrence/4876300936](https://www.gbif.org/occurrence/4876300936)  
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
-![Cyperus brevifolius — Meise Botanic Garden](https://iiif-manifest.oxalis.br.fgov.be/specimen/BR0000027525951V/manifest)
-
 ![Cyperus brevifolius — Meise Botanic Garden](https://oxalis.br.fgov.be/images/V/BR0/000/027/525/951/BR0000027525951V.jpg)
+
+![Cyperus brevifolius — Meise Botanic Garden](https://iiif-manifest.oxalis.br.fgov.be/specimen/BR0000027525951V/manifest)

@@ -22,6 +22,22 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Paspalum fimbriatum* on Synospecies](https://synospecies.plazi.org/#Paspalum%20fimbriatum)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Paspalum fimbriatum in the United States]() — Banks, Donald J, 1962
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
+
+- [The occurrence of Spirodela oligorrhiza in the United States]() — Daubs, Edwin H, 1962
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+[Search for *Paspalum fimbriatum* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Paspalum+fimbriatum)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.

@@ -20,9 +20,25 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part N)*](https://treatment.plazi.org/id/110EE5CCF9549CF3728BA41E53A40B1A)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part S)*](https://treatment.plazi.org/id/110EE5CCF9549CF3728BA41E53A40B1A)
 
 [View all treatments for *Lasiacis divaricata* on Synospecies](https://synospecies.plazi.org/#Lasiacis%20divaricata)
+
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [New Taxa and Combinations in the Genus Lasiacis (Gramineae)]() — Davidse, Gerrit, 1977
+
+- [A Systematic Study of the Genus Lasiacis (Gramineae: Paniceae)]() — Davidse, Gerrit, 1978
+
+[Search for *Lasiacis divaricata* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Lasiacis+divaricata)
 
 ## Observations from Montserrat
 

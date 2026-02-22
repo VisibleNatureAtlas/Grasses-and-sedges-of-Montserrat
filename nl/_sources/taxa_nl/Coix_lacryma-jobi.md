@@ -18,11 +18,27 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part H)*](https://treatment.plazi.org/id/52B3AC6AE5F5E4F1F91AFC4C469BBE3B)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part Q)*](https://treatment.plazi.org/id/52B3AC6AE5F5E4F1F91AFC4C469BBE3B)
 
 - [DeFilipps, Robert A.; Krupnick, Gary A. — *The medicinal plants of Myanmar*](https://treatment.plazi.org/id/59D1429A69026FF5C0CEC4B4F35FD3F3)
 
 [View all treatments for *Coix lacryma-jobi* on Synospecies](https://synospecies.plazi.org/#Coix%20lacryma-jobi)
+
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Paederiafoetida L., Coix lacryma-jobi L., and Hedychium coronatum Koenig from Iberia Parish, Louisiana]() — Thomas, R. Dale, Mccoy, John J, 1986
+
+- [Job's tears]() — 1971
+
+- [A new species of Coix L. (Poaceae) from Australia]() — Simon, B. K. (Bryan Kenneth),, 1989
+
+- [Raramuri necklaces: A rapidly changing folk-art form in the Sierra Madre Occidental of Northern Mexico]() — Adams, Karen R, Salmon, Enrique, 1997
+
+- [Taxonomical studies on Ustilaginales. XII]() — Vánky, K, 1995
+
+[Search for *Coix lacryma-jobi* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Coix+lacryma-jobi)
 
 ## Observations from Montserrat
 

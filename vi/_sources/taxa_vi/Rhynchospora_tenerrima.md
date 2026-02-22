@@ -24,6 +24,22 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Rhynchospora tenerrima* on Synospecies](https://synospecies.plazi.org/#Rhynchospora%20tenerrima)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
+
+- [REPARTITION GEOGRAPHIQUE DES RHYNCHOSPORA AFRICAINS ET MALGACHES]() — Raynal, J, 1971
+
+- [Two new species of Rhynchospora sect. Tenues (Cyperaceae) from the Guianas, South America]() — Strong, M T, 2005
+
+- [Contribution à la connaissance de la flore sénégalaise]() — Raynal, Jean, Raynal, Aline, 1967
+
+- [Phytologia](https://www.biodiversitylibrary.org/title/12678) — Gleason, Henry A. (Henry Allan),, Moldenke, Alma L. (Alma Lance),, Moldenke, Harold N. (Harold Norman),
+
+[Search for *Rhynchospora tenerrima* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Rhynchospora+tenerrima)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.
