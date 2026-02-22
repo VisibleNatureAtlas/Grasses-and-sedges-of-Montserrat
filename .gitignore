@@ -27,5 +27,14 @@ data/.DS_Store
 maps/
 wikidataMontserrat.ttl
 
+# Generated per-language files (created by generateTaxaPages.ipynb)
+taxa_*/
+_config_*.yml
+_toc_*.yml
+intro_*.md
+.languages.txt
+_build_landing.html
+_deploy/
+
 # Secrets
 .env
