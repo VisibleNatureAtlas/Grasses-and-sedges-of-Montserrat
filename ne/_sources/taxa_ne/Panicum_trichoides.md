@@ -26,6 +26,20 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Panicum trichoides* on Synospecies](https://synospecies.plazi.org/#Panicum%20trichoides)
 
+## Figures from taxonomic treatments
+
+Figures extracted from taxonomic publications by [Plazi TreatmentBank](https://plazi.org/treatmentbank/) and deposited in open repositories.
+
+![Figura 5. Distribución geográfica de Panicum millegrana (•), P. sellowii (Δ) y P. trichoides (-) en Colombia.](https://zenodo.org/record/259874/files/figure.png)
+
+*Figura 5. Distribución geográfica de Panicum millegrana (•), P. sellowii (Δ) y P. trichoides (-) en Colombia.*
+[Source](http://dx.doi.org/10.5281/zenodo.259874)
+
+![Figura 7. Panicum trichoides. (Davidse 18474, MO). A: hábito; B: espiguilla, vista lateral; C: espiguilla vista del lado...](https://zenodo.org/record/259876/files/figure.png)
+
+*Figura 7. Panicum trichoides. (Davidse 18474, MO). A: hábito; B: espiguilla, vista lateral; C: espiguilla vista del lado de la gluma inferior; D: espiguilla vista del lado de la gluma superior; E: pálea inferior; F: antecio superior visto del lado de la pálea; G: antecio superior visto del lado de la lema; H: vista hilar de la cariopsis; I: vista escutelar de la cariopsis.*
+[Source](http://dx.doi.org/10.5281/zenodo.259876)
+
 ## Literature
 
 Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
@@ -60,12 +74,12 @@ Observations from the GBIF dataset covering Montserrat grasses and sedges.
 
 ### nan
 
-**Observation:** [https://www.gbif.org/occurrence/1321827285](https://www.gbif.org/occurrence/1321827285)  
-**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-
-![Panicum trichoides — nan](http://n2t.net/ark:/65665/m31d2ae640-4b6b-4399-a7d7-50e02ec7a5ae)
-
 **Observation:** [https://www.gbif.org/occurrence/1321414054](https://www.gbif.org/occurrence/1321414054)  
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ![Panicum trichoides — nan](http://n2t.net/ark:/65665/m3794f5c78-9cc6-4a25-be08-64688f600cf1)
+
+**Observation:** [https://www.gbif.org/occurrence/1321827285](https://www.gbif.org/occurrence/1321827285)  
+**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+![Panicum trichoides — nan](http://n2t.net/ark:/65665/m31d2ae640-4b6b-4399-a7d7-50e02ec7a5ae)

@@ -18,7 +18,7 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part Q)*](https://treatment.plazi.org/id/52B3AC6AE5F5E4F1F91AFC4C469BBE3B)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part I)*](https://treatment.plazi.org/id/52B3AC6AE5F5E4F1F91AFC4C469BBE3B)
 
 - [DeFilipps, Robert A.; Krupnick, Gary A. — *The medicinal plants of Myanmar*](https://treatment.plazi.org/id/59D1429A69026FF5C0CEC4B4F35FD3F3)
 

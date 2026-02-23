@@ -24,7 +24,7 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 - [Williams, Emma Victoria; Elia Ntandu, John; Ficinski, Pawel; Vorontsova, Maria — *Checklist of Serengeti Ecosystem Grasses*](https://treatment.plazi.org/id/AA46AB92BB75B57621EFC88D555B1646)
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part O)*](https://treatment.plazi.org/id/BBC0BD7AE56AB1A942B051660238F048)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part Y)*](https://treatment.plazi.org/id/BBC0BD7AE56AB1A942B051660238F048)
 
 - [Williams, Emma Victoria; Elia Ntandu, John; Ficinski, Pawel; Vorontsova, Maria — *Checklist of Serengeti Ecosystem Grasses*](https://treatment.plazi.org/id/F847A688EAE2252E9BE894B9588C41B8)
 

@@ -22,6 +22,15 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Rhynchospora tenerrima* on Synospecies](https://synospecies.plazi.org/#Rhynchospora%20tenerrima)
 
+## Figures from taxonomic treatments
+
+Figures extracted from taxonomic publications by [Plazi TreatmentBank](https://plazi.org/treatmentbank/) and deposited in open repositories.
+
+![Figura 7. A-M. Vista lateral das núculas: A. Rhynchospora rugosa, com cerdas perigoniais evidentes (A. J. Fernandes-Júni...](https://zenodo.org/record/10627110/files/figure.png)
+
+*Figura 7. A-M. Vista lateral das núculas: A. Rhynchospora rugosa, com cerdas perigoniais evidentes (A. J. Fernandes-Júnior et al. 605 – MG); B. R. spruceana (C. L. Braga-Silva et al. 141 - MG); C. R. tenerrima (C. L. Braga-Silva et al. 36 - MG) D. R. aff. tenuis (C. A. S. Silva & F. F. N. S. Lara 661 - MG); E. Scleria amazonica, com hipogínio evidente (C. L. Braga-Silva et al. 162 - MG); F. S. cyperina, com hipogínio evidente (C. L. Braga-Silva et al. 164 - MG); G. S. gaertneri, com hipogínio evidente (C. L. Braga-Silva et al. 125 - MG); H. S. macrophylla, com cúpula evidente (C. L. Braga-Silva et al. 135 - MG); I. S. microcarpa, com cúpula evidente (C. L. Braga-Silva et al. 107 - MG); J. S. mitis, com cúpula evidente (C. L. Braga-Silva et al. 134 - MG); K. S. reticularis, com hipogínio evidente (A. Gil et al. 792 - MG); L. S. tenella (C. A. S. Silva 704 – MG); M. S. violacea, com hipogínio evidente (C. L. Braga-Silva et al. 157 - MG).*
+[Source](http://dx.doi.org/10.5281/zenodo.10627110)
+
 ## Literature
 
 Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):

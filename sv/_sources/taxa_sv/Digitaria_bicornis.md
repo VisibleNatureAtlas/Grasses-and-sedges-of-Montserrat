@@ -8,7 +8,7 @@ Also available in: [Vietnamese](https://vi.wikipedia.org/wiki/Digitaria_bicornis
 
 ## Global distribution
 
-Map shows **300** georeferenced GBIF records (out of 3170 total) for *Digitaria bicornis* worldwide. Click markers for details.
+Map shows **300** georeferenced GBIF records (out of 3171 total) for *Digitaria bicornis* worldwide. Click markers for details.
 
 ```{raw} html
 <iframe src="../maps/Digitaria_bicornis.html" width="100%" height="500px" frameborder="0" scrolling="no" style="border-radius:8px; margin-bottom:1rem;"></iframe>

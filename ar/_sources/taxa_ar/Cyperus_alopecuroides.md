@@ -8,7 +8,7 @@ Also available in: [English](https://en.wikipedia.org/wiki/Cyperus_alopecuroides
 
 ## Global distribution
 
-Map shows **300** georeferenced GBIF records (out of 709 total) for *Cyperus alopecuroides* worldwide. Click markers for details.
+Map shows **300** georeferenced GBIF records (out of 710 total) for *Cyperus alopecuroides* worldwide. Click markers for details.
 
 ```{raw} html
 <iframe src="../maps/Cyperus_alopecuroides.html" width="100%" height="500px" frameborder="0" scrolling="no" style="border-radius:8px; margin-bottom:1rem;"></iframe>

@@ -20,7 +20,7 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part C)*](https://treatment.plazi.org/id/979101060A05F63A936A717E7DEF5C3C)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part J)*](https://treatment.plazi.org/id/979101060A05F63A936A717E7DEF5C3C)
 
 [View all treatments for *Andropogon bicornis* on Synospecies](https://synospecies.plazi.org/#Andropogon%20bicornis)
 

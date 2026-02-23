@@ -20,7 +20,7 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part D)*](https://treatment.plazi.org/id/B7C742EB4F3D5B095D26B71849E7D7AE)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part L)*](https://treatment.plazi.org/id/B7C742EB4F3D5B095D26B71849E7D7AE)
 
 [View all treatments for *Eriochloa punctata* on Synospecies](https://synospecies.plazi.org/#Eriochloa%20punctata)
 

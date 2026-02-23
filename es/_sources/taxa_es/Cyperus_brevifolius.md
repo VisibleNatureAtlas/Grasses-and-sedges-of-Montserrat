@@ -49,6 +49,6 @@ Observations from the GBIF dataset covering Montserrat grasses and sedges.
 **Observation:** [https://www.gbif.org/occurrence/4876300936](https://www.gbif.org/occurrence/4876300936)  
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
-![Cyperus brevifolius — Meise Botanic Garden](https://oxalis.br.fgov.be/images/V/BR0/000/027/525/951/BR0000027525951V.jpg)
-
 ![Cyperus brevifolius — Meise Botanic Garden](https://iiif-manifest.oxalis.br.fgov.be/specimen/BR0000027525951V/manifest)
+
+![Cyperus brevifolius — Meise Botanic Garden](https://oxalis.br.fgov.be/images/V/BR0/000/027/525/951/BR0000027525951V.jpg)

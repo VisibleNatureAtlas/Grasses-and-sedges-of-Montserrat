@@ -44,11 +44,6 @@ Observations from the GBIF dataset covering Montserrat grasses and sedges.
 
 ### nan
 
-**Observation:** [https://www.gbif.org/occurrence/1319576896](https://www.gbif.org/occurrence/1319576896)  
-**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-
-![Lasiacis sorghoidea — nan](http://n2t.net/ark:/65665/m335a88ded-0c27-4648-aa96-70566c9c2ea6)
-
 **Observation:** [https://www.gbif.org/occurrence/1321232984](https://www.gbif.org/occurrence/1321232984)  
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
@@ -58,3 +53,8 @@ Observations from the GBIF dataset covering Montserrat grasses and sedges.
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ![Lasiacis sorghoidea — nan](http://n2t.net/ark:/65665/m3ee659b97-28e1-404e-8d76-408fb5d805e0)
+
+**Observation:** [https://www.gbif.org/occurrence/1319576896](https://www.gbif.org/occurrence/1319576896)  
+**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+![Lasiacis sorghoidea — nan](http://n2t.net/ark:/65665/m335a88ded-0c27-4648-aa96-70566c9c2ea6)

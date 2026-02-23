@@ -20,7 +20,7 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part S)*](https://treatment.plazi.org/id/110EE5CCF9549CF3728BA41E53A40B1A)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part J)*](https://treatment.plazi.org/id/110EE5CCF9549CF3728BA41E53A40B1A)
 
 [View all treatments for *Lasiacis divaricata* on Synospecies](https://synospecies.plazi.org/#Lasiacis%20divaricata)
 

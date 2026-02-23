@@ -20,11 +20,25 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part W)*](https://treatment.plazi.org/id/F8C44094365A1CCB8D0B40A0094E2D68)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part O)*](https://treatment.plazi.org/id/F8C44094365A1CCB8D0B40A0094E2D68)
 
 - [Wessapak, Paweena; Ngernsaengsaruay, Chatchai; Duangjai, Suthee — *A taxonomic revision of Cenchrus L. (Poaceae) in Thailand, with lectotypification of Pennisetum macrostachyum Benth.*](https://treatment.plazi.org/id/904F188F77A15336B00861F518365C21)
 
 [View all treatments for *Cenchrus echinatus* on Synospecies](https://synospecies.plazi.org/#Cenchrus%20echinatus)
+
+## Figures from taxonomic treatments
+
+Figures extracted from taxonomic publications by [Plazi TreatmentBank](https://plazi.org/treatmentbank/) and deposited in open repositories.
+
+![Figure 6. Cenchrus echinatus L. A habit B ligule C spikelets with involucre D lower glumes E upper glumes F lower lemmas...](https://binary.pensoft.net/fig/913563)
+
+*Figure 6. Cenchrus echinatus L. A habit B ligule C spikelets with involucre D lower glumes E upper glumes F lower lemmas G lower paleas H upper lemmas I upper paleas J caryopsis. (Drawn from P. Wessapak 361 by Paweena Wessapak).*
+[Source](http://dx.doi.org/10.3897/phytokeys.234.106486.figure6)
+
+![Figure 7. Cenchrus echinatus L. A habitat B inflorescence C spikelets with involucre. (Photographs: Paweena Wessapak).](https://binary.pensoft.net/fig/913564)
+
+*Figure 7. Cenchrus echinatus L. A habitat B inflorescence C spikelets with involucre. (Photographs: Paweena Wessapak).*
+[Source](http://dx.doi.org/10.3897/phytokeys.234.106486.figure7)
 
 ## Literature
 
