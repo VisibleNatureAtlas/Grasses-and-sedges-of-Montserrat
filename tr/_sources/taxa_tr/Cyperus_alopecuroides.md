@@ -6,6 +6,14 @@ Read about this species on [Turkish Wikipedia](https://tr.wikipedia.org/wiki/Cyp
 
 Also available in: [Arabic](https://ar.wikipedia.org/wiki/%D8%B3%D9%85%D8%A7%D8%B1_%D8%AD%D9%84%D9%88) · [English](https://en.wikipedia.org/wiki/Cyperus_alopecuroides) · [Indonesian](https://id.wikipedia.org/wiki/Cyperus_alopecuroides) · [Polish](https://pl.wikipedia.org/wiki/Cibora_wyczy%C5%84cowata) · [Swedish](https://sv.wikipedia.org/wiki/Cyperus_alopecuroides) · [Vietnamese](https://vi.wikipedia.org/wiki/Cyperus_alopecuroides)
 
+## Original description
+
+*Cyperus alopecuroides* was first described by **Rottb.** in:
+
+> Descr. Icon. Rar. Pl.: 38 (1773)
+
+[View on GBIF](https://www.gbif.org/species/2715045)
+
 ## Global distribution
 
 Map shows **300** georeferenced GBIF records (out of 710 total) for *Cyperus alopecuroides* worldwide. Click markers for details.
@@ -24,22 +32,6 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Cyperus alopecuroides* on Synospecies](https://synospecies.plazi.org/#Cyperus%20alopecuroides)
 
-## Literature
-
-Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
-
-- [A REPORT OF FOUR EXOTIC 'CYPERUS' (CYPERACEAE) SPECIES NEW TO FLORIDA, U.S.A]() — Carter, Richard, Mears, Randy L, Burks, Kathleen Craddock, Bryson, Charles T., 1996
-
-- [The sedges (Cyperaceae) of Barbados]() — Rogers, Charles G, Mcclain, B, 1998
-
-- [Végétation des milieux aquatiques stagnants des Petites Antilles et relation entre la minéralisation des eaux et la distribution des macrophytes]() — Jérémie, J, Jeune, B, 1992
-
-- [Significance of pre-1753 botanical explorations in temperate North America on Linnaeus' first edition of Species Plantarum]() — Reveal, James L., 1983
-
-- [Phytologia](https://www.biodiversitylibrary.org/title/12678) — Gleason, Henry A. (Henry Allan),, Moldenke, Alma L. (Alma Lance),, Moldenke, Harold N. (Harold Norman),
-
-[Search for *Cyperus alopecuroides* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Cyperus+alopecuroides)
-
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.
@@ -53,12 +45,12 @@ Observations from the GBIF dataset covering Montserrat grasses and sedges.
 
 ### nan
 
-**Observation:** [https://www.gbif.org/occurrence/1322526038](https://www.gbif.org/occurrence/1322526038)  
-**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-
-![Cyperus alopecuroides — nan](http://n2t.net/ark:/65665/m36812aa30-174b-49e4-8040-0d68cdaa03ec)
-
 **Observation:** [https://www.gbif.org/occurrence/1319852739](https://www.gbif.org/occurrence/1319852739)  
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ![Cyperus alopecuroides — nan](http://n2t.net/ark:/65665/m35b122118-0d35-4fc5-8e8c-dd9b1246b7d8)
+
+**Observation:** [https://www.gbif.org/occurrence/1322526038](https://www.gbif.org/occurrence/1322526038)  
+**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+![Cyperus alopecuroides — nan](http://n2t.net/ark:/65665/m36812aa30-174b-49e4-8040-0d68cdaa03ec)

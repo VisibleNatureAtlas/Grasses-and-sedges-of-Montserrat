@@ -491,6 +491,7 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>
@@ -751,6 +752,177 @@ license resolution, Plazi treatments, BHL publications, and <strong>Wikidata lan
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  BHL error for </span><span class="si">{</span><span class="n">taxon_name</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">[]</span>
 
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_year</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract a 4-digit year from a publication reference string.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="c1"># Try parenthesized year first: &quot;Sp. Pl.: 1050 (1753)&quot;</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\((1[5-9]\d</span><span class="si">{2}</span><span class="s1">|20[0-2]\d)\)&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># Try trailing year: &quot;Syst. Nat. ed. 10. 2: 1304. 1759&quot;</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b(1[5-9]\d</span><span class="si">{2}</span><span class="s1">|20[0-2]\d)\b&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fetch_gbif_species_info</span><span class="p">(</span><span class="n">taxon_name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fetch protologue (original description) and basionym info from GBIF Species API.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns dict with scientific_name, authorship, published_in (protologue citation),</span>
+<span class="sd">    basionym info (if the species was reclassified), and the GBIF usage key.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;scientific_name&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;authorship&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;published_in&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;basionym_name&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;basionym_authorship&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;basionym_published_in&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;gbif_key&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;basionym_year&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Step 1: Match name to get usageKey</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;https://api.gbif.org/v1/species/match&#39;</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">taxon_name</span><span class="p">},</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span>
+        <span class="p">)</span>
+        <span class="n">resp</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;usageKey&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">key</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  GBIF species: no match for </span><span class="si">{</span><span class="n">taxon_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        
+        <span class="c1"># Step 2: Get full species record</span>
+        <span class="n">resp2</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://api.gbif.org/v1/species/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">resp2</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="n">detail</span> <span class="o">=</span> <span class="n">resp2</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        
+        <span class="n">result</span><span class="p">[</span><span class="s1">&#39;scientific_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">detail</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;scientificName&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="s1">&#39;authorship&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">detail</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;authorship&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="s1">&#39;published_in&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">detail</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;publishedIn&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="s1">&#39;gbif_key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
+        <span class="n">result</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">extract_year</span><span class="p">(</span><span class="n">detail</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;publishedIn&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+        
+        <span class="c1"># Step 3: If there&#39;s a basionym, fetch it</span>
+        <span class="n">basionym_key</span> <span class="o">=</span> <span class="n">detail</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;basionymKey&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">basionym_key</span> <span class="ow">and</span> <span class="n">basionym_key</span> <span class="o">!=</span> <span class="n">key</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+            <span class="n">resp3</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://api.gbif.org/v1/species/</span><span class="si">{</span><span class="n">basionym_key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+            <span class="n">resp3</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+            <span class="n">bas</span> <span class="o">=</span> <span class="n">resp3</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="n">result</span><span class="p">[</span><span class="s1">&#39;basionym_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bas</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;scientificName&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">result</span><span class="p">[</span><span class="s1">&#39;basionym_authorship&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bas</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;authorship&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">result</span><span class="p">[</span><span class="s1">&#39;basionym_published_in&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bas</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;publishedIn&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">result</span><span class="p">[</span><span class="s1">&#39;basionym_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">extract_year</span><span class="p">(</span><span class="n">bas</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;publishedIn&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  GBIF species: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;scientific_name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1"> | published: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;published_in&quot;</span><span class="p">][:</span><span class="mi">50</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;basionym_name&#39;</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;    basionym: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;basionym_name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  GBIF species error for </span><span class="si">{</span><span class="n">taxon_name</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fetch_plazi_taxonomic_history</span><span class="p">(</span><span class="n">genus</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fetch deprecated synonyms and taxonomic history from Plazi TreatmentBank.</span>
+<span class="sd">    </span>
+<span class="sd">    Queries the Plazi SPARQL endpoint for:</span>
+<span class="sd">    - Treatments that augment our species AND deprecate an older name (synonymizations)</span>
+<span class="sd">    - Treatments that define our species (original descriptions in Plazi)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns dict with &#39;defines&#39; and &#39;deprecates&#39; lists.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;defines&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;deprecates&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">species</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">result</span>
+    
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">PREFIX trt: &lt;http://plazi.org/vocab/treatment#&gt;</span>
+<span class="s2">PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;</span>
+<span class="s2">PREFIX dwc: &lt;http://rs.tdwg.org/dwc/terms/&gt;</span>
+
+<span class="s2">SELECT DISTINCT ?treatment ?type ?depGenus ?depSpecies ?depAuth ?augAuth ?creator ?title WHERE {{</span>
+<span class="s2">  ?treatment a trt:Treatment .</span>
+<span class="s2">  {{</span>
+<span class="s2">    ?treatment trt:augmentsTaxonConcept ?augTc .</span>
+<span class="s2">    ?augTc dwc:genus &quot;</span><span class="si">{ge}</span><span class="s2">&quot; .</span>
+<span class="s2">    ?augTc dwc:species &quot;</span><span class="si">{sp}</span><span class="s2">&quot; .</span>
+<span class="s2">    OPTIONAL {{ ?augTc dwc:scientificNameAuthorship ?augAuth }}</span>
+<span class="s2">    ?treatment trt:deprecates ?depTc .</span>
+<span class="s2">    ?depTc dwc:genus ?depGenus .</span>
+<span class="s2">    ?depTc dwc:species ?depSpecies .</span>
+<span class="s2">    OPTIONAL {{ ?depTc dwc:scientificNameAuthorship ?depAuth }}</span>
+<span class="s2">    OPTIONAL {{ ?treatment dc:creator ?creator }}</span>
+<span class="s2">    OPTIONAL {{ ?treatment dc:title ?title }}</span>
+<span class="s2">    BIND(&quot;deprecates&quot; AS ?type)</span>
+<span class="s2">  }} UNION {{</span>
+<span class="s2">    ?treatment trt:definesTaxonConcept ?tc .</span>
+<span class="s2">    ?tc dwc:genus &quot;</span><span class="si">{ge}</span><span class="s2">&quot; .</span>
+<span class="s2">    ?tc dwc:species &quot;</span><span class="si">{sp}</span><span class="s2">&quot; .</span>
+<span class="s2">    OPTIONAL {{ ?tc dwc:scientificNameAuthorship ?augAuth }}</span>
+<span class="s2">    OPTIONAL {{ ?treatment dc:creator ?creator }}</span>
+<span class="s2">    OPTIONAL {{ ?treatment dc:title ?title }}</span>
+<span class="s2">    BIND(&quot;defines&quot; AS ?type)</span>
+<span class="s2">  }}</span>
+<span class="s2">}}</span>
+<span class="s2">LIMIT 30</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ge</span><span class="o">=</span><span class="n">genus</span><span class="p">,</span> <span class="n">sp</span><span class="o">=</span><span class="n">species</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s1">&#39;https://treatment.ld.plazi.org/sparql&#39;</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="n">query</span><span class="p">},</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;application/sparql-results+json&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;VisibleNatureAtlas/1.0&#39;</span><span class="p">},</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">20</span>
+        <span class="p">)</span>
+        <span class="n">resp</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        
+        <span class="n">seen_deprecated</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;results&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;bindings&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="n">t_type</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">t_url</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;http://&#39;</span><span class="p">,</span> <span class="s1">&#39;https://&#39;</span><span class="p">)</span>
+            <span class="n">creator</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;creator&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">t_type</span> <span class="o">==</span> <span class="s1">&#39;defines&#39;</span><span class="p">:</span>
+                <span class="n">aug_auth</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;augAuth&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="s1">&#39;defines&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;treatment_url&#39;</span><span class="p">:</span> <span class="n">t_url</span><span class="p">,</span>
+                    <span class="s1">&#39;creator&#39;</span><span class="p">:</span> <span class="n">creator</span><span class="p">,</span>
+                    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
+                    <span class="s1">&#39;auth&#39;</span><span class="p">:</span> <span class="n">aug_auth</span><span class="p">,</span>
+                <span class="p">})</span>
+            <span class="k">elif</span> <span class="n">t_type</span> <span class="o">==</span> <span class="s1">&#39;deprecates&#39;</span><span class="p">:</span>
+                <span class="n">dep_genus</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;depGenus&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="n">dep_species</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;depSpecies&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="n">dep_auth</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;depAuth&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="n">dep_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dep_genus</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dep_species</span><span class="si">}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="c1"># Deduplicate by deprecated name</span>
+                <span class="k">if</span> <span class="n">dep_name</span> <span class="ow">in</span> <span class="n">seen_deprecated</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">seen_deprecated</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dep_name</span><span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="s1">&#39;deprecates&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;deprecated_name&#39;</span><span class="p">:</span> <span class="n">dep_name</span><span class="p">,</span>
+                    <span class="s1">&#39;deprecated_auth&#39;</span><span class="p">:</span> <span class="n">dep_auth</span><span class="p">,</span>
+                    <span class="s1">&#39;treatment_url&#39;</span><span class="p">:</span> <span class="n">t_url</span><span class="p">,</span>
+                    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
+                    <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="n">extract_year</span><span class="p">(</span><span class="n">dep_auth</span><span class="p">)</span> <span class="ow">or</span> <span class="n">extract_year</span><span class="p">(</span><span class="n">title</span><span class="p">),</span>
+                <span class="p">})</span>
+        
+        <span class="n">n_dep</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;deprecates&#39;</span><span class="p">])</span>
+        <span class="n">n_def</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;defines&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">n_dep</span> <span class="ow">or</span> <span class="n">n_def</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  Plazi history: </span><span class="si">{</span><span class="n">genus</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">species</span><span class="si">}</span><span class="s1"> — </span><span class="si">{</span><span class="n">n_def</span><span class="si">}</span><span class="s1"> defines, </span><span class="si">{</span><span class="n">n_dep</span><span class="si">}</span><span class="s1"> deprecated synonyms&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  Plazi history error for </span><span class="si">{</span><span class="n">genus</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">species</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">fetch_plazi_figures</span><span class="p">(</span><span class="n">genus</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
@@ -1153,6 +1325,14 @@ in <code class="docutils literal notranslate"><span class="pre">shared_data[taxo
     <span class="n">plazi_figures</span> <span class="o">=</span> <span class="n">fetch_plazi_figures</span><span class="p">(</span><span class="n">genus</span><span class="p">,</span> <span class="n">species</span><span class="p">)</span> <span class="k">if</span> <span class="n">species</span> <span class="k">else</span> <span class="p">[]</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
     
+    <span class="c1"># GBIF species info (protologue / original description, basionym)</span>
+    <span class="n">gbif_species</span> <span class="o">=</span> <span class="n">fetch_gbif_species_info</span><span class="p">(</span><span class="n">taxon_name</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+    
+    <span class="c1"># Plazi taxonomic history (deprecated synonyms, name changes)</span>
+    <span class="n">taxon_history</span> <span class="o">=</span> <span class="n">fetch_plazi_taxonomic_history</span><span class="p">(</span><span class="n">genus</span><span class="p">,</span> <span class="n">species</span><span class="p">)</span> <span class="k">if</span> <span class="n">species</span> <span class="k">else</span> <span class="p">{</span><span class="s1">&#39;defines&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;deprecates&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+    
     <span class="n">shared_data</span><span class="p">[</span><span class="n">taxon_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;qid&#39;</span><span class="p">:</span> <span class="n">qid</span><span class="p">,</span>
         <span class="s1">&#39;safe_name&#39;</span><span class="p">:</span> <span class="n">safe_name</span><span class="p">,</span>
@@ -1161,6 +1341,8 @@ in <code class="docutils literal notranslate"><span class="pre">shared_data[taxo
         <span class="s1">&#39;treatments&#39;</span><span class="p">:</span> <span class="n">treatments</span><span class="p">,</span>
         <span class="s1">&#39;bhl_pubs&#39;</span><span class="p">:</span> <span class="n">bhl_pubs</span><span class="p">,</span>
         <span class="s1">&#39;plazi_figures&#39;</span><span class="p">:</span> <span class="n">plazi_figures</span><span class="p">,</span>
+        <span class="s1">&#39;gbif_species&#39;</span><span class="p">:</span> <span class="n">gbif_species</span><span class="p">,</span>
+        <span class="s1">&#39;taxon_history&#39;</span><span class="p">:</span> <span class="n">taxon_history</span><span class="p">,</span>
         <span class="s1">&#39;map_path&#39;</span><span class="p">:</span> <span class="n">map_path</span><span class="p">,</span>
     <span class="p">}</span>
 
@@ -1169,6 +1351,13 @@ in <code class="docutils literal notranslate"><span class="pre">shared_data[taxo
 <span class="n">bhl_pubs_total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sd</span><span class="p">[</span><span class="s1">&#39;bhl_pubs&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">sd</span> <span class="ow">in</span> <span class="n">shared_data</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Shared data fetched for </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">shared_data</span><span class="p">)</span><span class="si">}</span><span class="s1"> species.&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;BHL summary: </span><span class="si">{</span><span class="n">bhl_total</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">shared_data</span><span class="p">)</span><span class="si">}</span><span class="s1"> species have BHL publications (</span><span class="si">{</span><span class="n">bhl_pubs_total</span><span class="si">}</span><span class="s1"> total)&#39;</span><span class="p">)</span>
+<span class="c1"># Taxonomic history summary</span>
+<span class="n">gbif_proto</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">sd</span> <span class="ow">in</span> <span class="n">shared_data</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">sd</span><span class="p">[</span><span class="s1">&#39;gbif_species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;published_in&#39;</span><span class="p">))</span>
+<span class="n">gbif_basio</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">sd</span> <span class="ow">in</span> <span class="n">shared_data</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">sd</span><span class="p">[</span><span class="s1">&#39;gbif_species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;basionym_name&#39;</span><span class="p">))</span>
+<span class="n">plazi_hist</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">sd</span> <span class="ow">in</span> <span class="n">shared_data</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">sd</span><span class="p">[</span><span class="s1">&#39;taxon_history&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;deprecates&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;GBIF species: </span><span class="si">{</span><span class="n">gbif_proto</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">shared_data</span><span class="p">)</span><span class="si">}</span><span class="s1"> with protologue, </span><span class="si">{</span><span class="n">gbif_basio</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">shared_data</span><span class="p">)</span><span class="si">}</span><span class="s1"> with basionym&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Taxonomic history: </span><span class="si">{</span><span class="n">plazi_hist</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">shared_data</span><span class="p">)</span><span class="si">}</span><span class="s1"> species with deprecated synonyms&#39;</span><span class="p">)</span>
+
 <span class="n">fig_total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">sd</span> <span class="ow">in</span> <span class="n">shared_data</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">sd</span><span class="p">[</span><span class="s1">&#39;plazi_figures&#39;</span><span class="p">])</span>
 <span class="n">fig_count_total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sd</span><span class="p">[</span><span class="s1">&#39;plazi_figures&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">sd</span> <span class="ow">in</span> <span class="n">shared_data</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Plazi figures: </span><span class="si">{</span><span class="n">fig_total</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">shared_data</span><span class="p">)</span><span class="si">}</span><span class="s1"> species have figures (</span><span class="si">{</span><span class="n">fig_count_total</span><span class="si">}</span><span class="s1"> total)&#39;</span><span class="p">)</span>
@@ -1301,6 +1490,8 @@ in <code class="docutils literal notranslate"><span class="pre">shared_data[taxo
         <span class="n">treatments</span> <span class="o">=</span> <span class="n">sd</span><span class="p">[</span><span class="s1">&#39;treatments&#39;</span><span class="p">]</span>
         <span class="n">bhl_pubs</span> <span class="o">=</span> <span class="n">sd</span><span class="p">[</span><span class="s1">&#39;bhl_pubs&#39;</span><span class="p">]</span>
         <span class="n">plazi_figures</span> <span class="o">=</span> <span class="n">sd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;plazi_figures&#39;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">gbif_species</span> <span class="o">=</span> <span class="n">sd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gbif_species&#39;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">taxon_history</span> <span class="o">=</span> <span class="n">sd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;taxon_history&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;defines&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;deprecates&#39;</span><span class="p">:</span> <span class="p">[]})</span>
         
         <span class="c1"># Use pre-fetched Wikipedia intro</span>
         <span class="n">has_wiki</span> <span class="o">=</span> <span class="n">lang</span> <span class="ow">in</span> <span class="n">taxon_langs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">taxon_name</span><span class="p">,</span> <span class="p">{})</span>
@@ -1348,6 +1539,127 @@ in <code class="docutils literal notranslate"><span class="pre">shared_data[taxo
                 <span class="n">article</span> <span class="o">=</span> <span class="n">taxon_langs</span><span class="p">[</span><span class="n">taxon_name</span><span class="p">][</span><span class="n">ol</span><span class="p">]</span>
                 <span class="n">lang_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="n">get_lang_name</span><span class="p">(</span><span class="n">ol</span><span class="p">)</span><span class="si">}</span><span class="s1">](https://</span><span class="si">{</span><span class="n">ol</span><span class="si">}</span><span class="s1">.wikipedia.org/wiki/</span><span class="si">{</span><span class="n">article</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
             <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Also available in: &#39;</span> <span class="o">+</span> <span class="s1">&#39; </span><span class="se">\u00b7</span><span class="s1"> &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lang_links</span><span class="p">))</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        
+        <span class="c1"># Original description section</span>
+        <span class="k">if</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;published_in&#39;</span><span class="p">):</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;## Original description&#39;</span><span class="p">)</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">auth</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;authorship&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">published</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;published_in&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">gbif_key</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gbif_key&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;*</span><span class="si">{</span><span class="n">taxon_name</span><span class="si">}</span><span class="s1">* was first described by **</span><span class="si">{</span><span class="n">auth</span><span class="si">}</span><span class="s1">** in:&#39;</span><span class="p">)</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&gt; </span><span class="si">{</span><span class="n">published</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            
+            <span class="c1"># If there&#39;s a basionym, explain the reclassification</span>
+            <span class="n">bas_name</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;basionym_name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">bas_name</span><span class="p">:</span>
+                <span class="n">bas_auth</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;basionym_authorship&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="n">bas_pub</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;basionym_published_in&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s1">&#39;This species was originally described as *</span><span class="si">{</span><span class="n">bas_name</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bas_name</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">bas_name</span><span class="si">}</span><span class="s1">* &#39;</span>
+                    <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">bas_auth</span><span class="si">}</span><span class="s1"> in </span><span class="si">{</span><span class="n">bas_pub</span><span class="si">}</span><span class="s1">, and was later reclassified to its current name.&#39;</span>
+                <span class="p">)</span>
+                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">gbif_key</span><span class="p">:</span>
+                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;[View on GBIF](https://www.gbif.org/species/</span><span class="si">{</span><span class="n">gbif_key</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        
+        <span class="c1"># Taxonomic history timeline</span>
+        <span class="n">history_events</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="c1"># Add basionym as first event (original name)</span>
+        <span class="k">if</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;basionym_name&#39;</span><span class="p">):</span>
+            <span class="n">bas_year</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;basionym_year&#39;</span><span class="p">)</span>
+            <span class="n">bas_name</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;basionym_name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">bas_pub</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;basionym_published_in&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">history_events</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="n">bas_year</span><span class="p">,</span>
+                <span class="s1">&#39;event&#39;</span><span class="p">:</span> <span class="s1">&#39;First described&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">bas_name</span><span class="p">,</span>
+                <span class="s1">&#39;reference&#39;</span><span class="p">:</span> <span class="n">bas_pub</span><span class="p">,</span>
+                <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="p">})</span>
+        <span class="k">elif</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;published_in&#39;</span><span class="p">):</span>
+            <span class="c1"># No basionym — species was described under its current name</span>
+            <span class="n">sp_year</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+            <span class="n">sp_name</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;scientific_name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">sp_pub</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;published_in&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">history_events</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="n">sp_year</span><span class="p">,</span>
+                <span class="s1">&#39;event&#39;</span><span class="p">:</span> <span class="s1">&#39;First described&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">sp_name</span><span class="p">,</span>
+                <span class="s1">&#39;reference&#39;</span><span class="p">:</span> <span class="n">sp_pub</span><span class="p">,</span>
+                <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="p">})</span>
+        
+        <span class="c1"># Add reclassification to current name (if basionym exists)</span>
+        <span class="k">if</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;basionym_name&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;published_in&#39;</span><span class="p">):</span>
+            <span class="n">sp_year</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+            <span class="n">sp_name</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;scientific_name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">sp_pub</span> <span class="o">=</span> <span class="n">gbif_species</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;published_in&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">history_events</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="n">sp_year</span><span class="p">,</span>
+                <span class="s1">&#39;event&#39;</span><span class="p">:</span> <span class="s1">&#39;Reclassified&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">sp_name</span><span class="p">,</span>
+                <span class="s1">&#39;reference&#39;</span><span class="p">:</span> <span class="n">sp_pub</span><span class="p">,</span>
+                <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="p">})</span>
+        
+        <span class="c1"># Add deprecated synonyms from Plazi</span>
+        <span class="k">for</span> <span class="n">dep</span> <span class="ow">in</span> <span class="n">taxon_history</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;deprecates&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="n">dep_name</span> <span class="o">=</span> <span class="n">dep</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;deprecated_name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">dep_auth</span> <span class="o">=</span> <span class="n">dep</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;deprecated_auth&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">dep_year</span> <span class="o">=</span> <span class="n">dep</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+            <span class="n">t_url</span> <span class="o">=</span> <span class="n">dep</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;treatment_url&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">full_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dep_name</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dep_auth</span><span class="si">}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">dep_auth</span> <span class="k">else</span> <span class="n">dep_name</span>
+            <span class="n">history_events</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="n">dep_year</span><span class="p">,</span>
+                <span class="s1">&#39;event&#39;</span><span class="p">:</span> <span class="s1">&#39;Synonym deprecated&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">full_name</span><span class="p">,</span>
+                <span class="s1">&#39;reference&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="n">t_url</span><span class="p">,</span>
+            <span class="p">})</span>
+        
+        <span class="c1"># Add original descriptions from Plazi</span>
+        <span class="k">for</span> <span class="n">defn</span> <span class="ow">in</span> <span class="n">taxon_history</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;defines&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="n">auth</span> <span class="o">=</span> <span class="n">defn</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="n">defn</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">t_url</span> <span class="o">=</span> <span class="n">defn</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;treatment_url&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">def_year</span> <span class="o">=</span> <span class="n">extract_year</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span> <span class="ow">or</span> <span class="n">extract_year</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+            <span class="n">history_events</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="n">def_year</span><span class="p">,</span>
+                <span class="s1">&#39;event&#39;</span><span class="p">:</span> <span class="s1">&#39;Original description (Plazi)&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">taxon_name</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">auth</span><span class="si">}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                <span class="s1">&#39;reference&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
+                <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="n">t_url</span><span class="p">,</span>
+            <span class="p">})</span>
+        
+        <span class="c1"># Only show timeline if there are at least 2 events (otherwise it&#39;s trivial)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">history_events</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="c1"># Sort by year (None values go last)</span>
+            <span class="n">history_events</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="mi">9999</span><span class="p">,</span> <span class="n">e</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]))</span>
+            
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;## Taxonomic history&#39;</span><span class="p">)</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;| Year | Event | Name | Reference |&#39;</span><span class="p">)</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;|------|-------|------|-----------|&#39;</span><span class="p">)</span>
+            
+            <span class="k">for</span> <span class="n">evt</span> <span class="ow">in</span> <span class="n">history_events</span><span class="p">:</span>
+                <span class="n">year_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">evt</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span> <span class="k">if</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="s1">&#39;</span><span class="se">\u2014</span><span class="s1">&#39;</span>
+                <span class="n">event_str</span> <span class="o">=</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span>
+                <span class="n">name_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;*</span><span class="si">{</span><span class="n">evt</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">*&#39;</span> <span class="k">if</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+                <span class="n">ref_str</span> <span class="o">=</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;reference&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;link&#39;</span><span class="p">]:</span>
+                    <span class="n">ref_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;[Plazi treatment](</span><span class="si">{</span><span class="n">evt</span><span class="p">[</span><span class="s2">&quot;link&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">)&#39;</span>
+                    <span class="k">if</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;reference&#39;</span><span class="p">]:</span>
+                        <span class="n">ref_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">evt</span><span class="p">[</span><span class="s2">&quot;reference&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1"> </span><span class="se">\u2014</span><span class="s1"> </span><span class="si">{</span><span class="n">ref_str</span><span class="si">}</span><span class="s1">&#39;</span>
+                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;| </span><span class="si">{</span><span class="n">year_str</span><span class="si">}</span><span class="s1"> | </span><span class="si">{</span><span class="n">event_str</span><span class="si">}</span><span class="s1"> | </span><span class="si">{</span><span class="n">name_str</span><span class="si">}</span><span class="s1"> | </span><span class="si">{</span><span class="n">ref_str</span><span class="si">}</span><span class="s1"> |&#39;</span><span class="p">)</span>
+            
             <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
         
         <span class="c1"># Map section</span>

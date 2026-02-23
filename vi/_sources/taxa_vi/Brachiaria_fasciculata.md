@@ -6,6 +6,23 @@ Read about this species on [Vietnamese Wikipedia](https://vi.wikipedia.org/wiki/
 
 Also available in: [Swedish](https://sv.wikipedia.org/wiki/Knipphirs)
 
+## Original description
+
+*Brachiaria fasciculata* was first described by **(Sw.) Parodi** in:
+
+> Darwiniana 15: 96 (1969)
+
+This species was originally described as *Panicum fasciculatum* Sw. in Prodr. Veg. Ind. Occ.: 22 (1788), and was later reclassified to its current name.
+
+[View on GBIF](https://www.gbif.org/species/2705827)
+
+## Taxonomic history
+
+| Year | Event | Name | Reference |
+|------|-------|------|-----------|
+| 1788 | First described | *Panicum fasciculatum Sw.* | Prodr. Veg. Ind. Occ.: 22 (1788) |
+| 1969 | Reclassified | *Brachiaria fasciculata (Sw.) Parodi* | Darwiniana 15: 96 (1969) |
+
 ## Global distribution
 
 Map shows **300** georeferenced GBIF records (out of 3828 total) for *Brachiaria fasciculata* worldwide. Click markers for details.
@@ -23,22 +40,6 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 - [Treatment]()
 
 [View all treatments for *Brachiaria fasciculata* on Synospecies](https://synospecies.plazi.org/#Brachiaria%20fasciculata)
-
-## Literature
-
-Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
-
-- [Memoirs of the Torrey Botanical Club](https://www.biodiversitylibrary.org/title/45469) — Torrey Botanical Club., Torrey Botanical Club.
-
-- [Studies in Australian Grasses: 5* New Species of and New Combinations for Queensland Panicoid Grasses]() — Simon, B. K. (Bryan Kenneth),, 1992
-
-- [Noteworthy grasses from Mexico X]() — Beetle, Alan A. (Alan Ackerman),, 1982
-
-- [A List of the Vascular Plants of South Australia (Edition III)]() — Jessop, J P, 1989
-
-- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
-
-[Search for *Brachiaria fasciculata* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Brachiaria+fasciculata)
 
 ## Observations from Montserrat
 

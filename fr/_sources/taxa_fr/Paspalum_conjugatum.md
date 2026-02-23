@@ -6,6 +6,14 @@ Read about this species on [French Wikipedia](https://fr.wikipedia.org/wiki/Pasp
 
 Also available in: [English](https://en.wikipedia.org/wiki/Paspalum_conjugatum) · [Spanish](https://es.wikipedia.org/wiki/Paspalum_conjugatum) · [Indonesian](https://id.wikipedia.org/wiki/Rumput_kerbau) · [Japanese](https://ja.wikipedia.org/wiki/%E3%82%AA%E3%82%AC%E3%82%B5%E3%83%AF%E3%83%A9%E3%82%B9%E3%82%BA%E3%83%A1%E3%83%8E%E3%83%92%E3%82%A8) · [Dutch](https://nl.wikipedia.org/wiki/Paspalum_conjugatum) · [Swedish](https://sv.wikipedia.org/wiki/Paspalum_conjugatum) · [Vietnamese](https://vi.wikipedia.org/wiki/Paspalum_conjugatum) · [Chinese](https://zh.wikipedia.org/wiki/%E4%B8%A4%E8%80%B3%E8%8D%89)
 
+## Original description
+
+*Paspalum conjugatum* was first described by **P.J.Bergius** in:
+
+> Acta Helv. Phys.-Math. 7: 129 (1772)
+
+[View on GBIF](https://www.gbif.org/species/2705656)
+
 ## Global distribution
 
 Map shows **300** georeferenced GBIF records (out of 8501 total) for *Paspalum conjugatum* worldwide. Click markers for details.
@@ -38,22 +46,6 @@ Figures extracted from taxonomic publications by [Plazi TreatmentBank](https://p
 
 *FIGURE 1. Adult female Icerya imperatae Rao. Where A = anterior dorsal loculate pore; B = area of dorsum showing density of pores and setae; C = sclerotised dorsal pore; D = dorsal setae; E = abdominal spiracle; F = posterior dorsal loculate pore; G = anal tube; H = ventral seta near vulva; J = vulva area; K = claw; L = area of derm within ovisac band showing density of pores and setae; M = ventral loculate pore; P = sclerotised ventral pore; Q = area of ventral derm showing density of pores and setae; R = trochanter of prothoracic leg; S = antenna; T = loculate pores in ovisac band, and X = loculate pore near anus and vulva.*
 [Source](http://dx.doi.org/10.5281/zenodo.205750)
-
-## Literature
-
-Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
-
-- [Paspalum Conjugatum Berg. (Poaceae), a new Record To Andhra Pradesh, India]() — Reddy, A Madhusudhan, Sunitha, S, Rao, B Ravi Prasad, 2005
-
-- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
-
-- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
-
-- [Icones Ascomycetum Venezuelae: Myriogenospora atramentosa]() — Hanlin, R T, Tortolero, O, 1990
-
-- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
-
-[Search for *Paspalum conjugatum* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Paspalum+conjugatum)
 
 ## Observations from Montserrat
 

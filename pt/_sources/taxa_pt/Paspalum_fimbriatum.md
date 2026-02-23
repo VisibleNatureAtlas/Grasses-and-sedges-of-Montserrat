@@ -4,6 +4,14 @@
 
 Also available in: [Swedish](https://sv.wikipedia.org/wiki/Paspalum_fimbriatum) · [Vietnamese](https://vi.wikipedia.org/wiki/Paspalum_fimbriatum) · [Chinese](https://zh.wikipedia.org/wiki/%E8%A3%82%E9%A2%96%E9%9B%80%E7%A8%97)
 
+## Original description
+
+*Paspalum fimbriatum* was first described by **Kunth** in:
+
+> F.W.H.von Humboldt, A.J.A.Bonpland & C.S.Kunth, Nov. Gen. Sp. 1: 93 (1816)
+
+[View on GBIF](https://www.gbif.org/species/2705583)
+
 ## Global distribution
 
 Map shows **300** georeferenced GBIF records (out of 681 total) for *Paspalum fimbriatum* worldwide. Click markers for details.
@@ -21,22 +29,6 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 - [Treatment]()
 
 [View all treatments for *Paspalum fimbriatum* on Synospecies](https://synospecies.plazi.org/#Paspalum%20fimbriatum)
-
-## Literature
-
-Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
-
-- [Paspalum fimbriatum in the United States]() — Banks, Donald J, 1962
-
-- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
-
-- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
-
-- [The occurrence of Spirodela oligorrhiza in the United States]() — Daubs, Edwin H, 1962
-
-- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
-
-[Search for *Paspalum fimbriatum* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Paspalum+fimbriatum)
 
 ## Observations from Montserrat
 

@@ -6,6 +6,23 @@ Read about this species on [Vietnamese Wikipedia](https://vi.wikipedia.org/wiki/
 
 Also available in: [Swedish](https://sv.wikipedia.org/wiki/Rhynchospora_nervosa)
 
+## Original description
+
+*Rhynchospora nervosa* was first described by **(Vahl) Boeckeler** in:
+
+> Vidensk. Meddel. Naturhist. Foren. Kjøbenhavn 1869: 143 (1869)
+
+This species was originally described as *Dichromena nervosa* Vahl in Enum. Pl. Obs. 2: 241 (1805), and was later reclassified to its current name.
+
+[View on GBIF](https://www.gbif.org/species/2721307)
+
+## Taxonomic history
+
+| Year | Event | Name | Reference |
+|------|-------|------|-----------|
+| 1805 | First described | *Dichromena nervosa Vahl* | Enum. Pl. Obs. 2: 241 (1805) |
+| 1869 | Reclassified | *Rhynchospora nervosa (Vahl) Boeckeler* | Vidensk. Meddel. Naturhist. Foren. Kjøbenhavn 1869: 143 (1869) |
+
 ## Global distribution
 
 Map shows **300** georeferenced GBIF records (out of 2998 total) for *Rhynchospora nervosa* worldwide. Click markers for details.
@@ -24,22 +41,6 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Rhynchospora nervosa* on Synospecies](https://synospecies.plazi.org/#Rhynchospora%20nervosa)
 
-## Literature
-
-Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
-
-- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
-
-- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
-
-- [Lista de la Flora Vascular del Área Protegida, Santuario de Juego y Sitio Ramsar del Río Masón, Jamaica]() — Keron C. St. E. Campbell, Judeen Meikle, Tracy Commock, Lori-Ann Harris, Proctor, George Richardson,, 2022
-
-- [Catálogo de las plantas vasculares de la República Argentina](https://www.biodiversitylibrary.org/title/203008) — Zuloaga, Fernando O., Morrone, Osvaldo
-
-- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
-
-[Search for *Rhynchospora nervosa* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Rhynchospora+nervosa)
-
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.
@@ -49,18 +50,11 @@ Observations from the GBIF dataset covering Montserrat grasses and sedges.
 **Observation:** [https://www.gbif.org/occurrence/4876284841](https://www.gbif.org/occurrence/4876284841)  
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
-![Rhynchospora nervosa — Meise Botanic Garden](https://iiif-manifest.oxalis.br.fgov.be/specimen/BR0000026554150V/manifest)
-
 ![Rhynchospora nervosa — Meise Botanic Garden](https://oxalis.br.fgov.be/images/V/BR0/000/026/554/150/BR0000026554150V.jpg)
 
+![Rhynchospora nervosa — Meise Botanic Garden](https://iiif-manifest.oxalis.br.fgov.be/specimen/BR0000026554150V/manifest)
+
 ### Sofie Meeus
-
-**Observation:** [https://www.gbif.org/occurrence/4535850595](https://www.gbif.org/occurrence/4535850595)  
-**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-
-![Rhynchospora nervosa — Sofie Meeus](https://inaturalist-open-data.s3.amazonaws.com/photos/213079204/original.jpeg)
-
-![Rhynchospora nervosa — Sofie Meeus](https://inaturalist-open-data.s3.amazonaws.com/photos/213079086/original.jpeg)
 
 **Observation:** [https://www.gbif.org/occurrence/3860636265](https://www.gbif.org/occurrence/3860636265)  
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
@@ -68,3 +62,10 @@ Observations from the GBIF dataset covering Montserrat grasses and sedges.
 ![Rhynchospora nervosa — Sofie Meeus](https://inaturalist-open-data.s3.amazonaws.com/photos/211400204/original.jpeg)
 
 ![Rhynchospora nervosa — Sofie Meeus](https://inaturalist-open-data.s3.amazonaws.com/photos/211400213/original.jpeg)
+
+**Observation:** [https://www.gbif.org/occurrence/4535850595](https://www.gbif.org/occurrence/4535850595)  
+**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+![Rhynchospora nervosa — Sofie Meeus](https://inaturalist-open-data.s3.amazonaws.com/photos/213079086/original.jpeg)
+
+![Rhynchospora nervosa — Sofie Meeus](https://inaturalist-open-data.s3.amazonaws.com/photos/213079204/original.jpeg)

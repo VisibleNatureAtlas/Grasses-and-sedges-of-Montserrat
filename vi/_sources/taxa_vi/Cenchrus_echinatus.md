@@ -6,6 +6,21 @@ Read about this species on [Vietnamese Wikipedia](https://vi.wikipedia.org/wiki/
 
 Also available in: [Asturian](https://ast.wikipedia.org/wiki/Cenchrus_echinatus) · [English](https://en.wikipedia.org/wiki/Cenchrus_echinatus) · [Spanish](https://es.wikipedia.org/wiki/Cenchrus_echinatus) · [Finnish](https://fi.wikipedia.org/wiki/Otaharjashein%C3%A4) · [French](https://fr.wikipedia.org/wiki/Cenchrus_echinatus) · [Japanese](https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%B3%E3%82%AF%E3%83%AA%E3%83%8E%E3%82%A4%E3%82%AC) · [Korean](https://ko.wikipedia.org/wiki/%EB%AF%B8%EA%B5%AD%EA%B0%80%EC%8B%9C%ED%92%80) · [pam](https://pam.wikipedia.org/wiki/Kutung_babi) · [Portuguese](https://pt.wikipedia.org/wiki/Capim-carrapicho) · [Swedish](https://sv.wikipedia.org/wiki/Tagghirs) · [Thai](https://th.wikipedia.org/wiki/%E0%B8%AB%E0%B8%8D%E0%B9%89%E0%B8%B2%E0%B8%AA%E0%B8%99%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%B1%E0%B8%9A) · [Chinese](https://zh.wikipedia.org/wiki/%E8%92%BA%E8%97%9C%E8%8D%89)
 
+## Original description
+
+*Cenchrus echinatus* was first described by **L.** in:
+
+> Sp. Pl.: 1050 (1753)
+
+[View on GBIF](https://www.gbif.org/species/5289739)
+
+## Taxonomic history
+
+| Year | Event | Name | Reference |
+|------|-------|------|-----------|
+| 1753 | First described | *Cenchrus echinatus L.* | Sp. Pl.: 1050 (1753) |
+| 1816 | Synonym deprecated | *Cenchrus pungens Kunth, 1816* | [Plazi treatment](https://treatment.plazi.org/id/904F188F77A15336B00861F518365C21) |
+
 ## Global distribution
 
 Map shows **300** georeferenced GBIF records (out of 8816 total) for *Cenchrus echinatus* worldwide. Click markers for details.
@@ -20,7 +35,7 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part O)*](https://treatment.plazi.org/id/F8C44094365A1CCB8D0B40A0094E2D68)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part B)*](https://treatment.plazi.org/id/F8C44094365A1CCB8D0B40A0094E2D68)
 
 - [Wessapak, Paweena; Ngernsaengsaruay, Chatchai; Duangjai, Suthee — *A taxonomic revision of Cenchrus L. (Poaceae) in Thailand, with lectotypification of Pennisetum macrostachyum Benth.*](https://treatment.plazi.org/id/904F188F77A15336B00861F518365C21)
 
@@ -39,22 +54,6 @@ Figures extracted from taxonomic publications by [Plazi TreatmentBank](https://p
 
 *Figure 7. Cenchrus echinatus L. A habitat B inflorescence C spikelets with involucre. (Photographs: Paweena Wessapak).*
 [Source](http://dx.doi.org/10.3897/phytokeys.234.106486.figure7)
-
-## Literature
-
-Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
-
-- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
-
-- [﻿A taxonomic revision of Cenchrus L. (Poaceae) in Thailand, with lectotypification of Pennisetum macrostachyum Benth.]() — Wessapak, Paweena, Ngernsaengsaruay, Chatchai, Duangjai, Sutee, 2023
-
-- [The genus Cenchrus (Poaceae) in Australia]() — Weston, A. S., 1974
-
-- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
-
-- [Cenchrus and Pennisetum: fascicle morphology]() — Sohns, E R, 1955
-
-[Search for *Cenchrus echinatus* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Cenchrus+echinatus)
 
 ## Observations from Montserrat
 

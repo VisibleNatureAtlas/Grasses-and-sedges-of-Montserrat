@@ -6,6 +6,24 @@ Read about this species on [Vietnamese Wikipedia](https://vi.wikipedia.org/wiki/
 
 Also available in: [Swedish](https://sv.wikipedia.org/wiki/Eriochloa_punctata)
 
+## Original description
+
+*Eriochloa punctata* was first described by **(L.) Ham.** in:
+
+> Prodr. Pl. Ind. Occid.: 5 (1825)
+
+This species was originally described as *Milium punctatum* L. in Syst. Nat. ed. 10. 2: 872 (1759), and was later reclassified to its current name.
+
+[View on GBIF](https://www.gbif.org/species/2702522)
+
+## Taxonomic history
+
+| Year | Event | Name | Reference |
+|------|-------|------|-----------|
+| 1759 | First described | *Milium punctatum L.* | Syst. Nat. ed. 10. 2: 872 (1759) |
+| 1759 | Synonym deprecated | *Milium punctatum Linnaeus, 1759* | [Plazi treatment](https://treatment.plazi.org/id/B7C742EB4F3D5B095D26B71849E7D7AE) |
+| 1825 | Reclassified | *Eriochloa punctata (L.) Ham.* | Prodr. Pl. Ind. Occid.: 5 (1825) |
+
 ## Global distribution
 
 Map shows **300** georeferenced GBIF records (out of 930 total) for *Eriochloa punctata* worldwide. Click markers for details.
@@ -20,25 +38,9 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part L)*](https://treatment.plazi.org/id/B7C742EB4F3D5B095D26B71849E7D7AE)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part O)*](https://treatment.plazi.org/id/B7C742EB4F3D5B095D26B71849E7D7AE)
 
 [View all treatments for *Eriochloa punctata* on Synospecies](https://synospecies.plazi.org/#Eriochloa%20punctata)
-
-## Literature
-
-Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
-
-- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
-
-- [Taxonomical studies on Ustilaginales. XIII]() — Vánky, K, 1995
-
-- [Catalogue of the grasses of Cuba](https://www.biodiversitylibrary.org/title/4358) — Hitchcock, A. S. (Albert Spear),
-
-- [THE SPIKELET CALLUS OF ERIOCHLOA VILLOSA (POACEAE)]() — Darbyshire, S. J., Simard, Marie-Josée, Nurse, Robert E, 2013
-
-- [Chromosome Studies in American Paniceae (Poaceae, Panicoideae)1]() — Sede, Silvana, Escobar, Alejandro, Morrone, Osvaldo, Zuloaga, Fernando O., 2010
-
-[Search for *Eriochloa punctata* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Eriochloa+punctata)
 
 ## Observations from Montserrat
 

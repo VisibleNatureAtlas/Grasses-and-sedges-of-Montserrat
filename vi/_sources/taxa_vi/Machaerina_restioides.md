@@ -6,6 +6,23 @@ Read about this species on [Vietnamese Wikipedia](https://vi.wikipedia.org/wiki/
 
 Also available in: [Swedish](https://sv.wikipedia.org/wiki/Machaerina_restioides)
 
+## Original description
+
+*Machaerina restioides* was first described by **(Sw.) Vahl** in:
+
+> Enum. Pl. Obs. 2: 238 (1805)
+
+This species was originally described as *Schoenus restioides* Sw. in Prodr. Veg. Ind. Occ.: 19 (1788), and was later reclassified to its current name.
+
+[View on GBIF](https://www.gbif.org/species/5291147)
+
+## Taxonomic history
+
+| Year | Event | Name | Reference |
+|------|-------|------|-----------|
+| 1788 | First described | *Schoenus restioides Sw.* | Prodr. Veg. Ind. Occ.: 19 (1788) |
+| 1805 | Reclassified | *Machaerina restioides (Sw.) Vahl* | Enum. Pl. Obs. 2: 238 (1805) |
+
 ## Global distribution
 
 Map shows **57** georeferenced GBIF records (out of 57 total) for *Machaerina restioides* worldwide. Click markers for details.
@@ -23,22 +40,6 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 - [Treatment]()
 
 [View all treatments for *Machaerina restioides* on Synospecies](https://synospecies.plazi.org/#Machaerina%20restioides)
-
-## Literature
-
-Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
-
-- [Machaerina (Cyperaceae) in South America]() — Strong, M T, 1997
-
-- [Studies in Cyperaceae]() — Blake, S. T. (Stanley Thatcher),
-
-- [Contributions from the Queensland Herbarium](https://www.biodiversitylibrary.org/title/202146) — Queensland Herbarium.
-
-- [NOMENCLATORIAL TRANSFERS IN MARISCUS]() — Fernald, Merritt Lyndon,, 1923
-
-- [Notes cypérologiques. 17. Révision des Cladium P. Browne s. lat. (Cyperaceae) de Madagascar et des Mascareignes]() — Raynal, Jean, 1972
-
-[Search for *Machaerina restioides* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Machaerina+restioides)
 
 ## Observations from Montserrat
 

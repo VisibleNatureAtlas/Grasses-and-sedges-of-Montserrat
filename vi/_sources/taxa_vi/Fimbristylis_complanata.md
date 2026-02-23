@@ -6,6 +6,24 @@ Read about this species on [Vietnamese Wikipedia](https://vi.wikipedia.org/wiki/
 
 Also available in: [Swedish](https://sv.wikipedia.org/wiki/Fimbristylis_complanata) · [Chinese](https://zh.wikipedia.org/wiki/%E6%89%81%E9%9E%98%E9%A3%98%E6%8B%82%E8%8D%89)
 
+## Original description
+
+*Fimbristylis complanata* was first described by **(Retz.) Link** in:
+
+> Hort. Berol. 1: 292 (1827)
+
+This species was originally described as *Scirpus complanatus* Retz. in Observ. Bot. 5: 14 (1788), and was later reclassified to its current name.
+
+[View on GBIF](https://www.gbif.org/species/2708680)
+
+## Taxonomic history
+
+| Year | Event | Name | Reference |
+|------|-------|------|-----------|
+| 1788 | First described | *Scirpus complanatus Retz.* | Observ. Bot. 5: 14 (1788) |
+| 1827 | Reclassified | *Fimbristylis complanata (Retz.) Link* | Hort. Berol. 1: 292 (1827) |
+| — | Synonym deprecated | *Scirpus complanatus Retz., Observ. Bot.* | [Plazi treatment](https://treatment.plazi.org/id/03F9C92C7E23FFD55F18FD0D35978F77) |
+
 ## Global distribution
 
 Map shows **300** georeferenced GBIF records (out of 2694 total) for *Fimbristylis complanata* worldwide. Click markers for details.
@@ -34,22 +52,6 @@ Figures extracted from taxonomic publications by [Plazi TreatmentBank](https://p
 
 *Figura 5. A-L. Vista lateral das núculas: A. Eleocharis angustispicula, com cerdas perigoniais evidentes (C. L. Braga-Silva et al. 150 - MG); B. E. flavescens, com cerdas perigoniais evidentes – fruto imaturo (C. L. Braga-Silva et al. 122 - MG); C. E. jelskiana, com cerdas perigoniais evidentes (C. L. Braga-Silva et al. 124 - MG); D. E. plicarhachis, com cerdas perigoniais evidentes (C. L. Braga-Silva et al. 166 - MG); E. Fimbristylis complanata (A. J. Fernandes-Júnior et al. 604 - MG); F. F. dichotoma (C. L. Braga-Silva et al. 87 - MG); G. F. littoralis (C. L. Braga-Silva et al. 37 - MG); H. Fuirena umbellata (C. L. Braga-Silva et al. 100 - MG); I. Hypolytrum pulchrum (C. L. Braga-Silva et al. 144 - MG); J. Lagenocarpus celiae (C. L. Braga-Silva et al. 154 - MG); K. L. rigidus (C. L. Braga-Silva et al. 97 - MG); L. L. verticillatus (C. L. Braga-Silva et al. 105 - MG).*
 [Source](http://dx.doi.org/10.5281/zenodo.10627106)
-
-## Literature
-
-Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
-
-- [A TREATMENT OF ABILDGAARDIA, BULBOSTYLIS AND FIMBRISTYLIS (CYPERACEAE) FOR NORTH AMERICA]() — Kral, Robert, 1971
-
-- [FIMBRISTYLIS AND BULBOSTYLIS: GENERIC LIMITS AS SEEN BY A STUDENT OF SOUTHERN AFRICAN SPECIES]() — Gordon-Gray, Kathleen D, 1971
-
-- [Cyperaceae of East Africa -III]() — Napper, D M
-
-- [Studies in Cyperaceae]() — Blake, S. T. (Stanley Thatcher),
-
-- [Contributions from the Queensland Herbarium](https://www.biodiversitylibrary.org/title/202146) — Queensland Herbarium.
-
-[Search for *Fimbristylis complanata* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Fimbristylis+complanata)
 
 ## Observations from Montserrat
 

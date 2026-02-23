@@ -6,6 +6,24 @@ Read about this species on [Swedish Wikipedia](https://sv.wikipedia.org/wiki/Las
 
 Also available in: [Vietnamese](https://vi.wikipedia.org/wiki/Lasiacis_divaricata)
 
+## Original description
+
+*Lasiacis divaricata* was first described by **(L.) Hitchc.** in:
+
+> Contr. U.S. Natl. Herb. 15: 16 (1910)
+
+This species was originally described as *Panicum divaricatum* L. in Syst. Nat. ed. 10. 2: 871 (1759), and was later reclassified to its current name.
+
+[View on GBIF](https://www.gbif.org/species/2702852)
+
+## Taxonomic history
+
+| Year | Event | Name | Reference |
+|------|-------|------|-----------|
+| 1759 | First described | *Panicum divaricatum L.* | Syst. Nat. ed. 10. 2: 871 (1759) |
+| 1759 | Synonym deprecated | *Panicum divaricatum Linnaeus, 1759* | [Plazi treatment](https://treatment.plazi.org/id/110EE5CCF9549CF3728BA41E53A40B1A) |
+| 1910 | Reclassified | *Lasiacis divaricata (L.) Hitchc.* | Contr. U.S. Natl. Herb. 15: 16 (1910) |
+
 ## Global distribution
 
 Map shows **300** georeferenced GBIF records (out of 3064 total) for *Lasiacis divaricata* worldwide. Click markers for details.
@@ -20,25 +38,9 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part J)*](https://treatment.plazi.org/id/110EE5CCF9549CF3728BA41E53A40B1A)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part R)*](https://treatment.plazi.org/id/110EE5CCF9549CF3728BA41E53A40B1A)
 
 [View all treatments for *Lasiacis divaricata* on Synospecies](https://synospecies.plazi.org/#Lasiacis%20divaricata)
-
-## Literature
-
-Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
-
-- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
-
-- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
-
-- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
-
-- [New Taxa and Combinations in the Genus Lasiacis (Gramineae)]() — Davidse, Gerrit, 1977
-
-- [A Systematic Study of the Genus Lasiacis (Gramineae: Paniceae)]() — Davidse, Gerrit, 1978
-
-[Search for *Lasiacis divaricata* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Lasiacis+divaricata)
 
 ## Observations from Montserrat
 
@@ -53,12 +55,12 @@ Observations from the GBIF dataset covering Montserrat grasses and sedges.
 
 ### nan
 
-**Observation:** [https://www.gbif.org/occurrence/1321333395](https://www.gbif.org/occurrence/1321333395)  
-**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-
-![Lasiacis divaricata — nan](http://n2t.net/ark:/65665/m31c9184db-f3b6-498c-b1fd-6e7356c686fb)
-
 **Observation:** [https://www.gbif.org/occurrence/4519387627](https://www.gbif.org/occurrence/4519387627)  
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ![Lasiacis divaricata — nan](https://d2seqvvyy3b8p2.cloudfront.net/0a4517053793e946bdc3cccaccbf3d2b.jpg)
+
+**Observation:** [https://www.gbif.org/occurrence/1321333395](https://www.gbif.org/occurrence/1321333395)  
+**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+![Lasiacis divaricata — nan](http://n2t.net/ark:/65665/m31c9184db-f3b6-498c-b1fd-6e7356c686fb)

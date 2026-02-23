@@ -6,6 +6,21 @@ Read about this species on [Portuguese Wikipedia](https://pt.wikipedia.org/wiki/
 
 Also available in: [Arabic](https://ar.wikipedia.org/wiki/%D8%BA%D9%81%D8%A9_%D8%B4%D8%A7%D8%A6%D8%B9%D8%A9) · [English](https://en.wikipedia.org/wiki/Aristida_adscensionis) · [Spanish](https://es.wikipedia.org/wiki/Aristida_adscensionis) · [Swedish](https://sv.wikipedia.org/wiki/Aristida_adscensionis) · [Vietnamese](https://vi.wikipedia.org/wiki/Aristida_adscensionis) · [Chinese](https://zh.wikipedia.org/wiki/%E4%B8%89%E8%8A%92%E8%8D%89)
 
+## Original description
+
+*Aristida adscensionis* was first described by **L.** in:
+
+> Sp. Pl.: 82 (1753)
+
+[View on GBIF](https://www.gbif.org/species/2706277)
+
+## Taxonomic history
+
+| Year | Event | Name | Reference |
+|------|-------|------|-----------|
+| 1753 | First described | *Aristida adscensionis L.* | Sp. Pl.: 82 (1753) |
+| 1753 | Original description (Plazi) | *Aristida adscensionis Linnaeus, 1753* | Aristida adscensionis Linnaeus, 1753, spec. nov. — [Plazi treatment](https://treatment.plazi.org/id/27D0F7D3DDD2F3D875D9734F83842C7C) |
+
 ## Global distribution
 
 Map shows **300** georeferenced GBIF records (out of 14699 total) for *Aristida adscensionis* worldwide. Click markers for details.
@@ -26,29 +41,13 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 - [Williams, Emma Victoria; Elia Ntandu, John; Ficinski, Pawel; Vorontsova, Maria — *Checklist of Serengeti Ecosystem Grasses*](https://treatment.plazi.org/id/AA46AB92BB75B57621EFC88D555B1646)
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part Y)*](https://treatment.plazi.org/id/BBC0BD7AE56AB1A942B051660238F048)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part Z)*](https://treatment.plazi.org/id/BBC0BD7AE56AB1A942B051660238F048)
 
 - [Williams, Emma Victoria; Elia Ntandu, John; Ficinski, Pawel; Vorontsova, Maria — *Checklist of Serengeti Ecosystem Grasses*](https://treatment.plazi.org/id/F847A688EAE2252E9BE894B9588C41B8)
 
 - [Monteiro, Francisca; Costa, Esperança Da; Kissanga, Raquel; Costa, José Carlos; Catarino, Luís — *An annotated checklist of the vascular flora of Quiçama National Park, Angola*](https://treatment.plazi.org/id/03C087B3F6629779D1C2FDBCB666FDF2)
 
 [View all treatments for *Aristida adscensionis* on Synospecies](https://synospecies.plazi.org/#Aristida%20adscensionis)
-
-## Literature
-
-Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
-
-- [Noteworthy grasses from Mexico II]() — Beetle, Alan A. (Alan Ackerman),, 1974
-
-- [Synthese des connaissance et des recherches nouvelles sur aristida rhinochloa graminee africaine amphitropicale]() — Bourreil, Pierre, Gillet, Hubert, 1971
-
-- [Flora de Veracruz](https://www.biodiversitylibrary.org/title/118982)
-
-- [What is Aristida peruviana?]() — Reeder, John R, 1993
-
-- [THE SPECIES OF THE GENUS ARISTIDA L. POACEAE IN CHILE]() — Matthei-J, O, 1987
-
-[Search for *Aristida adscensionis* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Aristida+adscensionis)
 
 ## Observations from Montserrat
 

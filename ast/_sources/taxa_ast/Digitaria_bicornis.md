@@ -4,6 +4,23 @@
 
 Also available in: [Swedish](https://sv.wikipedia.org/wiki/Digitaria_bicornis) · [Vietnamese](https://vi.wikipedia.org/wiki/Digitaria_bicornis) · [Chinese](https://zh.wikipedia.org/wiki/%E5%BC%82%E9%A9%AC%E5%94%90)
 
+## Original description
+
+*Digitaria bicornis* was first described by **(Lam.) Roem. & Schult.** in:
+
+> Syst. Veg. ed. 15[bis]. 2: 470 (1817)
+
+This species was originally described as *Paspalum bicorne* Lam. in Tabl. Encycl. 1: 176 (1791), and was later reclassified to its current name.
+
+[View on GBIF](https://www.gbif.org/species/5289968)
+
+## Taxonomic history
+
+| Year | Event | Name | Reference |
+|------|-------|------|-----------|
+| 1791 | First described | *Paspalum bicorne Lam.* | Tabl. Encycl. 1: 176 (1791) |
+| 1817 | Reclassified | *Digitaria bicornis (Lam.) Roem. & Schult.* | Syst. Veg. ed. 15[bis]. 2: 470 (1817) |
+
 ## Global distribution
 
 Map shows **300** georeferenced GBIF records (out of 3171 total) for *Digitaria bicornis* worldwide. Click markers for details.
@@ -21,22 +38,6 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 - [Treatment]()
 
 [View all treatments for *Digitaria bicornis* on Synospecies](https://synospecies.plazi.org/#Digitaria%20bicornis)
-
-## Literature
-
-Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
-
-- [DISTRIBUTION RECORDS FOR DIGITARIA BICORNIS IN EASTERN UNITED STATES]() — Webster, Robert D. (Robert Dale),, 1980
-
-- [RELATIONSHIP BETWEEN DIGIT ARIA MILANJIANA (POACEAE: PANICEAE) AND THE ANNUAL SPECIES OF DIGIT ARIA SECTION DIGIT ARIA IN NORTH AMERICA]() — Webster, Robert D. (Robert Dale),, Shaw, R B, 1982
-
-- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
-
-- [Digitaria aequiglumis (Poaceae), a new weed for Western Australia]() — Lepschi, Brendan Johann, Macfarlane, T D, 1997
-
-- [SIDA, contributions to botany](https://www.biodiversitylibrary.org/title/8113) — Mahler, William F., Shinners, Lloyd Herbert,
-
-[Search for *Digitaria bicornis* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Digitaria+bicornis)
 
 ## Observations from Montserrat
 
