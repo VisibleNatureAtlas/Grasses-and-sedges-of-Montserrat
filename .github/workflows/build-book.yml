@@ -51,9 +51,8 @@ jobs:
           exit 1
         fi
 
-        # Create the deploy directory with a landing page
+        # Create the deploy directory — English edition at the root
         mkdir -p _deploy
-        cp _build_landing.html _deploy/index.html
         touch _deploy/.nojekyll
 
         # Build each language edition
@@ -85,11 +84,16 @@ jobs:
 
           echo "Found HTML output at: ${HTML_DIR}"
 
-          # Copy into deploy directory
-          cp -r "${HTML_DIR}" "_deploy/${lang}"
-
-          # Copy maps into each language's build
-          cp -r maps/ "_deploy/${lang}/maps/"
+          if [ "$lang" = "en" ]; then
+            # English goes to the root of _deploy/
+            cp -r "${HTML_DIR}/"* _deploy/
+            cp -r maps/ _deploy/maps/
+            echo "English edition deployed to root."
+          else
+            # Other languages go under _deploy/{lang}/
+            cp -r "${HTML_DIR}" "_deploy/${lang}"
+            cp -r maps/ "_deploy/${lang}/maps/"
+          fi
 
           echo "Language ${lang} built successfully."
         done < .languages.txt
