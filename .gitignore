@@ -36,5 +36,9 @@ intro_*.md
 _build_landing.html
 _deploy/
 
+# Generated GBIF data (downloaded fresh by downloadGBIF.ipynb)
+data/occurrence.txt
+data/multimedia.txt
+
 # Secrets
 .env
