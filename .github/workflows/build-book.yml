@@ -34,8 +34,11 @@ jobs:
         pip install -r requirements.txt
 
     - name: Download latest GBIF occurrence data
+      env:
+        GBIF_USER: ${{ secrets.GBIF_USER }}
+        GBIF_PWD: ${{ secrets.GBIF_PWD }}
       run: |
-        jupyter execute downloadGBIF.ipynb --timeout=300
+        jupyter execute downloadGBIF.ipynb --timeout=3600
 
     - name: Run data pipeline (inspectData.ipynb)
       run: |
