@@ -39,6 +39,22 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Machaerina restioides* on Synospecies](https://synospecies.plazi.org/#Machaerina%20restioides)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Machaerina (Cyperaceae) in South America]() — Strong, M T, 1997
+
+- [Studies in Cyperaceae]() — Blake, S. T. (Stanley Thatcher),
+
+- [Contributions from the Queensland Herbarium](https://www.biodiversitylibrary.org/title/202146) — Queensland Herbarium.
+
+- [NOMENCLATORIAL TRANSFERS IN MARISCUS]() — Fernald, Merritt Lyndon,, 1923
+
+- [Notes cypérologiques. 17. Révision des Cladium P. Browne s. lat. (Cyperaceae) de Madagascar et des Mascareignes]() — Raynal, Jean, 1972
+
+[Search for *Machaerina restioides* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Machaerina+restioides)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.

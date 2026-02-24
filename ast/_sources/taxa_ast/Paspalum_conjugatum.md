@@ -45,6 +45,22 @@ Figures extracted from taxonomic publications by [Plazi TreatmentBank](https://p
 *FIGURE 1. Adult female Icerya imperatae Rao. Where A = anterior dorsal loculate pore; B = area of dorsum showing density of pores and setae; C = sclerotised dorsal pore; D = dorsal setae; E = abdominal spiracle; F = posterior dorsal loculate pore; G = anal tube; H = ventral seta near vulva; J = vulva area; K = claw; L = area of derm within ovisac band showing density of pores and setae; M = ventral loculate pore; P = sclerotised ventral pore; Q = area of ventral derm showing density of pores and setae; R = trochanter of prothoracic leg; S = antenna; T = loculate pores in ovisac band, and X = loculate pore near anus and vulva.*
 [Source](http://dx.doi.org/10.5281/zenodo.205750)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Paspalum Conjugatum Berg. (Poaceae), a new Record To Andhra Pradesh, India]() — Reddy, A Madhusudhan, Sunitha, S, Rao, B Ravi Prasad, 2005
+
+- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [Icones Ascomycetum Venezuelae: Myriogenospora atramentosa]() — Hanlin, R T, Tortolero, O, 1990
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+[Search for *Paspalum conjugatum* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Paspalum+conjugatum)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.

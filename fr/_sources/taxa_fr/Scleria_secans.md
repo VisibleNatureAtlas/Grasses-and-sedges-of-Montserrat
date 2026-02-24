@@ -39,7 +39,7 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part H)*](https://treatment.plazi.org/id/0A334CDABC0BF1B4B4CAB41195FFDF07)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part O)*](https://treatment.plazi.org/id/0A334CDABC0BF1B4B4CAB41195FFDF07)
 
 - [Ramella, Lorenzo; Perret, Patrick — *Las colecciones de Johann Rudolph Rengger (1795 - 1832) en Argentina, Brasil y Paraguay. III. Tipificación de los nombres descritos a partir de los herbarios Rengger*](https://treatment.plazi.org/id/03D94407FFBDFFA0FCBA16D78161E44D)
 
@@ -55,6 +55,22 @@ Figures extracted from taxonomic publications by [Plazi TreatmentBank](https://p
 
 *FIGURE 4. Lectotype of Scleria reflexa var. surinamensis Boeck. (Hostmánn 837, K [000584488]). Image: Royal Botanic Gardens Kew (United Kingdom).*
 [Source](http://dx.doi.org/10.5281/zenodo.8202566)
+
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [THE GENUS SCLERIA IN BRAZIL]() — Core, Earl Lemley,, 1952
+
+- [Two new species of Scleria section Scleria (Cyperaceae) from the neotropics]() — Strong, M T, 1994
+
+- [The sedges of Jamaica](https://www.biodiversitylibrary.org/title/4341) — Britton, Nathaniel Lord,
+
+- [Flora da Reserva Ducke, Amazonas, Brasil: Cyperaceae]() — Simpson, David A, 2006
+
+- [Publication.  Field Museum of Natural History. Botanical series](https://www.biodiversitylibrary.org/title/42246) — Field Museum of Natural History.
+
+[Search for *Scleria secans* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Scleria+secans)
 
 ## Observations from Montserrat
 

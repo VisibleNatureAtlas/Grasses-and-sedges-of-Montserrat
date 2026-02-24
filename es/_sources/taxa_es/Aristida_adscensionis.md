@@ -41,13 +41,29 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 - [Williams, Emma Victoria; Elia Ntandu, John; Ficinski, Pawel; Vorontsova, Maria — *Checklist of Serengeti Ecosystem Grasses*](https://treatment.plazi.org/id/AA46AB92BB75B57621EFC88D555B1646)
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part Z)*](https://treatment.plazi.org/id/BBC0BD7AE56AB1A942B051660238F048)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part W)*](https://treatment.plazi.org/id/BBC0BD7AE56AB1A942B051660238F048)
 
 - [Williams, Emma Victoria; Elia Ntandu, John; Ficinski, Pawel; Vorontsova, Maria — *Checklist of Serengeti Ecosystem Grasses*](https://treatment.plazi.org/id/F847A688EAE2252E9BE894B9588C41B8)
 
 - [Monteiro, Francisca; Costa, Esperança Da; Kissanga, Raquel; Costa, José Carlos; Catarino, Luís — *An annotated checklist of the vascular flora of Quiçama National Park, Angola*](https://treatment.plazi.org/id/03C087B3F6629779D1C2FDBCB666FDF2)
 
 [View all treatments for *Aristida adscensionis* on Synospecies](https://synospecies.plazi.org/#Aristida%20adscensionis)
+
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Noteworthy grasses from Mexico II]() — Beetle, Alan A. (Alan Ackerman),, 1974
+
+- [Synthese des connaissance et des recherches nouvelles sur aristida rhinochloa graminee africaine amphitropicale]() — Bourreil, Pierre, Gillet, Hubert, 1971
+
+- [Flora de Veracruz](https://www.biodiversitylibrary.org/title/118982)
+
+- [What is Aristida peruviana?]() — Reeder, John R, 1993
+
+- [THE SPECIES OF THE GENUS ARISTIDA L. POACEAE IN CHILE]() — Matthei-J, O, 1987
+
+[Search for *Aristida adscensionis* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Aristida+adscensionis)
 
 ## Observations from Montserrat
 

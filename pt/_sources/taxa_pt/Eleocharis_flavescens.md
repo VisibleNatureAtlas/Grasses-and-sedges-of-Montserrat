@@ -51,6 +51,22 @@ Figures extracted from taxonomic publications by [Plazi TreatmentBank](https://p
 *Figura 5. A-L. Vista lateral das núculas: A. Eleocharis angustispicula, com cerdas perigoniais evidentes (C. L. Braga-Silva et al. 150 - MG); B. E. flavescens, com cerdas perigoniais evidentes – fruto imaturo (C. L. Braga-Silva et al. 122 - MG); C. E. jelskiana, com cerdas perigoniais evidentes (C. L. Braga-Silva et al. 124 - MG); D. E. plicarhachis, com cerdas perigoniais evidentes (C. L. Braga-Silva et al. 166 - MG); E. Fimbristylis complanata (A. J. Fernandes-Júnior et al. 604 - MG); F. F. dichotoma (C. L. Braga-Silva et al. 87 - MG); G. F. littoralis (C. L. Braga-Silva et al. 37 - MG); H. Fuirena umbellata (C. L. Braga-Silva et al. 100 - MG); I. Hypolytrum pulchrum (C. L. Braga-Silva et al. 144 - MG); J. Lagenocarpus celiae (C. L. Braga-Silva et al. 154 - MG); K. L. rigidus (C. L. Braga-Silva et al. 97 - MG); L. L. verticillatus (C. L. Braga-Silva et al. 105 - MG).*
 [Source](http://dx.doi.org/10.5281/zenodo.10627106)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Monographic studies in the genus Eleocharis - V (continued)]() — Svenson, Henry K., 1939
+
+- [O gênero Eleocharis R. Br. (Cyperaceae) nos ecossistemas aquáticos temporários da planície costeira do Estado do Rio de Janeiro]() — Gil, André Dos Santos Bragança, Bove, Cláudia Petean,, 2004
+
+- [Monographic studies in the genus Eleocharis [I - concl.]]() — Svenson, Henry K., 1929
+
+- [Two additions to the flora of Oklahoma and notes on Xyris jupicai (Xyridaceae) in Oklahoma]() — Singhurst, Jason R., Bridges, Edwin L., Holmes, Walter C., 2007
+
+- [Monographic Studies in the Genus Eleocharis - V (concluded)]() — Svenson, Henry K., 1939
+
+[Search for *Eleocharis flavescens* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Eleocharis+flavescens)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.

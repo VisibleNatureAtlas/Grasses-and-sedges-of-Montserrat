@@ -41,6 +41,22 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Cymbopogon citratus* on Synospecies](https://synospecies.plazi.org/#Cymbopogon%20citratus)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Diseases of Cymbopogon citratus (Poaceae) in China: Curvularia nanningensis sp. nov.]() — Zhang, Qian, Yang, Zai-Fu, Cheng, Wei, Wijayawardene, Nalin, Hyde, Kevin D, Chen, Zhuo., Wang, Yong, 2020
+
+- [Distinção química e farmacológica de clones de Cymbopogon citratus Stapf. Cultivados no Ceará e em São Paulo]() — Matos, Francisco José de Abreu, Alencar, J. W., Craveiro, Afrânio Aragão, Fonteles, Manasses Claudino, Souza, N. R., Ferreira, M. S. C.
+
+- [Qualidade de produtos a base de plantas medicinais comercializados no Brasil: castanha-da-índia (Aesculus hippocastanum L.), capim-limão (Cymbopogon citratus (DC.) Stapf ) e centela (Centella asiatica (L.) Urban)]() — Melo, Joabe Gomes de, Martins, Járisson Diógenes Guilherme da Rocha, Amorim, Elba Lúcia Cavalcanti de, Albuquerque, Ulysses Paulino de.
+
+- [The production of lemon-grass oil](https://www.biodiversitylibrary.org/title/176605) — Jones, Merriam Arthur,
+
+- [The oil-grasses of India & Ceylon : (Cymbopogon, Vetiveria and Andropogo spp.)](https://www.biodiversitylibrary.org/title/53802) — Stapf, O. (Otto)
+
+[Search for *Cymbopogon citratus* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Cymbopogon+citratus)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.

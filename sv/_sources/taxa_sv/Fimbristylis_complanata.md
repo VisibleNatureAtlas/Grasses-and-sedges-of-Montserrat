@@ -53,6 +53,22 @@ Figures extracted from taxonomic publications by [Plazi TreatmentBank](https://p
 *Figura 5. A-L. Vista lateral das núculas: A. Eleocharis angustispicula, com cerdas perigoniais evidentes (C. L. Braga-Silva et al. 150 - MG); B. E. flavescens, com cerdas perigoniais evidentes – fruto imaturo (C. L. Braga-Silva et al. 122 - MG); C. E. jelskiana, com cerdas perigoniais evidentes (C. L. Braga-Silva et al. 124 - MG); D. E. plicarhachis, com cerdas perigoniais evidentes (C. L. Braga-Silva et al. 166 - MG); E. Fimbristylis complanata (A. J. Fernandes-Júnior et al. 604 - MG); F. F. dichotoma (C. L. Braga-Silva et al. 87 - MG); G. F. littoralis (C. L. Braga-Silva et al. 37 - MG); H. Fuirena umbellata (C. L. Braga-Silva et al. 100 - MG); I. Hypolytrum pulchrum (C. L. Braga-Silva et al. 144 - MG); J. Lagenocarpus celiae (C. L. Braga-Silva et al. 154 - MG); K. L. rigidus (C. L. Braga-Silva et al. 97 - MG); L. L. verticillatus (C. L. Braga-Silva et al. 105 - MG).*
 [Source](http://dx.doi.org/10.5281/zenodo.10627106)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [A TREATMENT OF ABILDGAARDIA, BULBOSTYLIS AND FIMBRISTYLIS (CYPERACEAE) FOR NORTH AMERICA]() — Kral, Robert, 1971
+
+- [FIMBRISTYLIS AND BULBOSTYLIS: GENERIC LIMITS AS SEEN BY A STUDENT OF SOUTHERN AFRICAN SPECIES]() — Gordon-Gray, Kathleen D, 1971
+
+- [Cyperaceae of East Africa -III]() — Napper, D M
+
+- [Studies in Cyperaceae]() — Blake, S. T. (Stanley Thatcher),
+
+- [Notes on the distribution and endemism of Indian Fimbristylis]() — Prasad, V P, Singh, N P, 1997
+
+[Search for *Fimbristylis complanata* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Fimbristylis+complanata)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.

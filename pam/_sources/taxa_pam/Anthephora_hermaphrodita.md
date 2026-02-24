@@ -36,9 +36,25 @@ Map data © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributor
 
 Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/):
 
-- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part D)*](https://treatment.plazi.org/id/C6A2AFF0C45E853F5F2A1BD2B0709022)
+- [Jarvis, Charlie — *Chapter 7: Linnaean Plant Names and their Types (part Z)*](https://treatment.plazi.org/id/C6A2AFF0C45E853F5F2A1BD2B0709022)
 
 [View all treatments for *Anthephora hermaphrodita* on Synospecies](https://synospecies.plazi.org/#Anthephora%20hermaphrodita)
+
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [THE GERMINATION LID: A CHARACTERISTIC OF THE LEMMA IN THE PANICEAE]() — Rost, Thomas L, Simper, A Daniel, 1975
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [The Genera of Paniceae (Gramineae: Panicoideae) in the Southeastern United States]() — Crins, William J., 1991
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
+
+[Search for *Anthephora hermaphrodita* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Anthephora+hermaphrodita)
 
 ## Observations from Montserrat
 
@@ -53,6 +69,13 @@ Observations from the GBIF dataset covering Montserrat grasses and sedges.
 
 ### nan
 
+**Observation:** [https://www.gbif.org/occurrence/1322619497](https://www.gbif.org/occurrence/1322619497)  
+**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+![Anthephora hermaphrodita — nan](http://n2t.net/ark:/65665/m3e9d3fb8c-d5b1-4ed1-a03e-f4e1a9ef2059)
+
+![Anthephora hermaphrodita — nan](http://n2t.net/ark:/65665/m3ee367c1b-d387-4015-83cb-2cd7838af38d)
+
 **Observation:** [https://www.gbif.org/occurrence/1322614438](https://www.gbif.org/occurrence/1322614438)  
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
@@ -62,10 +85,3 @@ Observations from the GBIF dataset covering Montserrat grasses and sedges.
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ![Anthephora hermaphrodita — nan](http://n2t.net/ark:/65665/m3140f66a1-e14d-48e1-b859-a9cd019ffd21)
-
-**Observation:** [https://www.gbif.org/occurrence/1322619497](https://www.gbif.org/occurrence/1322619497)  
-**License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-
-![Anthephora hermaphrodita — nan](http://n2t.net/ark:/65665/m3ee367c1b-d387-4015-83cb-2cd7838af38d)
-
-![Anthephora hermaphrodita — nan](http://n2t.net/ark:/65665/m3e9d3fb8c-d5b1-4ed1-a03e-f4e1a9ef2059)

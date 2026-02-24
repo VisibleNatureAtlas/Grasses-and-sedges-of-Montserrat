@@ -39,6 +39,22 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Digitaria bicornis* on Synospecies](https://synospecies.plazi.org/#Digitaria%20bicornis)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [DISTRIBUTION RECORDS FOR DIGITARIA BICORNIS IN EASTERN UNITED STATES]() — Webster, Robert D. (Robert Dale),, 1980
+
+- [RELATIONSHIP BETWEEN DIGIT ARIA MILANJIANA (POACEAE: PANICEAE) AND THE ANNUAL SPECIES OF DIGIT ARIA SECTION DIGIT ARIA IN NORTH AMERICA]() — Webster, Robert D. (Robert Dale),, Shaw, R B, 1982
+
+- [Grasses of the West Indies](https://www.biodiversitylibrary.org/title/53799) — Hitchcock, A. S. (Albert Spear),, Chase, Agnes,
+
+- [Digitaria aequiglumis (Poaceae), a new weed for Western Australia]() — Lepschi, Brendan Johann, Macfarlane, T D, 1997
+
+- [SIDA, contributions to botany](https://www.biodiversitylibrary.org/title/8113) — Mahler, William F., Shinners, Lloyd Herbert,
+
+[Search for *Digitaria bicornis* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Digitaria+bicornis)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.

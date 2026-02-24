@@ -41,6 +41,22 @@ Taxonomic treatments from [Plazi TreatmentBank](https://plazi.org/treatmentbank/
 
 [View all treatments for *Rhynchospora nervosa* on Synospecies](https://synospecies.plazi.org/#Rhynchospora%20nervosa)
 
+## Literature
+
+Publications from the [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/):
+
+- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
+
+- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
+
+- [Lista de la Flora Vascular del Área Protegida, Santuario de Juego y Sitio Ramsar del Río Masón, Jamaica]() — Keron C. St. E. Campbell, Judeen Meikle, Tracy Commock, Lori-Ann Harris, Proctor, George Richardson,, 2022
+
+- [Catálogo de las plantas vasculares de la República Argentina](https://www.biodiversitylibrary.org/title/203008) — Zuloaga, Fernando O., Morrone, Osvaldo
+
+- [Contributions from the United States National Herbarium](https://www.biodiversitylibrary.org/title/687) — United States. National Herbarium.
+
+[Search for *Rhynchospora nervosa* on BHL](https://www.biodiversitylibrary.org/search?SearchTerm=Rhynchospora+nervosa)
+
 ## Observations from Montserrat
 
 Observations from the GBIF dataset covering Montserrat grasses and sedges.

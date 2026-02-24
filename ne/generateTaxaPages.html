@@ -1982,7 +1982,15 @@ in <code class="docutils literal notranslate"><span class="pre">shared_data[taxo
         <span class="k">if</span> <span class="n">ol</span> <span class="o">!=</span> <span class="n">lang</span><span class="p">:</span>
             <span class="n">ol_name</span> <span class="o">=</span> <span class="n">get_lang_name</span><span class="p">(</span><span class="n">ol</span><span class="p">)</span>
             <span class="n">n_ol</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">active_langs</span><span class="p">[</span><span class="n">ol</span><span class="p">])</span>
-            <span class="n">other_editions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="n">ol_name</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">n_ol</span><span class="si">}</span><span class="s1"> species)](../</span><span class="si">{</span><span class="n">ol</span><span class="si">}</span><span class="s1">/index.html)&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">lang</span> <span class="o">==</span> <span class="s1">&#39;en&#39;</span><span class="p">:</span>
+                <span class="c1"># English is at root, other langs are subdirectories</span>
+                <span class="n">other_editions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="n">ol_name</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">n_ol</span><span class="si">}</span><span class="s1"> species)](</span><span class="si">{</span><span class="n">ol</span><span class="si">}</span><span class="s1">/index.html)&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">ol</span> <span class="o">==</span> <span class="s1">&#39;en&#39;</span><span class="p">:</span>
+                <span class="c1"># Link back to English at the root</span>
+                <span class="n">other_editions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="n">ol_name</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">n_ol</span><span class="si">}</span><span class="s1"> species)](../index.html)&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Between two non-English languages</span>
+                <span class="n">other_editions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="n">ol_name</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">n_ol</span><span class="si">}</span><span class="s1"> species)](../</span><span class="si">{</span><span class="n">ol</span><span class="si">}</span><span class="s1">/index.html)&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">other_editions</span><span class="p">:</span>
         <span class="n">intro_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39; </span><span class="se">\u00b7</span><span class="s1"> &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">other_editions</span><span class="p">))</span>
         <span class="n">intro_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
@@ -2068,126 +2076,8 @@ in <code class="docutils literal notranslate"><span class="pre">shared_data[taxo
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sorted_langs_list</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Wrote .languages.txt with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sorted_langs_list</span><span class="p">)</span><span class="si">}</span><span class="s1"> languages: </span><span class="si">{</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sorted_langs_list</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="c1"># ---- Generate landing page (index.html) ----</span>
-<span class="c1"># This is a simple HTML page that links to each language edition.</span>
 
-<span class="n">lang_cards</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="k">for</span> <span class="n">lang</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">sorted_langs_list</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">l</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">active_langs</span><span class="p">[</span><span class="n">l</span><span class="p">]),</span> <span class="n">l</span><span class="p">)):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="n">get_lang_name</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">active_langs</span><span class="p">[</span><span class="n">lang</span><span class="p">])</span>
-    <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">taxonpages</span><span class="p">)</span>
-    <span class="n">pct</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">n</span> <span class="o">/</span> <span class="n">total</span><span class="p">)</span> <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
-    <span class="n">lang_cards</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">        &lt;a href=&quot;</span><span class="si">{</span><span class="n">lang</span><span class="si">}</span><span class="s1">/index.html&quot; class=&quot;lang-card&quot;&gt;</span>
-<span class="s1">            &lt;div class=&quot;lang-code&quot;&gt;</span><span class="si">{</span><span class="n">lang</span><span class="si">}</span><span class="s1">&lt;/div&gt;</span>
-<span class="s1">            &lt;div class=&quot;lang-name&quot;&gt;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&lt;/div&gt;</span>
-<span class="s1">            &lt;div class=&quot;lang-stats&quot;&gt;</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s1"> species with Wikipedia (</span><span class="si">{</span><span class="n">pct</span><span class="si">}</span><span class="s1">%)&lt;/div&gt;</span>
-<span class="s1">        &lt;/a&gt;</span>
-<span class="s1">&#39;&#39;&#39;</span>
-
-<span class="n">landing_html</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;&lt;!DOCTYPE html&gt;</span>
-<span class="s1">&lt;html lang=&quot;en&quot;&gt;</span>
-<span class="s1">&lt;head&gt;</span>
-<span class="s1">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
-<span class="s1">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
-<span class="s1">    &lt;title&gt;Visible Nature Atlas: Grasses and sedges of Montserrat&lt;/title&gt;</span>
-<span class="s1">    &lt;style&gt;</span>
-<span class="s1">        * </span><span class="se">{{</span><span class="s1"> margin: 0; padding: 0; box-sizing: border-box; </span><span class="se">}}</span>
-<span class="s1">        body </span><span class="se">{{</span>
-<span class="s1">            font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, sans-serif;</span>
-<span class="s1">            background: #f7f9fc;</span>
-<span class="s1">            color: #2c3e50;</span>
-<span class="s1">            min-height: 100vh;</span>
-<span class="s1">        </span><span class="se">}}</span>
-<span class="s1">        .hero </span><span class="se">{{</span>
-<span class="s1">            background: linear-gradient(135deg, #1a5632 0%, #2d8a56 50%, #4aa564 100%);</span>
-<span class="s1">            color: white;</span>
-<span class="s1">            padding: 3rem 2rem;</span>
-<span class="s1">            text-align: center;</span>
-<span class="s1">        </span><span class="se">}}</span>
-<span class="s1">        .hero h1 </span><span class="se">{{</span><span class="s1"> font-size: 2.2rem; margin-bottom: 0.5rem; </span><span class="se">}}</span>
-<span class="s1">        .hero p </span><span class="se">{{</span><span class="s1"> font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; </span><span class="se">}}</span>
-<span class="s1">        .container </span><span class="se">{{</span>
-<span class="s1">            max-width: 900px;</span>
-<span class="s1">            margin: 2rem auto;</span>
-<span class="s1">            padding: 0 1.5rem;</span>
-<span class="s1">        </span><span class="se">}}</span>
-<span class="s1">        h2 </span><span class="se">{{</span>
-<span class="s1">            font-size: 1.4rem;</span>
-<span class="s1">            margin-bottom: 1rem;</span>
-<span class="s1">            color: #2c3e50;</span>
-<span class="s1">        </span><span class="se">}}</span>
-<span class="s1">        .lang-grid </span><span class="se">{{</span>
-<span class="s1">            display: grid;</span>
-<span class="s1">            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));</span>
-<span class="s1">            gap: 1rem;</span>
-<span class="s1">            margin-bottom: 2rem;</span>
-<span class="s1">        </span><span class="se">}}</span>
-<span class="s1">        .lang-card </span><span class="se">{{</span>
-<span class="s1">            background: white;</span>
-<span class="s1">            border: 1px solid #e0e6ed;</span>
-<span class="s1">            border-radius: 8px;</span>
-<span class="s1">            padding: 1.2rem;</span>
-<span class="s1">            text-decoration: none;</span>
-<span class="s1">            color: inherit;</span>
-<span class="s1">            transition: transform 0.15s, box-shadow 0.15s;</span>
-<span class="s1">        </span><span class="se">}}</span>
-<span class="s1">        .lang-card:hover </span><span class="se">{{</span>
-<span class="s1">            transform: translateY(-2px);</span>
-<span class="s1">            box-shadow: 0 4px 12px rgba(0,0,0,0.1);</span>
-<span class="s1">        </span><span class="se">}}</span>
-<span class="s1">        .lang-code </span><span class="se">{{</span>
-<span class="s1">            font-size: 1.6rem;</span>
-<span class="s1">            font-weight: 700;</span>
-<span class="s1">            color: #1a5632;</span>
-<span class="s1">        </span><span class="se">}}</span>
-<span class="s1">        .lang-name </span><span class="se">{{</span>
-<span class="s1">            font-size: 1rem;</span>
-<span class="s1">            margin: 0.3rem 0;</span>
-<span class="s1">        </span><span class="se">}}</span>
-<span class="s1">        .lang-stats </span><span class="se">{{</span>
-<span class="s1">            font-size: 0.85rem;</span>
-<span class="s1">            color: #7f8c8d;</span>
-<span class="s1">        </span><span class="se">}}</span>
-<span class="s1">        .footer </span><span class="se">{{</span>
-<span class="s1">            text-align: center;</span>
-<span class="s1">            padding: 2rem;</span>
-<span class="s1">            font-size: 0.85rem;</span>
-<span class="s1">            color: #7f8c8d;</span>
-<span class="s1">        </span><span class="se">}}</span>
-<span class="s1">        .footer a </span><span class="se">{{</span><span class="s1"> color: #1a5632; </span><span class="se">}}</span>
-<span class="s1">    &lt;/style&gt;</span>
-<span class="s1">&lt;/head&gt;</span>
-<span class="s1">&lt;body&gt;</span>
-<span class="s1">    &lt;div class=&quot;hero&quot;&gt;</span>
-<span class="s1">        &lt;h1&gt;Grasses and sedges of Montserrat&lt;/h1&gt;</span>
-<span class="s1">        &lt;p&gt;A multilingual biodiversity atlas from the Visible Nature Atlas series.</span>
-<span class="s1">           Choose a language edition below.&lt;/p&gt;</span>
-<span class="s1">    &lt;/div&gt;</span>
-<span class="s1">    &lt;div class=&quot;container&quot;&gt;</span>
-<span class="s1">        &lt;h2&gt;Available editions (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sorted_langs_list</span><span class="p">)</span><span class="si">}</span><span class="s1"> languages)&lt;/h2&gt;</span>
-<span class="s1">        &lt;div class=&quot;lang-grid&quot;&gt;</span>
-<span class="s1">            </span><span class="si">{</span><span class="n">lang_cards</span><span class="si">}</span>
-<span class="s1">        &lt;/div&gt;</span>
-<span class="s1">    &lt;/div&gt;</span>
-<span class="s1">    &lt;div class=&quot;footer&quot;&gt;</span>
-<span class="s1">        Data from &lt;a href=&quot;https://www.gbif.org/&quot;&gt;GBIF&lt;/a&gt;,</span>
-<span class="s1">        &lt;a href=&quot;https://www.wikidata.org/&quot;&gt;Wikidata&lt;/a&gt;,</span>
-<span class="s1">        &lt;a href=&quot;https://en.wikipedia.org/&quot;&gt;Wikipedia&lt;/a&gt;,</span>
-<span class="s1">        &lt;a href=&quot;https://plazi.org/&quot;&gt;Plazi&lt;/a&gt; &amp;amp;</span>
-<span class="s1">        &lt;a href=&quot;https://www.biodiversitylibrary.org/&quot;&gt;BHL&lt;/a&gt;.</span>
-<span class="s1">        Maps &amp;copy; &lt;a href=&quot;https://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; contributors.&lt;br&gt;</span>
-<span class="s1">        Built with &lt;a href=&quot;https://jupyterbook.org/&quot;&gt;Jupyter Book&lt;/a&gt;.</span>
-<span class="s1">        Source on &lt;a href=&quot;https://github.com/VisibleNatureAtlas/Grasses-and-sedges-of-Montserrat&quot;&gt;GitHub&lt;/a&gt;.</span>
-<span class="s1">    &lt;/div&gt;</span>
-<span class="s1">&lt;/body&gt;</span>
-<span class="s1">&lt;/html&gt;&#39;&#39;&#39;</span>
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;_build_landing.html&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">landing_html</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Landing page written to _build_landing.html&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Done! Ready to build </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sorted_langs_list</span><span class="p">)</span><span class="si">}</span><span class="s1"> language editions.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Done! Ready to build </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sorted_langs_list</span><span class="p">)</span><span class="si">}</span><span class="s1"> language editions. English will be the default.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
